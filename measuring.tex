@@ -1,0 +1,152 @@
+\chapter{Measuring subvarieties}
+
+\section{Some reformulations}
+
+In~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
+While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
+This is accomplished in the following proposition.
+
+\begin{Prop}\label{prop:equivDeligneKashiwara}%
+    Let $\sheaf F ∈ D_c^b(X)^G$ and let $p$ be a monotone and comonotone perversity function.
+    \begin{enumerate}
+        \item \label{li:prop:equivDeligneKashiwara:le}%
+            The following are equivalent:
+            \begin{enumerate}
+                \item \label{li:prop:equivDeligneKashiwara:le:1}%
+                    $\sheaf F ∈ \perv D^{≤0}(X)^G$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+                \item \label{li:prop:equivDeligneKashiwara:le:2}%
+                    $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
+            \end{enumerate}
+        \item \label{li:prop:equivDeligneKashiwara:ge}%
+            If $p$ is strictly monotone, then the following are equivalent
+            \begin{enumerate}
+                \item \label{li:prop:equivDeligneKashiwara:ge:1}%
+                    $\sheaf F ∈ \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+                \item \label{li:prop:equivDeligneKashiwara:ge:2}%
+                    $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ \Xtop$;
+                \item \label{li:prop:equivDeligneKashiwara:ge:3}%
+                    $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
+                \item \label{li:prop:equivDeligneKashiwara:ge:4}%
+                    $\dim\left( \overline x ∩ \supp\left( H^k(\dualize \sheaf F) \right) \right) ≤ -p(x) - k$ for all $x ∈ \Xtop$ and all $k$.
+            \end{enumerate}
+    \end{enumerate}
+\end{Prop}
+
+A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed.
+In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item
+            First let $\sheaf F ∈ \perv D^{≤0}(X)^G$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
+            Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
+            Then $H^k(\mathbf ι_x^* \sheaf F) \ne 0$. 
+            But on the other hand, $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
+
+            Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ \Xtop$.
+            If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
+            Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)^G$.
+        \item
+            The implications from \ref{li:prop:equivDeligneKashiwara:ge:3} to \ref{li:prop:equivDeligneKashiwara:ge:2} and \ref{li:prop:equivDeligneKashiwara:ge:2} to \ref{li:prop:equivDeligneKashiwara:ge:1} are trivial and the equivalence of \ref{li:prop:equivDeligneKashiwara:ge:2} and \ref{li:prop:equivDeligneKashiwara:ge:4} follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
+            Thus we only need to show that \ref{li:prop:equivDeligneKashiwara:ge:1} implies \ref{li:prop:equivDeligneKashiwara:ge:3}.
+            So assume that $\sheaf F ∈ \perv D^{≥0}(X)^G$.
+            We induct on the dimension of $Y$.
+            
+            If $\dim Y = 0$, then $Γ(X,\lc Y \sheaf F) = \bigoplus_{y ∈ \Xtop[Y]} \mathbf ι_y^!\sheaf F$ and thus $\lc Y\sheaf F ∈ D^{≥p(0)}(X)$ by assumption.
+
+            Now let $\dim Y > 0$.
+            We first assume that $Y$ is irreducible with generic point $x ∈ \Xtop$.
+            Let $k$ be the smallest integer such that $H^k(\lc {\overline x} \sheaf F) \ne 0$ and assume that $k < p(x)$.
+            We will show that this implies that $H^k(\lc {\overline x}\sheaf F) = 0$, giving a contradiction.
+
+            We first show that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
+            Let $j\colon X \setminus {\overline x} \hookrightarrow X$ and consider the distinguished triangle
+            \[
+                \lc {\overline x} \sheaf F → \sheaf F → j_*j^* \sheaf F \xrightarrow{+1}.
+            \]
+            Applying cohomology to it we get an exact sequence
+            \[
+                H^{k-1}(j_*j^*\sheaf F) → H^k(\lc{\overline x} \sheaf F) → H^k(\sheaf F).
+            \]
+            By assumption, $k-1 \le p(x) - 2$, so that $H^{k-1}(j_*j^*\sheaf F)$ is coherent by the Grothendieck Finiteness Theorem in the form of \cite[Corollary~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+            As $H^k(\sheaf F)$ is coherent by definition, this implies that $H^k(\lc{\overline x} \sheaf F)$ also has to be coherent.
+
+            Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
+            Then, since $ι_x^* H^k(\lc {\overline x}\sheaf F) = H^k(\mathbf ι_x^! \sheaf F)$ vanishes, $Z$ is a proper closed subset of $\overline x$.
+            We consider the distinguished triangle
+            \[
+                H^k(\lc {\overline x}\sheaf F)[-k] →
+                \lc {\overline x}\sheaf F →
+                τ_{>k}\lc {\overline x}\sheaf F \xrightarrow{+1},
+            \]
+            and apply $\lc Z$ to it:
+            \[
+                \lc Z H^k(\lc {\overline x}\sheaf F)[-k] =
+                H^k(\lc {\overline x}\sheaf F)[-k] →
+                \lc Z \sheaf F →
+                \lc Z τ_{>k}\lc {\overline x}\sheaf F \xrightarrow{+1}.
+            \]
+            Since $\dim Z < \dim x$, we can use the induction hypothesis and monotonicity of $p$ to deduce that $\lc Z \sheaf F$ is in degrees at least $p(\dim Z) \ge p(x) > k$.
+            Clearly $\lc Z τ_{>k}\lc {\overline x}\sheaf F$ is also in degrees larger than $k$.
+            Hence $H^k(\lc {\overline x}\sheaf F)$ has to vanish.
+
+            If $Y$ is not irreducible, let $Y₁$ be an irreducible component of $Y$ and $Y₂$ be the union of the other components.
+            Then there is a Mayer-Vietoris distinguished triangle
+            \[
+                \lc {Y₁\cap Y₂} \sheaf F → \lc {Y₁} \sheaf F \oplus \lc{Y₂}\sheaf F → \lc{Y} \sheaf F \xrightarrow{+1},
+            \]
+            where $\lc {Y₁\cap Y₂} \sheaf F ∈ D^{\ge p(\dim Y₁\cap Y₂)}(X) \subseteq D^{\ge p(\dim Y)+1}$ (by the induction hypothesis and strict monotonicity of $p$) and $\lc{Y₁} \sheaf F$ and $\lc{Y₂} \sheaf F$ are in $D^{\ge p(\dim Y)}(X)$ by induction on the number of components of $Y$.
+            Thus $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}$ as required.
+            \qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]%
+    \label{lem:supportAndLocalCohomology+}%
+    Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$, and $n$ an integer.
+    Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
+\end{Lem}
+
+This lemma extends \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} to singular varieties.
+The proof is same as for the smooth case, but we will include it here for completeness.
+
+\begin{proof}
+    By~\cite[Proposition~\textsc{vii}.1.2]{SGA2}, $\lc Z\sheaf F ∈ D_{qc}^{\ge n}(X)$ if and only if 
+    \begin{equation}
+        \label{eq:supportAndCohomology+}%
+        \sheafHom(\sheaf G,\sheaf F) ∈ D_c^{\ge n}(X)
+    \end{equation}
+    for all $\sheaf G ∈ \catCoh{X}$ with $\supp \sheaf G \subseteq Z$.
+    Let $d(n) = -n$ be the dual standard perversity.
+    Then by~\cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \perv[d] D^{\le -n}(X)$.
+    By~\cite[Proposition~\textsc{v}.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}\ref{li:prop:equivDeligneKashiwara:le} we need to show that
+    \[
+        \dim \supp H^{k}\left(\sheaf G \otimes_{\O_X} \dualize \sheaf F\right) \le - k - n 
+    \]
+    for all $k$.
+    By~\cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} (whose proof does not use the smoothness assumption) this is equivalent to
+    \[
+        \dim \left(Z∩\supp H^{k}(\dualize \sheaf F)\right) \le - k - n
+    \]
+    for all $k$, completing the proof.
+\end{proof}
+
+
+\section{Perverse coherent sheaves via measuring subvarieties}
+
+\begin{Def}
+    Let $p$ be a perversity.
+    A \emph{$p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = - p(x)$ for each $x ∈ \Xtop$ with $\overline x ∩ Z \ne \emptyset$.
+\end{Def}
+
+\begin{Rem}
+    Alternatively, $X$ is a $p$-measuring subvariety if $\codim_{\overline x}(\overline x ∩ Z) = - \bar p(x)$.
+\end{Rem}
+
+\begin{Thm}
+    Let $\sheaf F \in D_c^b(X)^G$.
+    \begin{enumerate}
+        \item If $X$ has enough $p$-measuring subvarieties, then $\sheaf F \in \perv D^{≤0}(X)^G$ if and only if $\lc{p}i_Z^*\sheaf F \in D^{≤0}(Z)$ for all $p$-measuring $Z$ and all $p \in Z$.
+        \item If $X$ has enough $\bar p$-measuring subvarieties, then $\sheaf F \in \perv D^{≥0}(X)^G$ if and only if $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all $\bar p$-measuring $Z$ and all $p \in Z$.
+    \end{enumerate}
+\end{Thm}

@@ -1,4 +1,4 @@
-\documentclass[english]{long-notes}
+\documentclass[english]{thesis}
 
 \title{Microlocal descriptions of perverse coherent sheaves}
 \author{Clemens Koppensteiner}
@@ -9,14 +9,28 @@
 \addbibresource{global.bib}
 %\bibliography{global.bib}
 
+\include{macros}
 
 \begin{document}
-\maketitle
+
+\frontmatter
+
+\maketitlepage
+
 \tableofcontents
 
+\mainmatter
+
 \chapter{Introduction}
-\chapter{Perverse coherent sheaves}
-\chapter{Measuring subvarieties}
+
+\include{pre}
+
+\include{measuring}
+
+\chapter{Perverse constructible sheaves}
+
+\backmatter
 
 \printbibliography
+
 \end{document}
