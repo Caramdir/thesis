@@ -65,9 +65,27 @@
 
 \RequirePackage[
     backend=biber,
-    maxnames=100,
     style=alphabetic,
-    ]{biblatex}
+    maxnames=100,
+    maxalphanames=100,
+]{biblatex}
+
+\DeclareLabelalphaTemplate{
+    \labelelement{
+        \field[final,lowercase]{shorthand}
+        \field{label}
+        \field[strwidth=1,strside=left,lowercase]{labelname}
+    }
+}
+
+\DeclareFieldFormat{labelalpha}{\textsc{#1}}
+\DeclareFieldFormat{extraalpha}{\textsc{#1}}
+
+\defbibheading{bibliography}[\bibname]{%
+    \chapter*{#1}%
+    \addcontentsline{toc}{chapter}{#1}%
+    \markboth{#1}{#1}%
+}
 
 \RequirePackage{etoolbox}
 \RequirePackage{microtype}
@@ -151,9 +169,9 @@
     \lefoot{\pagemark}%
     \setheadsepline{0.4pt}[\color{black!30}]%
 }
-%\appto\backmatter{%
-%    \rohead{\normalfont\scshape\MakeLowercase{\headmark}}%
-%}
+\appto\backmatter{%
+    \rohead{\normalfont\scshape\MakeLowercase{\headmark}}%
+}
 
 \RequirePackage{tikz}
 \usetikzlibrary{
