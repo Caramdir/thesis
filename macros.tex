@@ -2,3 +2,10 @@
 \newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
 \newcommand\measuringFam{\mathfrak M}
 \newcommand\Xtop[1][X]{#1^{G,\mathrm{top}}}
+
+\newcommand\lciname{strong}
+
+% TeX Gyre Termes Math does not contain the following symbol
+\AtBeginDocument{
+    \renewcommand\setminus{-}
+}

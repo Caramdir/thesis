@@ -136,17 +136,52 @@ The proof is same as for the smooth case, but we will include it here for comple
 
 \begin{Def}
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = - p(x)$ for each $x ∈ \Xtop$ with $\overline x ∩ Z \ne \emptyset$.
+    A \emph{$p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that 
+    \[
+        \dim(\overline x ∩ Z) = \dim x + p(x)
+    \]
+    for each $x ∈ \Xtop$ with $\overline x ∩ Z \ne \emptyset$. 
+    If in addition $\overline x \cap Z$ is a set-theoretic local complete intersection in $\overline x$ for each $x ∈ \Xtop$, then $Z$ is called a \emph{\lciname} $p$-measuring subvariety.
+    A \emph{(\lciname) $p$-measuring collection of subvarieties} of $X$ is a collection $\measuringFam$ of (\lciname) $p$-measuring subvarieties $Z$ such that for each $x ∈ \Xtop$ there exists $Z ∈ \measuringFam$ with $\overline x \cap Z \ne \emptyset$.
 \end{Def}
 
 \begin{Rem}
-    Alternatively, $X$ is a $p$-measuring subvariety if $\codim_{\overline x}(\overline x ∩ Z) = - \bar p(x)$.
+    Let $Z$ be a $p$-measuring subvariety.
+    The condition on $p$-measuring subvarieties can be rewritten as $\dim(\overline x ∩ Z) = - \bar p(x)$ and $\codim_{\overline x}(\overline x ∩ Z)= -p(x)$.
+    Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$.
+    Monotonicity of $p$ then further says that $\codim_{\overline y}(\overline y ∩ Z) \le \codim_{\overline x}(\overline x ∩ Z)$.
+
+    We clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
+    We will show in Theorem~\ref{thm:existance_of_lcimeasuring} that the condition $-\dim x \le p(x) \le 0$ is sufficient for the existence of a \lciname\ $p$-measuring collection, at least when $X$ is affine.
 \end{Rem}
 
+% Warning: the conditions might be mixed up.
 \begin{Thm}
+    Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity on $X$.
     Let $\sheaf F \in D_c^b(X)^G$.
     \begin{enumerate}
-        \item If $X$ has enough $p$-measuring subvarieties, then $\sheaf F \in \perv D^{≤0}(X)^G$ if and only if $\lc{p}i_Z^*\sheaf F \in D^{≤0}(Z)$ for all $p$-measuring $Z$ and all $p \in Z$.
-        \item If $X$ has enough $\bar p$-measuring subvarieties, then $\sheaf F \in \perv D^{≥0}(X)^G$ if and only if $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all $\bar p$-measuring $Z$ and all $p \in Z$.
+        \item
+            Assume that $X$ has a $p$-measuring collection $\measuringFam$.
+            Then the following are equivalent.
+            \begin{enumerate}
+                \item $\sheaf F \in \perv D^{≥0}(X)^G$;
+                \item $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$;
+                \item $\lc Z \sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$.
+            \end{enumerate}
+        \item 
+            Assume that $X$ has a $\bar p$-measuring collection $\measuringFam$.
+            Then the following are equivalent.
+            \begin{enumerate}
+                \item $\sheaf F \in \perv D^{≤0}(X)^G$;
+                \item $\lc{z}i_Z^*\sheaf F \in D^{≤0}(Z)$ for all $Z ∈ \measuringFam$ and all $z ∈ Z$.
+            \end{enumerate}
+        \item 
+            Assume that $X$ has a \lciname\ $p$-measuring collection $\measuringFam$.
+            Then the following are equivalent.
+            \begin{enumerate}
+                \item $\sheaf F \in \perv D^{≤0}(X)^G$;
+                \item $\lc Z \sheaf F \in D^{≤0}(Z)$ for all $Z ∈ \measuringFam$.
+            \end{enumerate}
     \end{enumerate}
+    In particular, if $X$ has a \lciname\ $p$-measuring collection $\measuringFam$, then $\sheaf F$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $Z ∈ \measuringFam$.
 \end{Thm}
