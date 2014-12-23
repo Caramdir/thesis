@@ -1,0 +1,96 @@
+\chapter{Perverse constructible sheaves}
+
+\section{Perverse sheaves and Lagrangians}
+
+\section{Constructible version of Theorem~\ref{thm:main}}
+
+We return now to the claim about exact functors on the t-structure of constructible perverse sheaves made in the introduction.
+For simplicity we restrict to the complex (i.e.~middle perversity) case.
+Thus let $X$ be a complex manifold and $\setset S$ a finite stratification of $X$ by complex submanifolds.
+We write $D^b_{\setset S}(X)$ for the bounded derived category of $\setset S$-constructible sheaves on $X$.
+We call a sheaf $\sheaf F ∈ \smash[t]{D^b_{\setset S}(X)}$ perverse if it is perverse with respect to the middle perversity function on $\setset S$.
+We are going to formulate and prove an analog of Theorem~\ref{thm:main} in this situation.
+
+A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if for each stratum $S$ of $X$ either $Z ∩ \overline S = \emptyset$ or $\dim_ℝ Z ∩ S = \dim_ℂ S$.
+A \emph{measuring family} is a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least one $Y_i$.
+Similarly to Theorem~\ref{thm:existance}, one shows inductively that such a collection of submanifolds always exists.
+
+\begin{Thm}
+    Let $\measuringFam$ be a measuring family of submanifolds of $X$.
+    A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each submanifold $Z ∈ \measuringFam$.
+\end{Thm}
+
+The proof of the following lemma is based on a MathOverflow post by Geordie Williamson \cite{MO:VanishingShriekRestrictionConstructible}.
+The author takes responsibility for possible mistakes.
+
+\begin{Lem}\label{lem:constructible_local_vanishing}%
+    Let $X$ be a real manifold, $\sheaf F$ be a constructible sheaf (concentrated in degree $0$) on $X$ and let $i\colon Z \hookrightarrow X$ be the inclusion of a closed submanifold.
+    Then $H^j(i^!\sheaf F) = 0$ for $j>\codim_XZ$.
+\end{Lem}
+
+\begin{proof}
+    By taking normal slices we can reduce to the case that $Z = \{z\}$ is a point.
+    Let $j$ be the inclusion of $X \setminus \{z\}$ into $X$ and consider the distinguished triangle
+    \[
+        i_!i^! \sheaf F → \sheaf F → j_*j^*\sheaf F \xrightarrow{+1}.
+    \]
+    By~\cite[Lemma~8.4.7]{KashiwaraSchapira:1994:SheavesOnManifolds} we have
+    \[
+        H^j(j_*j^*\sheaf F)_z = H^j(S^{\dim X - 1}_ε, \sheaf F)
+    \]
+    for a sphere $S^{\dim X - 1}_ε$ around $z$ of sufficiently small radius.
+    The latter cohomology vanishes for $j \ge \dim X$ and hence $H^j(i^! \sheaf F) = 0$ for $j>\dim X$ as required.
+\end{proof}
+
+\begin{proof}[Proof of Theorem]
+    Define two full subcategories $\perv[L] D^{\le 0}(X)$ and $\perv[L] D^{\ge 0}(X)$ of $D^b_{\setset S}(X)$ by
+    \begin{align*}
+        \perv[L] D^{≤0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≤0}(Z) \text{ for all $Z ∈ \measuringFam$} \right\}, \\
+        \perv[L] D^{≥0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≥0}(Z) \text{ for all $Z ∈ \measuringFam$} \right\}.
+    \end{align*}
+    We will show that these categories are the same as the categories $\perv D^{≤0}(X)$ and $\perv D^{≥0}(X)$ defining the perverse t-structure on $D^b_{\setset S}(X)$.
+
+    We induct on the number of strata.
+    If $X$ consists of only one stratum and $Z$ is a measuring submanifold, then $ι_Z^! \sheaf F \cong ω_{Z/X} \otimes ι_Z^* \sheaf F$ and hence $ι_Z^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_ℝ X$.
+    So assume that $X$ has more then one stratum.
+    Without loss of generality we can assume that $X$ is connected.
+    Let $U$ be the union of all open strata and $F$ its complement.
+    Both $U$ and $F$ are unions of strata of $X$.
+    Let $j$ be the inclusion of $U$ and $i$ the inclusion of $X$. 
+    
+    \begin{itemize}
+        \item 
+            If $\sheaf F ∈ \perv D^{≤0}(X)$, then $\sheaf F ∈ \perv[L] D^{≤0}$ follows in exactly the same way as in the coherent case, using Lemma~\ref{lem:constructible_local_vanishing}.
+        \item 
+            Let $\sheaf F ∈ \perv D^{≥0}(X)$.
+            Then $i^! \sheaf F ∈ \perv D^{≥0}(F)$ and $j^*\sheaf F ∈ \perv D^{≥0}(U)$.
+            Let $Z$ be a measuring subvariety.
+            Consider the distinguished triangle 
+            \[ 
+                i_*i^! \sheaf F → \sheaf F → j_*j^*\sheaf F.
+            \]
+            Using base change, induction and the (left)-exactness of the push-forward functors one sees that $ι_Z^!$ of the outer sheaves in the triangle are concentrated in non-negative degrees.
+            Thus so is $ι_Z^! \sheaf F$.
+        \item 
+            Let $\sheaf F ∈ \perv[L] D^{≥0}(X)$.
+            Since all measurements are local this implies that $j^* \sheaf F ∈ \perv[L] D^{≥0}(U) = \perv D^{≥0}(U)$.
+            Using the same triangle and argument as in the last point, this implies that also $i^! \sheaf F ∈ \perv[L] D^{≥0}(F) = \perv D^{≥0}(F)$.
+            Hence, by recollement, $\sheaf F ∈ \perv D^{≥0}(X)$.
+        \item 
+            Finally, let $\sheaf F ∈ \perv[L] D^{≤0}(X)$.
+            Again this immediately implies that $j^* \sheaf F ∈ \perv[L] D^{≤0}(U) = \perv D^{≤0}(U)$.
+            Thus $j_!j^*\sheaf F ∈ \perv D^{≤0}(X)$.
+            Let $Z$ be a measuring submanifold and consider the distinguished triangle
+            \[
+                ι_Z^! j_!j^*\sheaf F → ι_Z^! \sheaf F → ι_Z^! i_*i^* \sheaf F.
+            \]
+            By what we already know, the first sheaf is concentrated in non-positive degrees and hence so is $ι_Z^! i_*i^* \sheaf F$.
+            By base change and the exactness of $i_*$ this implies that $i^* \sheaf F ∈ \perv[L] D^{≤0}(F) = \perv D^{≤0}(F)$.
+            Hence, by recollement, $\sheaf F ∈ \perv D^{≤0}(X)$.
+            \qedhere
+    \end{itemize}
+\end{proof}
+
+\begin{Rem}
+    The equality $\perv D^{≥0}(X) = \perv[L]D^{≥0}(X)$ could also be proved in exactly the same way as in the coherent case, using~\cite[Exercise~\textsc{x}.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.
+\end{Rem}
