@@ -7,12 +7,8 @@
 
 \section{Some reformulations}
 
-In~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
-While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
-This is accomplished in the following proposition.
-
-A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed.
-In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
+In this  section we will give some reformulations of the perverse t-structure from Definition~\ref{def:perverse-t-structure}.
+The equivalent conditions are inspired by Kashiwara's definition of a (non-equivariant) perverse t-structure on $D_c^b(X)$ in~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}.
 
 % TODO: Do we actually need the comonotonicity assumption (i.e. the t-structure?)
 \begin{Prop}\label{prop:equivDeligneKashiwara:le}%
@@ -25,6 +21,9 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
     \end{enumerate}
 \end{Prop}
+
+A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed.
+In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
 \begin{proof}
     First let $\sheaf F ∈ \perv D^{≤0}(X)^G$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
@@ -137,6 +136,10 @@ The proof is same as for the smooth case, but we will include it here for comple
 
 
 \section{Perverse coherent sheaves via measuring subvarieties}
+
+\begin{Assumption}
+    From now on we will assume that the $G$-action on $X$ has finitely many orbits.
+\end{Assumption}
 
 \begin{Def}
     Let $p$ be a perversity.
