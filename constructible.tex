@@ -2,6 +2,135 @@
 
 \section{Perverse sheaves and Lagrangians}
 
+The introduction of \cite{Koppensteiner:arXiv:ExactFunctorsOnPerverseCoherentSheaves} states the following:
+
+\begin{quote}
+    Let $\sheaf F$ be a constructible (middle) perverse sheaf on an affine Kähler manifold $X$.
+    Let $x ∈ X$ be point and $f\colon X → ℂ$ a suitably chosen holomorphic Morse function with $f(x) = 0$ and single critical point $x$.
+    Then the stalk $(ϕ_{\!f}\sheaf F)_x$ is concentrated in cohomological degree $0$ (here we use $φ_{\!f}$ for the vanishing cycles functor).
+    A more \enquote{geometric} formulation of this statement can be obtained in the following way.
+    Let $L$ be the stable manifold for the gradient of the Morse function $\Re f$.
+    Write $ι_x \colon \{x\} \hookrightarrow L$ and $ι_L\colon L \hookrightarrow X$ for the inclusions.
+    Then $ι_x^*ι_L^! \sheaf F$ is also concentrated in cohomological degree $0$.
+    Note that $L$ is a Lagrangian with respect to the symplectic structure given by the Kähler form.
+\end{quote}
+
+The purpose of this note is to make these claims precise and prove them.
+
+\begin{Rem}
+    Here we use the definition of the vanishing cycles functor as given in \cite{KashiwaraSchapira:1994:SheavesOnManifolds}.
+    This is off by a shift by $1$ from the definition used in many other places, e.g.~\cite{Massey:arXiv:v6:NotesOnPerverseSheavesAndVanishingCycles}.
+\end{Rem}
+
+\subsection{Perverse sheaves, Morse functions and vanishing cycles}
+
+\begin{Q}
+    Why is $(φ_f\sheaf F)_x$ concentrated in degree $0$.
+\end{Q}
+
+\begin{Thm}[{\cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}}]
+    Let $f\colon X → ℂ$ be a holomorphic function.
+    Then the functor $φ_f$ is t-exact with respect to the t-structure given by the middle perversity.
+\end{Thm}
+
+We now want to impose some open conditions on $f$ so that $φ_f\sheaf F$ is a skyscraper at $x$.
+
+\begin{Def}[{\cite[Definition~4.2.7]{Dimca:2004:SheavesInTopology}}]
+    Let $\setset S$ be a Whitney stratification of $X$ and $f\colon X → ℂ$ holomorphic.
+    The \emph{stratified critical locus} of $f$ is
+    \[
+        Σ_{\setset S}(f) =
+        \bigcup_{X_α ∈ \setset S} Σ(\res{f}{X_α}),
+    \]
+    where $Σ(\res{f}{X_α})$ is the (ordinary) critical locus of the restriction of $f$ to $X_α$.
+\end{Def}
+
+\begin{Lem}[{\cite[Proposition~4.2.7]{Dimca:2004:SheavesInTopology}}]
+    Let $\sheaf F$ be a constructible sheaf on $X$ with respect to the  Whitney stratification $\setset S$.
+    Then 
+    \[
+        \supp φ_f\sheaf F \subseteq Σ_{\setset S}(f).
+    \]
+\end{Lem}
+
+The following is a complexification of \cite[Definition~2.3]{Massey:unpublished:StratifiedMorseTheory} \cite[Definition~2.1]{GoreskyMacPherson:1988:StratifiedMorseTheory}.
+
+\begin{Def}
+    Fix a Whitney stratification $\setset S$ of $X$.
+    A \emph{stratified holomorphic Morse function} (with respect to $\setset S$ is a proper holomorphic function $f\colon X → ℂ$ with distinct (stratified) critical values and non-degenerate (stratified) critical points.
+    (See the referenced definition for the meaning of non-degenerate is this setting.)
+\end{Def}
+
+\begin{Rem}
+    We should probably compactify $X$ so that this definition applies.
+    However since we are only interested in local properties at $x$ this doesn't really change anything.
+
+    Actually properness is kind of a problem in the above definition (all holomorphic maps on a compact complex manifold are constant).
+    So we might need to have $f$ meromorphic?
+\end{Rem}
+
+\begin{Lem}
+    Let $f$ be a stratified holomorphic Morse function.
+    Then the set $Σ_{\setset S}(f)$ is discrete.
+\end{Lem}
+
+\begin{proof}
+    Any non-degenerate stratified critical point is an isolated point of $Σ_{\setset S}(f)$.
+\end{proof}
+
+The following claim is a complexified version of \cite[Theorem~2.2.1]{GoreskyMacPherson:1988:StratifiedMorseTheory} \cite[Theorem~2.4]{Massey:unpublished:StratifiedMorseTheory}.
+
+\begin{Claim}
+    The stratified Morse function with respect to $\setset S$ are a dense open subset of all proper holomorphic functions on $X$.
+\end{Claim}
+
+\begin{Cor}
+    Let $\sheaf F$ be a perverse sheaf on $X$ (with respect to the middle perversity).
+    Let $\setset S$ be a complex Whitney stratification of $X$ with respect to which $\sheaf F$ is $ℂ$-constructible.
+    Fix a point $x ∈ X$.
+    Then for every holomorphic Morse function $f$ with respect to $\setset S$ such that $f(x) = 0$ and $df(x) = 0$ the vanishing cycle stalk $φ_f(\sheaf F)_x$ is concentrated in cohomological degree $0$.
+\end{Cor}
+
+\begin{proof}
+    By the above there exists an open neighborhood $U$ of $x$ in $X$ such that $\res{φ_f(\sheaf F)}{U∩f^{-1}(0)}$ is a perverse skyscraper sheaf at $x$.
+    Hence $φ_f(\sheaf F)_x$ is a perverse sheaf on $\{x\}$, i.e.~it is concentrated in degree $0$.
+\end{proof}
+
+
+\subsection{Vanishing cycles and (un)stable manifolds}
+
+\begin{Q}
+    Why is $i_x^*i_L^!\sheaf F$ concentrated in degree $0$?
+    What about $i_x^!i_L^*\sheaf F$?
+    And why is $L$ a Lagrangian?
+\end{Q}
+
+The function $\Re f$ has index $d = \dim_ℂ X = \frac12 \dim_ℝ X$ [as $f \sim \sum z_i²$ and hence $\Re f \sim \sum x_i² - y_i²$].
+Hence by a basic theorem of Morse theory (?) this implies that the (un)stable manifold for $f$ with respect to $x$ has dimension $d$.
+
+By \cite[Exercise~?]{KashiwaraSchapira:1994:SheavesOnManifolds},
+\[
+    φ_f(\sheaf F)_x \cong Γ_{\{\Re f \ge 0\}}(\sheaf F)_x.
+\]
+If $f$ is a holomorphic Morse function, then $f$ is locally of the form $\sum z_i²$ and hence $V = \{ \Re f \ge 0\}$ is a cone.
+The unstable manifold $Z$ of $\Re f$ is a closed conical submanifold of this cone.
+Thus to compute the !-restriction to $Z$, we can first restrict to $V$ and then to $Z$.
+Let $i\colon Z \hookrightarrow V$.
+Then one should be able to show that $i_x^*i_Z^! \sheaf G = i_x^*\sheaf G$, where $\sheaf G =  Γ_{\{\Re f \ge 0\}}(\sheaf F)$.
+This is evident from the fact that $\sheaf G$ is a skyscraper at $x$.
+
+\subsection{Reverse implications}
+
+\begin{Q}
+    Can the above statements be used to characterize perverse sheaves?
+\end{Q}
+
+\subsection{Vanishing cycles and microlocal perverse sheaves}
+
+\begin{Q}
+    Why should the above characterization be considered to be a microlocal one?.
+\end{Q}
+
 \section{Constructible version of Theorem~\ref{thm:main}}
 
 We return now to the claim about exact functors on the t-structure of constructible perverse sheaves made in the introduction.
