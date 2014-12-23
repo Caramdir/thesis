@@ -1,4 +1,4 @@
-SOURCES=$(shell echo *.tex)
+SOURCES=$(shell echo *.tex) thesis.cls
 
 thesis.pdf: $(SOURCES)
 	latexmk --pdf --pdflatex=lualatex thesis.tex
