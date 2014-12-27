@@ -167,22 +167,25 @@ The proof is same as for the smooth case, but we will include it here for comple
     Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity on $X$.
     Let $\sheaf F \in D_c^b(X)^G$.
     \begin{enumerate}
-        \item\label{li:thm:main:ge}%
+        \item\label{li:thm:main:ge}% strict comonotonicity
             Assume that $X$ has a $p$-measuring collection $\measuringFam$.
             Then the following are equivalent.
             \begin{enumerate}
-                \item $\sheaf F \in \perv D^{≥0}(X)^G$;
-                \item $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$;
-                \item $\lc Z \sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$.
+                \item\label{li:thm:main:ge:def}
+                    $\sheaf F \in \perv D^{≥0}(X)^G$;
+                \item\label{li:thm:main:ge:qc}
+                    $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$;
+                \item\label{li:thm:main:ge:top}
+                    $\lc Z \sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$.
             \end{enumerate}
-        \item\label{li:thm:main:le-weak}%
+        \item\label{li:thm:main:le-weak}% strict monotonicity
             Assume that $X$ has a $\bar p$-measuring collection $\measuringFam$.
             Then the following are equivalent.
             \begin{enumerate}
                 \item $\sheaf F \in \perv D^{≤0}(X)^G$;
                 \item $\lc{z}i_Z^*\sheaf F \in D^{≤0}(Z)$ for all $Z ∈ \measuringFam$ and all $z ∈ Z$.
             \end{enumerate}
-        \item\label{li:thm:main:le-lci}%
+        \item\label{li:thm:main:le-lci}% neither(?)
             Assume that $X$ has a \lciname\ $p$-measuring collection $\measuringFam$.
             Then the following are equivalent.
             \begin{enumerate}
@@ -194,8 +197,10 @@ The proof is same as for the smooth case, but we will include it here for comple
 \end{Thm}
 
 % TODO: Reformulate the arguments in this proof. It is slightly convoluted.
-% TODO: Equivalence with (c).
 \begin{proof}[Proof of Theorem~\ref{thm:main}\ref{li:thm:main:ge}]
+    The equivalence of \ref{li:thm:main:ge:top} and \ref{li:thm:main:ge:qc} follows directly from Lemma~\ref{lem:pre:top-and-qc-restriction-vanishing}.
+    We will prove the equivalence of \ref{li:thm:main:ge:def} and \ref{li:thm:main:ge:top}.
+
     By Proposition~\ref{prop:equivDeligneKashiwara:ge}, $\sheaf F ∈ \perv D^{≥0}(X)^G$ if and only if
     \begin{align}
         \label{eq:main:+supp1}%
@@ -251,7 +256,10 @@ The proof is same as for the smooth case, but we will include it here for comple
 % TODO: Some transitional text.
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}\ref{li:thm:main:le-weak}]
-    % TODO: The actual proof (using duality).
+    Let $\sheaf F ∈ \perv D^{\le 0}(X)^G$.
+    By Lemma~\ref{lem:perverse-t-structure-and-duality} this is equivalent to $\dualize \sheaf F ∈ \perv[\bar p] D^{\ge 0}(X)^G$\todo{(Strict) comonotonicity of $\bar p$?}.
+    By part~\ref{li:thm:main:ge} this is in turn equivalent to $\mathbf ι_z^* ι_Z^! \dualize \sheaf F ∈ D^{\ge 0}(\catVect)$.
+    The sheaf $ι_Z^! \dualize \sheaf F = \dualize ι_Z^* \sheaf F$ is coherent, so that the statement follows from Lemma~\ref{lem:pre:stalk-and-costalk-vanishing}.
 \end{proof}
 
 The following lemma encapsulates the central argument of the proof of the remaining part of Theorem~\ref{thm:main}.
@@ -331,7 +339,7 @@ The next theorem shows that at least for affine varieties there are always enoug
 
 \begin{Thm}\label{thm:existance}%
     Assume that $X$ is affine and the perversity $p$ is monotone and comonotone and satisfies $-n \le p(n) \le 0$ for $n ∈ \{0,\dotsc,\dim X\}$.
-    Then $X$ has enough $p$-measuring subvarieties.
+    Then $X$ has enough \lciname\ $p$-measuring subvarieties.
 \end{Thm}
 
 \begin{proof}
