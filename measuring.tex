@@ -153,13 +153,14 @@ The proof is same as for the smooth case, but we will include it here for comple
 \end{Def}
 
 \begin{Rem}
+    \label{rem:measuring_dimensions}%
     Let $Z$ be a $p$-measuring subvariety.
     The condition on $p$-measuring subvarieties can be rewritten as $\dim(\overline x ∩ Z) = - \bar p(x)$ and $\codim_{\overline x}(\overline x ∩ Z)= -p(x)$.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$.
     Monotonicity of $p$ then further says that $\codim_{\overline y}(\overline y ∩ Z) \le \codim_{\overline x}(\overline x ∩ Z)$.
 
     We clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
-    We will show in Theorem~\ref{thm:existance_of_lcimeasuring} that the condition $-\dim x \le p(x) \le 0$ is sufficient for the existence of a \lciname\ $p$-measuring collection, at least when $X$ is affine.
+    We will show in Theorem~\ref{thm:existence_of_lcimeasuring} that the condition $-\dim x \le p(x) \le 0$ is sufficient for the existence of a \lciname\ $p$-measuring collection, at least when $X$ is affine.
 \end{Rem}
 
 % Warning: the conditions might be mixed up.
@@ -335,9 +336,9 @@ The following lemma encapsulates the central argument of the proof of the remain
 \section{Existence of \lciname\ measuring subvarieties}
 
 Of course, for Theorem~\ref{thm:main} to have any content, one needs to show that $X$ has enough $p$-measuring subvarieties.
-The next theorem shows that at least for affine varieties there are always enough measuring subvarieties whenever $p$ satisfies the obvious conditions (see Remark~\ref{rem:existence}).
+The next theorem shows that at least for affine varieties there are always enough measuring subvarieties whenever $p$ satisfies the obvious conditions (see Remark~\ref{rem:measuring_dimensions}).
 
-\begin{Thm}\label{thm:existance}%
+\begin{Thm}\label{thm:existence_of_lcimeasuring}%
     Assume that $X$ is affine and the perversity $p$ is monotone and comonotone and satisfies $-n \le p(n) \le 0$ for $n ∈ \{0,\dotsc,\dim X\}$.
     Then $X$ has enough \lciname\ $p$-measuring subvarieties.
 \end{Thm}
