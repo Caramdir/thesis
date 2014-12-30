@@ -1,6 +1,19 @@
 \chapter{Perverse constructible sheaves}
 
-\section{Perverse sheaves and Lagrangians}
+In this chapter we will consider a complex manifold $X$ together with a stratification $\setset S$ by complex submanifold.
+We let $D_{\setset S}^b(X)$ be the bounded derived category of $\setset S$-constructible sheaves on $X$.
+Recall that there is a \emph{middle perverse} t-structure on $D_{\setset S}^b(X)$, given by
+\begin{equation*}
+%    \label{eq:def:perverse:bbd}
+    \begin{aligned}
+        \perv D_{\setset S}^{\le 0}(X) & = \{ \sheaf F ∈ D^b_{\setset S}(X) : H^n(i_S^*\sheaf F) = 0 \text{ for all $n > -\frac12 \dim S$ and all $S ∈ \setset S$}\}; \\
+        \perv D_{\setset S}^{\ge 0}(X) & = \{ \sheaf F ∈ D^b_{\setset S}(X) : H^n(i_S^!\sheaf F) = 0 \text{ for all $n < -\frac12 \dim S$ and all $S ∈ \setset S$}\}.
+    \end{aligned}
+\end{equation*}
+In Section~\ref{sec:constructible_and_Lagrangian} we will make Theorem~\ref{thm:motivation} precise and give a proof.
+In Section~\ref{sec:constructible_main_thm} we will formulate and prove a precise analogue of Theorem~\ref{thm:main} in the constructible setting.
+
+\section{Perverse sheaves and Lagrangians}\label{sec:constructible_and_Lagrangian}
 
 The introduction of \cite{Koppensteiner:arXiv:ExactFunctorsOnPerverseCoherentSheaves} states the following:
 
@@ -131,7 +144,7 @@ This is evident from the fact that $\sheaf G$ is a skyscraper at $x$.
     Why should the above characterization be considered to be a microlocal one?.
 \end{Q}
 
-\section{Constructible version of Theorem~\ref{thm:main}}
+\section{Constructible version of Theorem~\ref{thm:main}}\label{sec:constructible_main_thm}
 
 We return now to the claim about exact functors on the t-structure of constructible perverse sheaves made in the introduction.
 For simplicity we restrict to the complex (i.e.~middle perversity) case.
@@ -142,7 +155,7 @@ We are going to formulate and prove an analog of Theorem~\ref{thm:main} in this 
 
 A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if for each stratum $S$ of $X$ either $Z ∩ \overline S = \emptyset$ or $\dim_ℝ Z ∩ S = \dim_ℂ S$.
 A \emph{measuring family} is a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least one $Y_i$.
-Similarly to Theorem~\ref{thm:existance}, one shows inductively that such a collection of submanifolds always exists.
+Similarly to Theorem~\ref{thm:existence_of_lcimeasuring}, one shows inductively that such a collection of submanifolds always exists.
 
 \begin{Thm}
     Let $\measuringFam$ be a measuring family of submanifolds of $X$.
