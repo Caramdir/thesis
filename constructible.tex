@@ -15,12 +15,13 @@ In Section~\ref{sec:constructible_main_thm} we will formulate and prove a precis
 
 \section{Perverse sheaves and Lagrangians}\label{sec:constructible_and_Lagrangian}
 
-The following is essentially a version of \cite[Proposition 2.9]{Jin:arXiv:HolomorphicLagrangianBranesCorrespondToPerverseSheaves}.
+This section follows the exposition of \cite[Section 2.2]{Jin:arXiv:HolomorphicLagrangianBranesCorrespondToPerverseSheaves}.
 
-\begin{Thm}[{\cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}}]
-    Let $f\colon X → ℂ$ be a holomorphic function.
-    Then the functor $\pervVC{f}$ is t-exact with respect to the t-structure given by the middle perversity.
-\end{Thm}
+We let
+\[
+    Λ_{\setset S} = \bigcup_{S ∈ \setset S} T^*_S X \subseteq T^*X
+\]
+be the standard conical Lagrangian associated to the stratification $\setset S$.
 
 \begin{Def}[{\cite[Definition~4.2.7]{Dimca:2004:SheavesInTopology}}]
     Let $\setset S$ be a Whitney stratification of $X$ and $f\colon X → ℂ$ holomorphic.
@@ -32,29 +33,66 @@ The following is essentially a version of \cite[Proposition 2.9]{Jin:arXiv:Holom
     where $Σ(\res{f}{X_α})$ is the (ordinary) critical locus of the restriction of $f$ to $X_α$.
 \end{Def}
 
-\begin{Lem}[{\cite[Proposition~4.2.7]{Dimca:2004:SheavesInTopology}}]
-    \label{lem:constructible:supp_of_vc_in_critical_locus}%
-    Let $\sheaf F$ be a constructible sheaf on $X$ with respect to the  Whitney stratification $\setset S$.
-    Then 
+In the following we call a triple $(x, ξ, F)$ consisting of a smooth point $(x, ξ) ∈ Λ_{\setset S}$ and the germ of a holomorphic function $F$ at $x$ such that $F(x) = 0$, $d(\Re F)_x = ξ$\todo{Complex vs.~real cotangent space?}\ and the graph $Γ_{\Re F}$ is transverse to $Λ_{\setset S}$ at $(x, ξ)$ a \emph{test triple}.
+We will assume that $F$ is defined on a ball $B_{2ε}(x)$ and with $ε$ small enough that $B_ε(x) ∩ Σ_{\setset S}(F) = \{x\}$.
+
+\begin{Rem}
+    If $x ∈ S$ then a covector $(x, ξ)$ is called \emph{degenerate} if it is contained in $D^*_SX = T^*SX ∩ \bigcap_{S' \ne S} \overline{T^*_{S'} X}$.
+    The smooth locus of $Λ_{\setset S}$ consists exactly of the non-degenerate covectors\todo{Why?}.\todo{Why the transversality condition?}
+\end{Rem}
+
+Recall that for any test triple $(x,ξ,F)$ there is a vanishing cycles functor 
+\[
+    φ_F\colon D_{\setset S}(B_ε(x)) → \dconstrb{F^{-1}(0) ∩ B_ε(x)}.
+\]
+Note that for any $\sheaf F ∈ D_{\setset S}(B_ε(x))$ the sheaf $φ_F \sheaf F$ is supported at $x$ \cite[Proposition~4.2.7]{Dimca:2004:SheavesInTopology}\todo{Or (without proof) \cite[(8.6.12)]{KashiwaraSchapira:1994:SheavesOnManifolds}}.
+%\begin{Lem}[{\cite[Proposition~4.2.7]{Dimca:2004:SheavesInTopology}}]
+%    \label{lem:constructible:supp_of_vc_in_critical_locus}%
+%    Let $\sheaf F$ be a constructible sheaf on $X$ with respect to the  Whitney stratification $\setset S$.
+%    Then 
+%    \[
+%        \supp \pervVC{f}\sheaf F \subseteq Σ_{\setset S}(f).
+%    \]
+%\end{Lem}
+
+\begin{Def}
+    Let $(x, ξ, F)$ be a test triple.
+    The \emph{local Morse group functor} (or \emph{microlocal stalk functor}) is
     \[
-        \supp \pervVC{f}\sheaf F \subseteq Σ_{\setset S}(f).
+        \localMorse{x}{F}{\sheaf F} = ι_x^* \pervVC{F} j^* {\sheaf F}\colon D^b_{\setset S}(X) → D^b(ℂ),
     \]
-\end{Lem}
+    where $j$ is the inclusion $B_ε(x) \hookrightarrow X$.
+\end{Def}
 
+Using standard facts about the vanishing cycles functor\todo{reference?}\ it is easy to see that the local Morse group functor is t-exact from the perverse t-structure on $D^b_{\setset S}(X)$ to the standard t-structure on $D^b(ℂ)$.
+The following theorem show that moreover it can be used to test whether a given sheaf is perverse.
+
+% ToDo: Proof or reference
+%\begin{Thm}[{\cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}}]
+%    Let $f\colon X → ℂ$ be a holomorphic function.
+%    Then the functor $\pervVC{f}$ is t-exact with respect to the t-structure given by the middle perversity.
+%\end{Thm}
+
+\begin{Thm}[{\cite[Proposition 2.9]{Jin:arXiv:HolomorphicLagrangianBranesCorrespondToPerverseSheaves}}]
+    For each stratum $S ∈ \setset S$ choose a test triple $(x_S, ξ_S, F_S)$ with $(x_S , ξ α ) ∈ T^*_S X$.
+    Then a sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only $\localMorse{x_S}{F_S}{\sheaf F}$ has is concentrated in cohomological degree $0$ for all $S ∈ \setset S$.
+\end{Thm}
+% ToDo: read proof
+
+The following lemma is supposedly standard.
 \begin{Lem}
-    Let $f$ be a holomorphic function on $X$ and let $x$ with $f(x) = 0$ be an isolated point of $Σ_{\setset S}(f)$.
-    Let $\sheaf P$ be a perverse sheaf on $X$.
-    Then $(\pervVC{f}\sheaf F)_x$ is concentrated in cohomological degree $0$.
+    Let $(x, ξ, F)$ be a test triple and $\sheaf F ∈ D^b_{\setset S}(X)$.
+    Then there are (canonical?) isomorphisms
+    \[
+        \localMorse{x}{F}{\sheaf F} \cong
+        Γ\bigl(B_ε(x),\, B_ε(x) ∩ F^{-1}(t),\, \sheaf F\bigr) \cong
+        Γ\bigl(B_ε(x),\, B_ε(x) ∩ \{\Re F < μ\},\, \sheaf F\bigr)
+    \]
+    for $0 < \abs{t} \ll 1$ and $μ \le 0$ with $\abs{μ} \ll 1$.
 \end{Lem}
+% ToDo: proof/reference
 
-\begin{proof}
-    By Lemma~\ref{lem:constructible:supp_of_vc_in_critical_locus}, $x$ is an isolated point of $\supp \pervVC{f} \sheaf P$.
-    Thus $(\pervVC{f} \sheaf P)_x = \res{\pervVC{f} \sheaf P}{\{x\}}$ is a perverse sheaf on $\{x\}$ and hence concentrated in cohomological degree $0$.
-\end{proof}
-
-ToDo: Function with isolated critical points are dense in all functions.
-
-Next: Morse functions (at x). Their real part. Unstable manifold, computing vanishing cycles.
+Next: Unstable manifold.
 
 \section{Old stuff}
 
