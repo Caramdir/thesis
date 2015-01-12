@@ -15,6 +15,50 @@ In Section~\ref{sec:constructible_main_thm} we will formulate and prove a precis
 
 \section{Perverse sheaves and Lagrangians}\label{sec:constructible_and_Lagrangian}
 
+The following is essentially a version of \cite[Proposition 2.9]{Jin:arXiv:HolomorphicLagrangianBranesCorrespondToPerverseSheaves}.
+
+\begin{Thm}[{\cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}}]
+    Let $f\colon X → ℂ$ be a holomorphic function.
+    Then the functor $\pervVC{f}$ is t-exact with respect to the t-structure given by the middle perversity.
+\end{Thm}
+
+\begin{Def}[{\cite[Definition~4.2.7]{Dimca:2004:SheavesInTopology}}]
+    Let $\setset S$ be a Whitney stratification of $X$ and $f\colon X → ℂ$ holomorphic.
+    The \emph{stratified critical locus} of $f$ is
+    \[
+        Σ_{\setset S}(f) =
+        \bigcup_{X_α ∈ \setset S} Σ(\res{f}{X_α}),
+    \]
+    where $Σ(\res{f}{X_α})$ is the (ordinary) critical locus of the restriction of $f$ to $X_α$.
+\end{Def}
+
+\begin{Lem}[{\cite[Proposition~4.2.7]{Dimca:2004:SheavesInTopology}}]
+    \label{lem:constructible:supp_of_vc_in_critical_locus}%
+    Let $\sheaf F$ be a constructible sheaf on $X$ with respect to the  Whitney stratification $\setset S$.
+    Then 
+    \[
+        \supp \pervVC{f}\sheaf F \subseteq Σ_{\setset S}(f).
+    \]
+\end{Lem}
+
+\begin{Lem}
+    Let $f$ be a holomorphic function on $X$ and let $x$ with $f(x) = 0$ be an isolated point of $Σ_{\setset S}(f)$.
+    Let $\sheaf P$ be a perverse sheaf on $X$.
+    Then $(\pervVC{f}\sheaf F)_x$ is concentrated in cohomological degree $0$.
+\end{Lem}
+
+\begin{proof}
+    By Lemma~\ref{lem:constructible:supp_of_vc_in_critical_locus}, $x$ is an isolated point of $\supp \pervVC{f} \sheaf P$.
+    Thus $(\pervVC{f} \sheaf P)_x = \res{\pervVC{f} \sheaf P}{\{x\}}$ is a perverse sheaf on $\{x\}$ and hence concentrated in cohomological degree $0$.
+\end{proof}
+
+ToDo: Function with isolated critical points are dense in all functions.
+
+Next: Morse functions (at x). Their real part. Unstable manifold, computing vanishing cycles.
+
+\section{Old stuff}
+
+
 The introduction of \cite{Koppensteiner:arXiv:ExactFunctorsOnPerverseCoherentSheaves} states the following:
 
 \begin{quote}
@@ -41,30 +85,6 @@ The purpose of this note is to make these claims precise and prove them.
     Why is $(φ_f\sheaf F)_x$ concentrated in degree $0$.
 \end{Q}
 
-\begin{Thm}[{\cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}}]
-    Let $f\colon X → ℂ$ be a holomorphic function.
-    Then the functor $φ_f$ is t-exact with respect to the t-structure given by the middle perversity.
-\end{Thm}
-
-We now want to impose some open conditions on $f$ so that $φ_f\sheaf F$ is a skyscraper at $x$.
-
-\begin{Def}[{\cite[Definition~4.2.7]{Dimca:2004:SheavesInTopology}}]
-    Let $\setset S$ be a Whitney stratification of $X$ and $f\colon X → ℂ$ holomorphic.
-    The \emph{stratified critical locus} of $f$ is
-    \[
-        Σ_{\setset S}(f) =
-        \bigcup_{X_α ∈ \setset S} Σ(\res{f}{X_α}),
-    \]
-    where $Σ(\res{f}{X_α})$ is the (ordinary) critical locus of the restriction of $f$ to $X_α$.
-\end{Def}
-
-\begin{Lem}[{\cite[Proposition~4.2.7]{Dimca:2004:SheavesInTopology}}]
-    Let $\sheaf F$ be a constructible sheaf on $X$ with respect to the  Whitney stratification $\setset S$.
-    Then 
-    \[
-        \supp φ_f\sheaf F \subseteq Σ_{\setset S}(f).
-    \]
-\end{Lem}
 
 The following is a complexification of \cite[Definition~2.3]{Massey:unpublished:StratifiedMorseTheory} \cite[Definition~2.1]{GoreskyMacPherson:1988:StratifiedMorseTheory}.
 
