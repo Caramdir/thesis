@@ -1,9 +1,14 @@
 \newcommand\dualize{\mathbb D}
+\newcommand\dualizingCx{\sheaf{DC}}
 \newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
 \newcommand\measuringFam{\mathfrak M}
 \newcommand\Xtop[1][X]{#1^{G,\mathrm{gen}}}
+
+\newcommand\dcohb[1]{D_{\mathrm{coh}}^b(#1)}
 \newcommand\dcohbG[2][G]{D_{\mathrm{coh}}^b(#2)^{#1}}
 \newcommand\dconstrb[1]{D_{\mathrm{constr}}^b(#1)}
+
+\renewcommand\Forget{\operatorname{Forget}}
 
 \newcommand\lciname{strong}
 
@@ -16,3 +21,6 @@
 \AtBeginDocument{
     \renewcommand\setminus{-}
 }
+
+% Formatting of upper case roman numerals (in references).
+\newcommand{\RomanNum}[1]{\textsc{\MakeLowercase{#1}}}
