@@ -115,7 +115,21 @@ Following \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves} we know have 
 This t-structure is called the \emph{perverse t-structure} with respect to $p$ on $\dcohbG X$.
 Objects in its heart are called \emph{perverse coherent sheaves} (with respect to $p$ on $X$).
 
+The perverse t-structure is compatible with duality, exchanging the perversity $p$ with its dual.
+\begin{Lem}[{\cite[Lemma~3.3]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}}]
+    \label{lem:perverse-t-structure-and-duality}%
+    Let $p$ be any perversity. Then
+    \[
+        \dualize\bigl(\perv D^{≤0}(X)^G\bigr) = \perv D^{≥0}(X)^G.
+    \]
+\end{Lem}
 
-Lemma: duality
-
-Grothendieck Finiteness Theorem (possibly in previous section).
+For later use we state the following variant of the Grothendieck Finiteness Theorem \cite[Théorème~2.1]{SGA2}.
+The given formulation is from \cite[Corollary~3.12]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}, where the reader can find a short proof using the theory of perverse coherent sheaves.
+\begin{Thm}
+    \label{thm:grothendieck-finiteness}%
+    Let $p$ be a monotone and comonotone perversity on $X$.
+    Let $x ∈ \Xtop$, set $U = X \setminus \overline x$ and let $j\colon U \hookrightarrow X$ be the inclusion.
+    Let $\sheaf F ∈ \perv D^{≥0}(U)^G$.
+    Then $H^n(j_*\sheaf F)$ is coherent for $n ≤ p(x)-2$.
+\end{Thm}
