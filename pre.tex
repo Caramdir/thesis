@@ -45,7 +45,7 @@ We will write $\mathbf ι_x^*$ for the functor of talking stalks at $x$ and set 
 As noted before, we will apply all of these functors to equivariant sheaves without explicitly mentioning the forgetful functor.
 
 Finally we will need the Grothendieck-Verdier duality functor on $\dcohbG X$.
-This is define exactly analogous to the non-equivariant situation \cite[\RomanNum{V}]{Hartshorne:1966:ResiduesAndDuality}.
+It is defined exactly as in the non-equivariant situation (cf.~\cite[Chapter~\RomanNum{V}]{Hartshorne:1966:ResiduesAndDuality}).
 Thus, an equivariant dualizing complex on $X$ is an object $\dualizingCx ∈ \dcohbG X$ such each object $\sheaf F ∈ \dcohbG X$ is $\dualizingCx$-reflexive, i.e.~such that the natural transformation
 \[
     \sheaf F → \dualize\dualize \sheaf F = \sheafHom(\sheafHom(\sheaf F, \dualizingCx),\, \dualizingCx) \qquad (\sheaf F ∈ \dcohb X)
@@ -56,7 +56,7 @@ Since $\sheafHom$ commutes with the forgetful functor, if $\dualizingCx$ is an e
 Under our assumptions on $X$ there always exists an equivariant dualizing complex $\dualizingCx$ \cite[Theorem~2.18]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
 Using \cite[\RomanNum{V}.7]{Hartshorne:1966:ResiduesAndDuality}, we will further assume that for each (not necessarily closed) point $x ∈ X$ the complex $\mathbf{ι}_x^! \dualizingCx$ is concentrated in cohomological degree $-\dim x$.
 
-All the theorems from [BS], [SGA2] and [H] that we need.
+ToDo: All the theorems from \cite{BrodmannSharp:1998:LocalCohomology}, \cite{SGA2} and \cite{Hartshorne:1966:ResiduesAndDuality} that we need.
 
 \begin{Lem}
     \label{lem:pre:stalk-and-costalk-vanishing}%
@@ -65,7 +65,13 @@ All the theorems from [BS], [SGA2] and [H] that we need.
 \end{Lem}
 
 \begin{proof}
-    Similar to \cite[Lemma~3.3(a)]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}\todo{Add this}.
+    The proof of this lemma is essentially the same as the one of \cite[Lemma~3.3(a)]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
+    Concretely, by \cite[\RomanNum{V}.6]{Hartshorne:1966:ResiduesAndDuality}, there is an isomorphism of functors
+    \[
+        \mathbf ι_z^!({-}) \cong \Hom_{\O_x}\bigl(\dualize({-}),\, \sheaf I_x\bigr),
+    \]
+    where $\sheaf I_x$ is the injective hull of the residue field of $\O_x$.
+    The statement now follows from the fact that $\Hom_{\O_x}({-},\, \sheaf I_x)$ is exact and kills no finitely generated $\O_x$-module \cite[\RomanNum{V}.5]{Hartshorne:1966:ResiduesAndDuality}.
 \end{proof}
 
 \begin{Lem}
@@ -76,7 +82,7 @@ All the theorems from [BS], [SGA2] and [H] that we need.
 \end{Lem}
 
 \begin{proof}
-    \cite[Proposition~VII.1.2]{SGA2}\todo{Give explicit statement.}.
+    \cite[Proposition~\RomanNum{VII}.1.2]{SGA2}\todo{Give explicit statement.}.
 \end{proof}
 
 \section{Perverse coherent sheaves}
