@@ -81,26 +81,40 @@ All the theorems from [BS], [SGA2] and [H] that we need.
 
 \section{Perverse coherent sheaves}
 
-Def: $\Xtop$
+We keep the general assumptions on $X$ and the dualizing complex $\dualizingCx$.
+We write $\Xtop$ for the set of generic points of $G$-stable subschemes of $X$.
+It is a subset of the topological space of $X$ and we will consider it with the induced topology.
 
 By a \emph{perversity} we mean a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
 For $x ∈ \Xtop$ we abuse notation and set $p(x) = p(\dim x)$.
 Then $p\colon \Xtop → ℤ$ is a perversity function in the sense of~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 Note that we insist that $p(x)$ only depends on the dimension of $\overline x$.
+
 A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) = -n - p(n)$ is decreasing.
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ \Xtop$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
-Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X)^G$ by taking the following full subcategories \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}:
-\begin{align*}
-    \perv[p] D^{≤0}(X)^G & = 
-    \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}, \\
-    \perv[p] D^{≥0}(X)^G & = 
-    \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}.
-\end{align*}
-The heart of this t-structure is called the category of \emph{perverse sheaves} with respect to the perversity $p$.
+Following \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves} we know have all ingredients to define the perverse t-structure on $\dcohbG X$.
 
-Theorem: existence
+\begin{Def}
+    \label{def:perverse-t-structure}%
+    Given a perversity $p$ we define the following full subcategories of $\dcohbG X$:
+    \begin{align*}
+        \perv[p] D^{≤0}(X)^G & =
+        \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}, \\
+        \perv[p] D^{≥0}(X)^G & =
+        \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}.
+    \end{align*}
+\end{Def}
+
+\begin{Thm}[{\cite[Theorem~3.10]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}}]
+    \label{thm:perverse-t-structure}%
+    If $p$ is monotone and comonotone, then $(\perv[p] D^{≤0}(X)^G,\ \perv[p] D^{≤0}(X)^G)$ defines a t-structure on $\dcohbG X$.
+\end{Thm}
+
+This t-structure is called the \emph{perverse t-structure} with respect to $p$ on $\dcohbG X$.
+Objects in its heart are called \emph{perverse coherent sheaves} (with respect to $p$ on $X$).
+
 
 Lemma: duality
 
