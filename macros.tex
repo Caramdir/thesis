@@ -1,4 +1,20 @@
+% general
+% -------
+
 \renewcommand\sheafHom{\sheaf{H\mkern-0.3mu o\mkern-2.5mu m}}
+% ToDo: make \sheafHom look nice for the given font.
+\renewcommand\Forget{\operatorname{Forget}}
+
+% TeX Gyre Termes Math does not contain the following symbol
+\AtBeginDocument{
+    \renewcommand\setminus{-}
+}
+
+% Formatting of upper case roman numerals (in references).
+\newcommand{\RomanNum}[1]{\textsc{\MakeLowercase{#1}}}
+
+% perverse-coherents
+% ------------------
 
 \newcommand\dualize{\mathbb D}
 \newcommand\dualizingCx{\sheaf{D\mkern-0.3mu C}}
@@ -10,19 +26,14 @@
 \newcommand\dcohbG[2][G]{D_{\mathrm{coh}}^b(#2)^{#1}}
 \newcommand\dconstrb[1]{D_{\mathrm{constr}}^b(#1)}
 
-\renewcommand\Forget{\operatorname{Forget}}
-
 \newcommand\lciname{strong}
 
 \newcommand\pervVC[1]{φ_{#1}[-1]}
 \newcommand\localMorse[3]{M_{#1,#2}(#3)}
 
-% ToDo: make \sheafHom look nice for the given font.
+% d-modules
+% ----------
 
-% TeX Gyre Termes Math does not contain the following symbol
-\AtBeginDocument{
-    \renewcommand\setminus{-}
-}
+\newcommand\mappingstack{\mathbfup{Maps}}
+\newcommand\X{\mathbb{X}}
 
-% Formatting of upper case roman numerals (in references).
-\newcommand{\RomanNum}[1]{\textsc{\MakeLowercase{#1}}}

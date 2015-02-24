@@ -1,2 +1,290 @@
 \chapter{Generalization of a construction by Drinfeld}
 % or: The relative compactification in the torus case.
+
+In this chapter we will prove the following key ingredient of the proof of Theorem~\ref{thm:d-mod:main}.
+
+\begin{Thm}
+    \label{thm:d-mod:smoothness_of_compactification}%
+    Let $X$ be a smooth affine scheme of finite type over $k$ and let $T$ be a torus acting on $X$.
+    Set $\bar T = (\ps 1)^n$ and let $\bar Γ$ be the closure of the graph $Γ$ of the action morphism in $\bar T × X × X$.
+    Then the morphism $q\colon \bar Γ → \bar T$ is smooth.
+\end{Thm}
+
+For $T = \Gm$ this theorem is proved in \cite[Section~2]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+The proof of the general case follows the same outline as the one for the $\Gm$-case, though with some additional indicies.
+Therefore the constructions and theorems in this chapter are mostly straightforward generalizations of \cite{DrinfeldGaitsgory:2014:OnATheoremOfBraden} to higher dimensions.
+The reader is encouraged to read about the $\Gm$ case first.
+
+Throughout this section, we let $X$ be as in Theorem~\ref{thm:d-mod:smoothness_of_compactification} except that we do not assume that $X$ is affine.
+We always set $T = \Gm^n$.
+
+\begin{Def}
+    The action of $T$ on $X$ is called \emph{locally linear} if $X$ can be covered by $T$-invariant open affine subschemes.
+\end{Def}
+
+ToDo: There should be a short reminder of the notation $\mappingstack^T(X,Y)$ here.
+
+\section{Fixed points and attractors}
+
+By a \emph{sequence of signs} of length $n$ we will understand an element of $\{-,\bullet,+\}^n$.
+We will usually write $σ = (σ_i)$ for such a sequence.
+We write $\bar σ ∈ \{0,1\}^n$ for the sequence given by
+\[
+    \bar σ_i =
+    \begin{cases}
+        1 & σ_i = \bullet, \\
+        0 & \text{otherwise.}
+    \end{cases}
+\]
+For a sequence $ε ∈ \{0,1\}^n$ we write
+\[
+    \pt^ε = \prod_i \Gm^{ε_i},
+\]
+where $\Gm^1 = \Gm$ and $\Gm^0 = \pt$.
+In particular $\pt^0 = \pt$ and $\pt^{1} = T$.
+
+\begin{Def}
+    Let $ε ∈ \{0,1\}^n$.
+    The \emph{subspace of $ε$-fixed points} of $X$ is
+    \[
+        X^ε = \mappingstack^T(\pt^ε, X),
+    \]
+\end{Def}
+In particular, $X^1 = X$ and $X^0 = \mappingstack^T(\pt, X)$ are the $T$-fixed points.
+Note that $X^ε$ is indeed a subspace of $X$ since $\Maps(S, X^ε) = \Maps(\pt^ε × S,\, X)^T$ is a subset of $\Maps(S, X)$.
+
+\begin{Lem}[{cf.~\cite[Proposition~1.3.4]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]
+    Let $ε ∈ \{0,1\}^n$.
+    Then $X^ε$ is a scheme of finite type and the morphism $X^ε → X$ is a closed embedding.
+\end{Lem}
+
+\begin{proof}
+    Let 
+    \[
+        T' = \prod_{ε_i = 0} \Gm
+    \]
+    Then $X^ε$ is the same as $X^0$ with respect to the $T'$ action.
+    Thus we can assume that $ε = 0$.
+    Now the statement follows from an iterated application of \cite[Proposition~1.3.4]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+\end{proof}
+
+ToDo: Maybe add a remark about affine schemes and gradings (cf~\cite[Example~1.3.5]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+
+We write $\as[+]1$ for the space $\as 1$ with the $\Gm$ action given by $λ\cdot x = λx$.
+We write $\as[-]1$ for the space $\as 1$ with the $\Gm$ action given by $λ\cdot x = λ^{-1}x$.
+Finally, we set $\as[\bullet]1 = \Gm$ with the usual action of $\Gm$ on itself.
+For a sequence of signs $σ$ we write $\as[σ]n$ for the product
+\[
+    \as[σ]n = \prod_{i = 1}^n \as[σ_i]1
+\]
+with the induced $T$ action.
+
+\begin{Def}
+    Let $σ$ be a sequence of signs.
+    The \emph{$σ$-attractor} of $X$ is the space
+    \[
+        X^σ = \mappingstack^{T}(\as[σ]n, X).
+    \]
+\end{Def}
+
+We write $0\colon \pt^{\bar σ} → \as[σ]n$ for the map which is the identity on the $\Gm$ factors and the inclusion $0 → \as 1$ on the other factors.
+It induces a map
+\[
+    q^σ \colon X^σ → X^{\bar σ}.
+\]
+
+\begin{Lem}[{cf.~\cite[Lemma~1.4.9(i)]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]%
+    \label{lem:subspace_attractor}%
+    Let $σ$ be a sequence of signs and let $Y \subseteq X$ be a $T$-stable open subspace.
+    Then the subspace $Y^σ \subseteq X^σ$ equals $(q^σ)^{-1}(Y^{\bar σ})$.
+\end{Lem}
+
+\begin{proof}
+    For any test scheme $S$ we have to show that if $f\colon S × \as[σ]n → Z$ is a $T$-equivariant morphism such that $S × \pt^σ \subseteq f^{-1}(Y)$, then $f^{-1}(Y) = S × \as[σ]n$.
+    This is clear because $f^{-1}(Y) \subseteq S × \as[σ]n$ is open and $T$-stable.
+\end{proof}
+
+\section{The central construction}
+
+\begin{Def}
+    We set $\X = \as n × \as n = \Spec k[x₁,\dotsc,x_n, y₁,\dotsc,y_n]$, regarded as a scheme over $\as n$ by the map $(x₁,\dotsc,x_n,y₁,\dotsc,y_n) \mapsto (x₁y₁, \dotsc, x_ny_n)$.
+    For any scheme $S$ over $\as n$ we set $\X_S = \X ×_{\as n} S$.
+    We equip $\X$ with a $T$ action by 
+    \[
+        (λ₁,\dotsc,λ_n) \cdot (x₁, \dotsc, x_n, y₁, \dotsc, y_n) = (λ₁x₁, \dotsc, λ_nx_n, λ₁^{-1}x₁, \dotsc, λ_n^{-1}x_n).
+    \]
+    Since the action preserves the map to $\as n$, we get an action of $T$ on $\X_S$.
+\end{Def}
+
+A section $\as n → \X$ induces a section $S → \X_S$ for every scheme $S$.
+We will in particular be interested in the sections
+\begin{equation}
+    \label{eq:interpolation:sections}%
+    σ₁\colon (t₁,\dotsc, t_n) \mapsto (1,\dotsc,1, t₁,\dotsc,t_n)
+    \quad\text{and}\quad
+    σ₂(t₁,\dotsc, t_n) \mapsto (t₁,\dotsc,t_n, 1,\dotsc,1).
+\end{equation}
+
+\begin{Def}
+    Given a scheme $X$ with a $T$-action we define a space $\widetilde X$ over $\as n$ by
+    \[
+        \Maps_{\as n}(S, \widetilde X) \coloneq \Maps^{T}(\X_S, X)
+    \]
+    for any schemes $S$.
+    In other words, an $S$-point of $\widetilde X$ consists of a morphism $S → \as{n}$ and a $T$-equivariant morphism $\X_S → X$.
+\end{Def}
+
+Note that a section $\as n → \X$ induces a map $\Maps^{T}(\X_S, X) → \Maps(S, X)$ and therefore a morphism $\widetilde X → X$.
+We let $π₁, \,π₂\colon \widetilde X → X$ be the morphisms corresponding to the sections $σ₁, σ₂$ of \eqref{eq:interpolation:sections}.
+Finally we let $\tilde p\colon \widetilde X → \as n × X × X$ be the morphisms whose components are the tautological map $\widetilde X → \as n$, $π₁$ and $π₂$.
+
+\section{Fibers and subspaces}
+
+If $t = (t₁,\dotsc,t_n) ∈ \as n$, then the fiber $\X_t$ is defined by the equations $x_iy_i = t_i$ for $i = 1,\dotsc,n$.
+If $t ∈ T$, then $\X_t$ is isomorphic to $T$ via projection onto the $x_i$.
+However if $t \notin T$, then $\X_t$ splits into several components.
+The components of $\X_t$ are of the form $\as[σ]n$ where $σ$ runs over all sequences of signs such that $\bar σ = ε(t)$ and $ε(t) ∈ \{0,1\}^n$ is the sequence given by
+\[
+    ε(t)_i = 
+    \begin{cases}
+        0 & t_i = 0, \\
+        1 & \text{otherwise.}
+    \end{cases}
+\]
+For any $t ∈ \as n$ the fiber $\widetilde{X}_t$ of is given by
+\[
+    \widetilde{X}_t = \mappingstack^{T}(\X_t, X).
+\]
+Let 
+\[
+    \tilde p_t\colon \widetilde X_t → \{t\} × X × X
+\]
+be the morphism induced by $\tilde p$.
+
+\begin{Lem}[{cf.~\cite[Proposition~2.2.6]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]
+    The morphism $\tilde p$ induces an isomorphism between $T ×_{\as n} \tilde X \subseteq \tilde X$ and the graph of the action morphism $T × X → X$.
+    In particular, for $t ∈ T$ the pair $(\widetilde X_t, \tilde p)$ identifies with $(X, Γ_t)$ where $Γ_t\colon X → \{t\}×X×X$ is the graph of the action morphism $t\colon X → X$.
+\end{Lem}
+
+\begin{proof}
+    Let $t ∈ T$.
+    Points of $\widetilde X_t$ are $T$-equivariant maps $f\colon\X_t → X$, where $\X_t \cong T$.
+    Thus $\widetilde X_t \cong X$.
+    Let $z = π₁(f) = f(\underline{1},t)$.
+    Then 
+    \[
+        π₂(f) = f(t, \underline{1}) = tf(\underline{1}, t) = tz.
+        \qedhere
+    \]
+\end{proof}
+
+\begin{Lem}\label{lem:tildeFibers}
+    The fiber $\tilde{X}_t$ is a subspace of the fiber product of all $X^σ$ with $\bar σ = ε(t)$ taken over $X^{ε(t)}$.
+\end{Lem}
+
+\begin{proof}[Outline of proof]
+    The intersection of all the components of $\X_t$ is precisely $\pt^{ε(t)}$.
+    We write $\X_t$ as a pushout diagram\footnote{See \cite[Corollary~3.9]{Schwede:2005:GluingSchemesAndASchemeWithoutPoints} for the existence of pushouts in schemes along closed subvarieties. More detailed discussion can be found in \cite{Ferrand:2003:ConducteurDescenteEtPincement}.} of the components $\as[σ]n$ over their intersections.
+    Thus we see that $\X_t$ receives a surjective morphism from the iterated pushout of the $\as[σ]n$ over $\pt^{ε(t)}$.
+    Hence $\tilde{Z}_t = \mappingstack^T(\X_t, Z)$ is a subspace of the fiber product of all $X^σ = \mappingstack^T(\as[σ]n, X)$ over $X^{ε(t)} = \mappingstack^T(\pt^{ε(t)}, X)$.
+\end{proof}
+
+\begin{Lem}[{cf.~\cite[Proposition~2.3.2]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]
+    \label{lem:tilde_subspace}%
+    \leavevmode
+    \begin{enumerate}
+        \item
+            \label{lem:tilde_subspace_closed}%
+            Let $Y \subseteq X$ be a $T$-stable closed subspace.
+            Then the diagram
+            \[
+                \begin{tikzcd}
+                    \widetilde Y \arrow[r] \arrow[d, "\tilde p_Y"] & \widetilde X \arrow[d, "\tilde p_X"] \\
+                    \as n × Y × Y \arrow[r, hook] & \as n × X × X
+                \end{tikzcd}
+            \]
+            is Cartesian.
+            In particular, the morphism $\widetilde Y → \widetilde X$ is a closed embedding.
+        \item 
+            \label{lem:tilde_subspace_open}%
+            Let $Y \subseteq X$ be a $T$-stable open subspace.
+            Then the above diagram identifies $\widetilde Y$ with an open subspace of the fiber product
+            \[
+                \widetilde X ×\limits_{\as n × X × X} (\as n × Y × Y).
+            \]
+            In particular, the morphism $\widetilde Y → \widetilde X$ is an open embedding.
+    \end{enumerate}
+\end{Lem}
+
+\begin{proof}
+    Let 
+    \[
+        \mathring \X = \X \setminus \bigl\{x₁\dotsm x_n = 0 \text{ and } y₁\dotsm x_m = 0 \bigr\}.
+    \]
+    Thus $\mathring \X$ is exactly the image of the two sections \eqref{eq:interpolation:sections}.
+    For a scheme $S$ over $\as n$, set $\mathring\X_S = {\X_S ×_\X \mathring\X}$.
+    Now the rest of the proof can be repeated word for word from \cite[Proposition~2.3.2]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+\end{proof}
+
+\section{Properties of the compactification}
+
+\begin{Claim}\label{claim:tildeAffineFiniteType}
+    If $X$ is an affine scheme of finite type, then $\tilde p$ is a closed embedding.
+    In particular $\tilde X$ is an affine scheme of finite type.
+\end{Claim}
+
+\begin{proof}[Outline of proof]
+    By Lemma~\ref{lem:tilde_subspace}\ref{lem:tilde_subspace_closed}, it is enough to show the statement for $X = \as m$.
+    If the statement holds for $X₁$ and $X₂$, then it also holds for $X₁ × X₂$ [why?].
+    Since any $T$-representation decomposes into one-dimensional representations this reduces to $X = \as 1$ and $(t₁,\dotsc,t_n) \cdot x = t₁^{λ₁}\dotsm t_n^{λ_n}x$.
+    For this case one does an explicit computation [do it!].
+\end{proof}
+
+\begin{Claim}[{cf.~\cite[Theorem~2.4.2]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]
+    \label{claim:tildeFiniteType}%
+    $\tilde X$ is a scheme of finite type.
+\end{Claim}
+
+\begin{proof}[Outline of proof]
+    Let $\{U_i\}$ be a finite open $T$-stable affine cover of $X$ (recall that we assume that the action of $T$ on $X$ is locally linear).
+    By Claim~\ref{claim:tildeAffineFiniteType}, each $\tilde U_i$ is an affine scheme of finite type.
+    By Lemma~\ref{lem:tilde_subspace}\ref{lem:tilde_subspace_open}, each $\tilde U_i$ is an open subscheme of $\tilde X$.
+    Thus it suffices to prove that $\tilde X$ is covered by the $\tilde U_i$.
+
+    It is enough to check that each fiber $\tilde X_t$ is covered by the open subschemes $(\tilde U_i)_t$.
+    For $t ∈ T \subseteq \as n$ this is clear from the analogue of \cite[Proposition~2.2.6]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+
+    Thus let $t ∈ \as n \setminus T$.
+    By Lemma~\ref{lem:tildeFibers}, each point of of $\tilde X_t$ is a tuple
+    \[
+        \tilde x = (x^σ)_{\bar σ = ε(t)} ∈ \prod_{\bar σ = ε(t)} X^σ
+    \]
+    such that all images $q^σ(x^σ)$ coincide.
+    The point $q^σ(x^σ)$ is contained in some $U_i$.
+    By Lemma~\ref{lem:subspace_attractor} each $x^σ$ is contained in $U_i$ [for this we need that in the affine case $Z^σ$ is a subscheme of $Z$].
+    Hence $\tilde x ∈ (\tilde U_i)_t$.
+\end{proof}
+
+\begin{Claim}
+    If $X$ is smooth, then the canonical morphism $\tilde X → \as n$ is smooth.
+\end{Claim}
+
+\begin{proof}
+    By Claim~\ref{claim:tildeFiniteType}, it suffices to prove that $\tilde p$ is formally smooth\footnote{
+        See \cite[Définition~17.1.1]{EGA4.4} for the definition of \enquote{formally smooth}.
+        \cite[Section~17.3]{EGA4.4}~shows that for morphisms that are locally of finite presentation, \enquote{smooth} and \enquote{formally smooth} coincide.
+        \cite[Remarque~17.1.2(ii)]{EGA4.4}~shows that it is only necessary to consider nilpotent ideals whose square is $0$.
+        Somewhere it is probably written that one only needs to test with affine schemes.
+    }.
+    Thus $R$ be a $k$-algebra with a morphism $\Spec(R) → \as n$.
+    Let $I$ be an ideal of $R$ with $I² = 0$ and set $\bar R = \rquot RI$.
+    Let $\bar f ∈ \Maps(\X_{\bar R}, X)^T$.
+    We have to show that $\bar f$ can be lifted to an element of $\Maps(\X_R, X)^T$.
+    Since $\X_R$ is affine and $Z$ is smooth, there is no obstruction to lifting $\bar f$ to an element of $\Maps(\X_R, X)$.
+
+    [Now some argument that an equivariant lift exists.]
+\end{proof}
+
+\begin{Claim}
+    If $X$ is affine and smooth, then $\tilde p(\tilde X) = \bar Γ$, where $Γ \subseteq T × X × X$ is the graph of the action map $T × X → X$ and $\bar Γ$ denotes its scheme-theoretic closure in $\as n × X × X$.
+\end{Claim}
