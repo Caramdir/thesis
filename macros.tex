@@ -1,6 +1,8 @@
 % general
 % -------
 
+\let\bar\overline
+
 \renewcommand\sheafHom{\sheaf{H\mkern-0.3mu o\mkern-2.5mu m}}
 % ToDo: make \sheafHom look nice for the given font.
 \renewcommand\Forget{\operatorname{Forget}}
@@ -34,6 +36,34 @@
 % d-modules
 % ----------
 
+\newcommand\dR{\mathrm{dR}}
+\newcommand{\renstar}{\blacktriangle}
+
+\newcommand{\HCoh}{\operatorname{HH}^\cx}
+\newcommand\ΓdR{Γ_{\mkern-4mu\dR}}
+
 \newcommand\mappingstack{\mathbfup{Maps}}
 \newcommand\X{\mathbb{X}}
 
+\newcommand\ls[1]{\mathbfcal{L} #1}
+\newcommand\cls[1]{\overline{\mathbfcal{L}} #1}
+\newcommand\lsc[1]{\mathbfcal{L}^c #1}
+
+\newfontfamily\cyrillicfont[Script=Cyrillic]{XITS}
+\newcommand\cyrmath[1]{\textit{\cyrillicfont #1}}
+
+%\newcommand\schemels[1]{\mathcal{L}\mkern2.5mu #1}
+%\newcommand\schemecls[1]{\overline{\mathcal{L}}\mkern2.5mu #1}
+%\newcommand\schemelsc[1]{\mathcal{L}\mkern2.5mu^c #1}
+\newcommand\schemels[2][]{\cyrmath{Л}\mkern1.5mu^{#1}#2}
+\newcommand\schemecls[2][]{\overline{\cyrmath{Л}}\mkern1.5mu^{#1}#2}
+\newcommand\schemelsc[2][]{\cyrmath{Л}\mkern1.5mu^{\if\relax\detokenize{#1}\relax\else#1,\fi c} #2}
+
+\newcommand\schemei{\cyrmath{и}}
+\newcommand\schemej{\cyrmath{й}}
+\newcommand\schemep{\cyrmath{п}}
+
+\newcommand\Stab{\operatorname{Stab}}
+
+\newcommand\goodstack{good}
+\newcommand\Goodstack{Good}

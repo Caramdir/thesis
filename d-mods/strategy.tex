@@ -1,1 +1,286 @@
 \chapter{The strategy}
+
+Let us for the moment suppose that $\stack X = X/G$ is a quotient stack with $X$ a scheme and $G$ arbitrary algebraic group.
+Let $Δ\colon \stack X → \stack X × \stack X$ be the diagonal map.
+
+\section{The morphism}
+
+We observe that
+\begin{align*}
+    \HCoh\bigl(\catDMod{\stack X}\bigr) 
+    & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_! ω_{\stack X},\, Δ_! ω_{\stack X}) & &\text{(definition)} \\
+    & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_! k_{\stack X},\, Δ_! k_{\stack X}) & & \text{(smoothness of $\stack X$)} \\
+    & = \Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X}) & & \text{(adjunction)} \\
+    & = \ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)
+\end{align*}
+The adjunction morphisms always give sequence of morphisms
+\begin{equation}
+    \label{eq:central_iso_adjunctions}
+    p_{1,!}p₂^! k_{\stack X} →
+    p_{1,!}p₂^! Δ^! Δ_! k_{\stack X} =
+    p_{1,!}p₁^! Δ^! Δ_! k_{\stack X} →
+    Δ^! Δ_! k_{\stack X}.
+\end{equation}
+In general the composite map
+\begin{equation}
+    \label{eq:central_iso}
+    p_{1,!}p₂^!k_{\stack X} \to Δ^! Δ_! k_{\stack X}.
+\end{equation}
+is of course not an isomorphism.
+However, if $Δ$ were proper, then it is exactly the base change isomorphism \cite[\RomanNum{III}.4.2.1.3]{GaitsgoryRozenblyum:prelim:StudyInDAG}.
+
+Thus we introduce a relative compactification of $\stack X$ to force the pushforwards to be along proper maps.
+Here by a relative compactification of $Δ$ we mean an open embedding $j\colon \stack X \hookrightarrow \bar{\stack X}$ together with a proper map $\bar Δ\colon \bar{\stack X} → \stack X × \stack X$ such that $Δ = \bar Δ ∘ j$.
+We will discuss how to construct such a relative compactification in Section~\ref{sec:strategy:compactification}.
+For now let us simply assume that it exists.
+
+We let $i\colon \stack X^c \hookrightarrow \bar{\stack X}$ be the closed complement of $\stack X$ in $\bar{\stack X}$.
+This gives us a compactified loop space $\cls \stack X$ and the complement $\lsc\stack X$ defined via the following Cartesian squares.
+\[
+   \begin{tikzcd}
+        \cls\stack X \arrow[r, "\bar{p₂}"] \arrow[d, "\bar{p₁}"] & \bar{\stack{X}} \arrow[d, "\bar Δ"] \\
+        \stack X \arrow[r, "Δ"] & \stack X × \stack X
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}
+        \lsc\stack X \arrow[r, "p₂^c"] \arrow[d, "p₁^c"] & \stack{X}^c \arrow[d, "\res{\bar Δ}{\stack X^c}"] \\
+        \stack X \arrow[r, "Δ"] & \stack X × \stack X
+    \end{tikzcd}
+\]
+The various inclusions are summarized in the following squares.
+\[
+    \begin{tikzcd}
+        \lsc\stack{X} \arrow[r, "p₂^c"] \arrow[d, hook, "\tilde\imath"] & \stack X^c \arrow[d, hook, "i"]\\
+        \cls\stack{X} \arrow[r, "\bar{p₂}"] & \bar{\stack X}
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}
+        \ls\stack X \arrow[r, "p₂"] \arrow[d, hook, "\tilde\jmath"] & \stack{X} \arrow[d, hook, "j"]\\
+        \cls\stack X \arrow[r, "\bar{p₂}"] & \bar{\stack{X}}
+    \end{tikzcd}
+\]
+
+\begin{Rem}
+    The reader might find the following notation guidelines useful:
+    We use bars to denote the relative closures, unadorned symbols for the original spaces and morphisms (which are now open subsets of the closure) and the index ${}^c$ for the complements (which are closed subsets).
+    Furthermore, we will generally use $\widetilde{\phantom{X}}$ to denote the base change of morphisms to the (compactified) loop space.
+\end{Rem}
+
+\begin{Lem}
+    \label{lem:key}%
+    If
+    \[
+        \tilde\imath^* \bar{p₂}^! j_! k_{\stack X} = 0
+    \]
+    then the morphism \eqref{eq:central_iso} is an isomorphism.
+\end{Lem}
+
+\begin{proof}
+    We split the adjunction is \eqref{eq:central_iso_adjunctions} into two by using the compositions $Δ = \bar Δ ∘ j$ and $p_i = \bar p_i ∘ \tilde\jmath$.
+    Thus the adjunction $p_{1,!}p₂^!→ p_{1,!}p₂^!Δ^!Δ_!$ becomes the sequence
+    \[
+        p_{1,!}p₂^! →
+        p_{1,!}p₂^! j^! j_! →
+        p_{1,!}p₂^! j^! \bar Δ^! \bar Δ_! j_!.
+    \]
+    The equality $p_{1,!}p₂^! Δ^! Δ_! = p_{1,!}p₁^! Δ^! Δ_!$ then becomes
+    \[
+        p_{1,!} p₂^! j^! \bar Δ^! \bar Δ_! j_! =
+        p_{1,!} \tilde \jmath^! \bar p₂^! \bar Δ^! \bar Δ_! j_! =
+        p_{1,!} \tilde \jmath^! \bar p₁^! Δ^! \bar Δ_! j_!.
+    \]
+    Finally the adjunction $p_{1,!}p₁^! Δ^! Δ_! → Δ^! Δ_!$ becomes
+    \[
+        p_{1,!}\tilde\jmath^! \bar p₁^! Δ^! \bar Δ_! j_! = 
+        \bar p_{1,!} \tilde\jmath_! \tilde\jmath^! \bar p₁^! Δ^! \bar Δ_! j_! → 
+        \bar p_{1,!} \bar p₁^! Δ^! \bar Δ_! j_! → 
+        Δ^! \bar Δ_! j_! = 
+        Δ^! Δ_!.
+    \]
+    Let us apply the same adjunction morphisms in a different order.
+    First the inclusions
+    \[
+        p_{1,!}p₂^!
+        \xrightarrow{α}
+        p_{1,!}p₂^! j^! j_! 
+        =
+        \bar p_{1,!} \tilde\jmath_! \tilde\jmath^! \bar p₂^! j_! 
+        \xrightarrow{β}
+        \bar p_{1,!} \bar p₂^! j_!,
+    \]
+    and then the actual base change
+    \begin{equation}
+        \label{eq:lem:central:pf:split_morphism_base_change}
+        \bar p_{1,!} \bar p₂^! j_!
+        →
+        \bar p_{1,!} \bar p₂^! \bar Δ^! \bar Δ_! j_!
+        =
+        \bar p_{1,!} \bar p₁^! Δ^! \bar Δ_! j_!
+        →
+        Δ^! \bar Δ_! j_!
+        =
+        Δ^! Δ_!.
+    \end{equation}
+    We note that the adjunction $\id → j^!j_!$ labeled $α$ is an isomorphism and the composition of the maps in \eqref{eq:lem:central:pf:split_morphism_base_change} is exactly the isomorphism of proper base change \cite[\RomanNum{III}.4.2.1.3]{GaitsgoryRozenblyum:prelim:StudyInDAG}.
+    Thus the whole composition is an isomorphism on $k_{\stack X}$ if and only if the morphism $β$ is an isomorphism when applied to $k_{\stack X}$.
+    But this is equal to the vanishing of its cone,
+    \[
+        \bar p_{1,!} \tilde\imath_* \tilde\imath^* \bar p₂^! j_! k_{\stack X}.
+        \qedhere
+    \]
+\end{proof}
+
+\iffalse
+\begin{Rem}
+    An open cover $\{ \stack U_i \}$ of $\bar{\stack X}$ induces an open cover $\{ \widetilde{\stack U}_i \}$ of $\cls \stack X$ and hence also an open cover $\{ \widetilde{\stack U}_i^c \}$ of $\lsc \stack X$.
+    It clearly suffices to check that $\tilde\imath^* \bar{p₂}^! j_! k_{\stack X}$ vanishes when restricted to each $\widetilde{\stack U}^c_i$.
+    We note that 
+    \[
+        \res{\bigl(\tilde\imath^* \bar p₂^! j_! k_{\stack X}\bigr)}{\widetilde{\stack U}^c_i} =
+        \tilde\imath^{\prime,*} \bar p₂^{\prime,!} j'_! k_{\stack U_i},
+    \]
+    where the maps marked with primes are the corresponding restricted maps.
+\end{Rem}
+\fi
+
+\section{How to obtain a relative compactification}
+\label{sec:strategy:compactification}%
+
+So far we have simply assumed the existence of a relative compactification $\bar Δ$ of the diagonal map $Δ$.
+We will now discuss an explicit method for constructing such a compactification.
+
+Constructing a relative compactification of $Δ\colon \stack X → \stack X × \stack X$ is the same as a first constructing a $G × G$-equivariant relative compactification of $(\proj1, a)\colon X × G → X × X$ (where $a\colon X × G → X$ is the action map) and then taking the quotient by the $G × G$ action\footnote{%
+    It might be worth mentioning that here $G × G$ acts on $X × G$ by $(s₁,s₂) \cdot (x,g) = (s₁x,\, s₂gs₁^{-1})$.
+}.
+We let 
+\[
+    Γ = \bigl\{(x, g, x, gx) ∈ X × G × X × X\bigr\}
+\]
+be the graph of $(\proj1, a)$.
+
+We pick a $G$-equivariant compactification $\bar G$ of $G$ and let $\bar Γ$ be the closure of $Γ$ in $X × \bar G × X × X$.
+We have an open embedding $j$ of $X × G \cong Γ$ into $\bar Γ$ and proper map $f\colon \bar Γ → X × X$ given by projection on the last two factors.
+The composition $f ∘ j$ is equal to $(\proj, a)$.
+
+Instead of viewing $Γ$ as the graph of $(\proj1, a)$ we can drop the third factor and regard it as the graph of the action map, i.e.
+\[
+    Γ_a = \bigl\{(x, g, gx) ∈ X × G × X\bigr\}.
+\]
+The closure $\bar Γ_a$ of $Γ_a$ in $X × \bar G × X$ identifies with $\bar Γ$.
+Thus for ease of notation we will from now on always set $Γ = Γ_a$ and $\bar Γ = \bar Γ_a$.
+
+\begin{Def}
+    Let $\stack X = X/G$. 
+    Then with the above construction we set 
+    \[
+        \bar{\stack X} = \rquot{\bar Γ}{G×G}.
+    \]
+    We have an open embedding $j\colon X \hookrightarrow \bar{\stack X}$ and a morphism $\bar Δ\colon \bar{\stack X} → \stack X × \stack X$ induced by the map $f$ above, such that $Δ = \bar Δ ∘ j$.
+\end{Def}
+
+
+\section{\Goodstack\ stacks}
+
+In view of Lemma~\ref{lem:key}, let us call a quotient stack $\stack X = X/G$ \emph{\goodstack} if there exists a relative compactification $\bar{\stack X}$ such that $\tilde\imath^* \bar{p₂}^! j_! k_{\stack X} = 0$.
+
+\begin{Ex}
+    For any algebraic group $G$ the stack $\B G = \pt/G$ is \goodstack.
+\end{Ex}
+
+\begin{Ex}
+    The stack $\ps1/\as1$ is not \goodstack.
+    In fact a direct computation shows that Theorem~\ref{thm:main} does not hold for this stack.
+\end{Ex}
+
+\begin{Lem}
+    If $\stack X = X/G$ and $\stack Y = Y/H$ are \goodstack, then $\stack X × \stack Y$ is \goodstack.
+\end{Lem}
+
+\begin{proof}
+    Follows from compatibility of $\tilde\imath^*\bar{p₂}^!j_!$ with $\boxtimes$ and coproducts.
+    (Note that $\lsc (\stack X × \stack Y) = \lsc \stack X × \cls \stack Y ∪ \cls \stack X × \lsc \stack Y$.)
+\end{proof}
+
+\begin{Lem}
+    \label{lem:cover}%
+    Let $U$ be a $G$-equivariant open subset of $X$ and assume that $X/G$ is \goodstack.
+    Then $U/G$ is \goodstack.
+    Conversely, if there exists a $G$-equivariant open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X$ is \goodstack.
+\end{Lem}
+
+\begin{proof}
+    Let $\stack U = U/G$ be the open substack.
+    Consider the diagram
+    \[
+        \begin{tikzcd}
+            \lsc \stack U \arrow[r, hook] \arrow[d, hook, "α"] & \cls \stack U \arrow[r] \arrow[d, hook, "β"] & \bar{\stack U} \arrow[d, hook, "γ"] & \stack U \arrow[l, hook'] \arrow[d, hook, "δ"] \\
+            \lsc \stack X \arrow[r, hook] & \cls \stack X \arrow[r] & \bar{\stack X} & \stack X \arrow[l, hook'] 
+        \end{tikzcd}
+    \]
+    The vertical arrows are open embeddings and all squares are Cartesian (where we use the same compactification of $G$ for $\bar{\stack X}$ and $\bar{\stack U}$).
+    Thus
+    \begin{equation}
+        \label{eq:lem:substack:open}
+        \tilde\imath_{U}^*\bar p_{U,2}^!j_{U,!} k_{\stack U} = 
+        \tilde\imath_{Z}^*\bar p_{Z,2}^!j_{Z,!} δ^* k_{\stack X} = 
+        α^* \tilde\imath_{X}^*\bar p_{X,2}^!j_{X,!} k_{\stack X} = 
+        0.
+    \end{equation}
+    The second statement follows form the fact that vanishing of a sheaf can be tested locally and reading~\eqref{eq:lem:substack:open} backwards.
+\end{proof}
+
+Consider the diagram\footnote{Use of Cyrillic letters is probably not the best idea, especially since italic \enquote{и} and \enquote{п} look like \enquote{u} and \enquote{n}. However we will stick with it until I come up with a better notation.}
+\[
+    \begin{tikzcd}
+        \schemelsc \stack{X} \arrow[r, hook, "\tilde\schemei"] \arrow[d, "σ_{\lsc\stack X}"]
+            & \schemecls{\stack X} \arrow[r, "\bar\schemep₂"] \arrow[d, "σ_{\cls{\stack X}}"]
+                & \bar Γ \arrow[d, "σ_{\bar{\stack X}}"]
+                    & Γ \arrow[l, hook', "\schemej"'] \arrow[d, "σ_{\stack X}"]
+        \\
+        \lsc\stack X \arrow[r, hook, "\tilde\imath"]
+        & \cls{\stack X} \arrow[r, "\bar p₂"]
+                & \bar{\stack X}
+                    & \stack X \arrow[l, hook', "j"']
+    \end{tikzcd}
+\]
+where the top row are the obvious smooth covers of the stacks at the bottom and the squares are all Cartesian.
+The vertical arrows are all smooth of the same dimension. 
+Hence,
+\[
+    σ_{\lsc{\stack X}}^* \tilde\imath^*\bar{p}₂^!j_! k_{\stack X} =
+    \tilde{\schemei}^* \bar{\schemep}₂^! \schemej_! σ_{\stack X}^* k_{\stack X} =
+    \tilde{\schemei}^* \bar{\schemep}₂^! \schemej_! k_{Γ}.
+\]
+The functor $σ_{\lsc{\stack X}}^*$ is conservative, which implies the following lemma.
+
+\begin{Lem}
+    The stack $X/G$ is \goodstack\ if and only if $\tilde{\schemei}^* \bar{\schemep}₂^! \schemej_! k_{Γ} = 0$.
+\end{Lem}
+
+\iffalse
+\begin{Rem}
+    Let $V_i$ be a $G$-equivariant open cover of $\bar G$.
+    Then we can consider $Γ$ as a subset of $X × V_i × X$ and take its closure $\bar Γ_i$.
+    The sets $\bar Γ_i$ for an open cover cover of $\bar Γ$ and hence the stacks $\stack U_i = \rquot{\bar Γ_i}{G×G}$ form an open cover of $\bar{\stack X}$.
+\end{Rem}
+\fi%
+
+\section{The algebra structure}
+
+[The idea of this section is taken from the proof of \cite[Proposition~F.?]{ArinkinGaitsgory:arXiv:SingularSupport}.
+The whole section should eventually be expanded to explain the constructions.]
+
+Consider the monads $M = p_{1,!}p₂^!$ (coming from convolution) and $N = Δ^!Δ_!$ (from adjunction).
+The morphism \eqref{eq:central_iso} induces a morphism of monads $M → N$ and hence a morphism of algebras from
+\[
+        \ΓdR\bigl(p_{1,!}(p₂^!(k_{\stack X}))\bigr) =
+        \Hom\bigl(k_{\stack X},\, p_{1,!}(p₂^!(k_{\stack X}))\bigr)
+\]
+to
+\[
+        \HCoh\bigl(\catDMod{\stack X}\bigr) =
+        \Hom\bigl(k_{stack X},\, Δ^!Δ_!k_{\stack X}\bigr).
+\]
+[Actually, $\HCoh\bigl(\catDMod{\stack X}\bigr) = \Hom\bigl(ω_{\stack X},\, Δ^*Δ_*ω_{\stack X}\bigr)$.
+So we also have to apply duality.
+Does this make the morphism an anti-isomorphism?]

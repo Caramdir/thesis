@@ -1,1 +1,176 @@
 \chapter{Proof of the main theorem}
+
+For this section let $G = T = \Gm^n$.
+
+\begin{Thm}
+    \label{thm:main:repeated}%
+    If the action of $T$ on $X$ is locally linear, then the morphism \eqref{eq:central_iso} induces an isomorphism of algebras
+    \[
+        \HCoh\bigl(\catDMod{\stack X}\bigr) \cong \ΓdR\bigl(p_{1,!}(p₂^!(k_{\stack X}))\bigr)
+    \]
+\end{Thm}
+
+Before we can prove this theorem we need to do some preparatory work.
+
+Let $S$ be closed subgroup of $G = T$ and let $X^S$ be $S$-fixed points of $X$.
+Since $T$ is Abelian (and hence $S$ a normal subgroup), $X^S$ is a $T$-stable (closed) subscheme of $X$.
+Hence $X^S/T$ is a closed substack of $\stack X$.
+Let $\bar S$ be the closure of $S$ in $\bar T$ and consider the space
+\[
+    \schemecls[S] \stack X =
+    \{
+        (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁\bar S
+    \}.
+\]
+We have a Cartesian square of closed embeddings
+\[
+    \begin{tikzcd}
+        \schemelsc[S] \stack X \arrow[r, hook, "i_S^c"] \arrow[d, hook, "\tilde\schemei^S"] & \schemelsc\stack X \arrow[d, hook, "\tilde\schemei"] \\
+        \schemecls[S] \stack X \arrow[r, hook, "i_S"]   & \schemecls\stack X 
+    \end{tikzcd}
+\]
+Finally let $\Stab\stack X$ be the set of all closed subgroups of $T$ that are stabilizers of points of $X$, i.e.
+\[
+    \Stab\stack X = \{ T_x : x ∈ X \}.
+\]
+
+\begin{Lem}
+    If $X$ is affine then $\Stab\stack X$ is finite.
+\end{Lem}
+
+\begin{proof}
+    $X$ can be embedded $T$-equivariantly into some $\as m$ with a linear $T$-action and for $\as m/T$ the statement is easy to see.
+\end{proof}
+
+\begin{Lem}
+    The subspaces $\schemecls[S] \stack X$ for $S ∈ \Stab\stack X$ cover $\schemecls\stack X$.
+\end{Lem}
+
+\begin{Lem}
+    Consider the spaces
+    \[
+        \schemels[S] \stack X = 
+        \{
+            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁S
+        \}.
+    \]
+    The closure of $\schemels[S] \stack X$ in $\schemecls \stack X$ is exactly $\schemecls[S] \stack X$.
+    It is easy to see that the subspaces $\schemels[S] \stack X$ for $S ∈ \Stab \stack X$ cover $\schemels[S]$.
+    Now the statement follows from the fact that the closure of a finite union is the union of the individual closures.
+\end{Lem}
+
+The following theorem is a generalization of \cite[Theorem~2.?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+It can be proved in an analogous way to that theorem, see \texttt{torus-actions.pdf}.
+However it would be nicer if there was some easy induction with \cite[Theorem~2.?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden} as the base case.
+
+\begin{Thm}
+    \label{thm:torus_graph_closure}
+    If $X$ is affine then the morphism $q\colon \bar Γ → \bar T$ is smooth.
+\end{Thm}
+
+\begin{Lem}\label{lem:key_for_stablizier}%
+    Let $X$ be affine.
+    For any $S ∈ \Stab\stack X$ we have
+    \[
+        \tilde\schemei^{S,*} i_S^! \schemep₂^! \schemej_! k_Γ = 0.
+    \]
+\end{Lem}
+
+\begin{proof}
+    The scheme $\schemelsc[S] \stack X$ is of the form
+    \[
+        \schemelsc[S] \stack X  = 
+        \{
+            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁(\bar S \setminus S)
+        \}.
+    \]
+    If $S = \bar S$ the statement is trivially true.
+    Otherwise the schemes $\bar S \setminus S$ is the union of hyperplanes $H_i$ of $\bar S$.
+    It suffices to prove the statement when further restricting to 
+    \[
+        \{
+            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁H_i
+        \}
+    \]
+    for all $i$. 
+    Let $H$ be one such hyperplane.
+    We will assume that $H$ is contained in the closure of the connected component of $1 ∈ S$. 
+    The proof for $H$ is a different component is the same, up to a shift by an element of $T$.
+    Let $\schemei_H$ be the inclusion of
+    \[
+        Z = \{
+            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁H
+        \}
+    \]
+    into $\schemecls[S] \stack X$.
+    We want to compute
+    \[
+        \schemei_H^{*} i_S^! \schemep₂^! \schemej_! k_Γ.
+    \]
+
+    Consider the Cartesian square
+    \[
+        \begin{tikzcd}
+            Γ \arrow[r, hook, "\schemej"] \arrow[d, "\tilde q"] & \bar Γ \arrow[d, "q"] \\
+            T \arrow[r, hook, "\schemej_T"] & \bar T
+        \end{tikzcd}
+    \]
+    By Theorem~\ref{thm:torus_graph_closure}, the vertical arrows are smooth.
+    Thus,
+    \[
+        \schemej_! k_Γ = 
+        \schemej_! \tilde q^* k_T = 
+        q^* \schemej_{T,!} k_T = 
+        q^! \schemej_{T,!} k_T.
+    \]
+    Let $f = q ∘ \schemep₂ ∘ i_S$, so that
+    \[
+        \schemei_H^{*} i_S^! \schemep₂^! \schemej_! k_Γ = 
+        \schemei_H^{*} i_S^! \schemep₂^! q^! \schemej_{T,!} k_T = 
+        \schemei_H^{*} f^! \schemej_{T,!} k_T.
+    \]
+    
+    Write $T \cong T₁ × S$ for some subgroup $T₁$ of $T$.
+    Then $\bar T = \bar T₁ \bar S$.
+    Let $H' = \bar T₁ H$.
+    We note that $T ∩ H' = \emptyset$.
+
+    We chose an action $μ$ of $\Gm$ on $\bar S$ that contracts $\bar S$ onto $H$.
+    This induces an action of $\Gm$ on $\bar T = \bar T₁ \bar S$ by $u \cdot ts = tμ(u,s)$, contracting $\bar T$ onto $H'$.
+    The D-module $k_T$ is monodromic with respect to this action.
+    Let $π \colon \bar T → H'$ and $\tilde π\colon \schemecls[S] \stack X → Z$ be the induced contraction morphisms.
+    
+    By the contraction principle \cite[Theorem~?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}, $\schemei_H^* = \tilde π_\renstar$ on $\Gm$-monodromic D-modules.
+    Thus,
+    \[
+        \schemei_H^{*} f^! \schemej_{T,!} k_T = 
+        \tilde π_\renstar f^! \schemej_{T,!} k_T.
+    \]
+    The square
+    \[
+        \begin{tikzcd}
+            \schemecls[S] \arrow[r, "\tilde π"] \arrow[d, "f"] & Z \arrow[d, "f_Z"] \\
+            \bar T \arrow[r, "π"] & H'
+        \end{tikzcd}
+    \]
+    is Cartesian.
+    Base change yields
+    \[
+        \tilde π_\renstar f^! \schemej_{T,!} k_T = 
+        f_Z^! π_\renstar \schemej_{T,!} k_T.
+    \]
+    Finally, let $i_{H'}\colon H' \hookrightarrow \bar T$ be the inclusion.
+    Applying the contraction principle again we obtain
+    \[
+        f_Z^! π_\renstar \schemej_{T,!} k_T =
+        f_Z^! i_{H'}^* \schemej_{T,!} k_T =
+        0.
+        \qedhere
+    \]
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main:repeated}]
+    We use Lemma~\ref{lem:key}.
+    By Lemma~\ref{lem:cover} we can assume that $X$ is affine.
+    Now the statement follows from an inductive argument using Lemma~\ref{lem:key_for_stablizier}.
+\end{proof}
