@@ -93,6 +93,17 @@ It induces a map
     q^σ \colon X^σ → X^{\bar σ}.
 \]
 
+[ToDo: Morphism $p^σ\colon X^σ → X$.]
+[ToDo: Explicit construction in the affine case via gradings, cf.~\cite[Remark~1.4.7]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}]
+
+\begin{Lem}
+    If $X$ is affine, then $p^σ\colon X^σ → X$ is a closed immersion.
+\end{Lem}
+
+\begin{proof}
+    Follows from the explicit description.
+\end{proof}
+
 \begin{Lem}[{cf.~\cite[Lemma~1.4.9(i)]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]%
     \label{lem:subspace_attractor}%
     Let $σ$ be a sequence of signs and let $Y \subseteq X$ be a $T$-stable open subspace.
@@ -162,6 +173,7 @@ Let
 be the morphism induced by $\tilde p$.
 
 \begin{Lem}[{cf.~\cite[Proposition~2.2.6]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]
+    \label{lem:graph_contained_in_tilde}%
     The morphism $\tilde p$ induces an isomorphism between $T ×_{\as n} \tilde X \subseteq \tilde X$ and the graph of the action morphism $T × X → X$.
     In particular, for $t ∈ T$ the pair $(\widetilde X_t, \tilde p)$ identifies with $(X, Γ_t)$ where $Γ_t\colon X → \{t\}×X×X$ is the graph of the action morphism $t\colon X → X$.
 \end{Lem}
@@ -228,6 +240,12 @@ be the morphism induced by $\tilde p$.
 
 \section{Properties of the compactification}
 
+\begin{Claim}\label{claim:d-mod:tilde_monomorphism}
+    Let $X$ be separated. Then the map $\tilde p\colon \tilde X → \as n × X × X$ is a monomorphism.
+\end{Claim}
+
+[The proof is the same as for \cite[Proposition~2.3.4]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.]
+
 \begin{Claim}\label{claim:tildeAffineFiniteType}
     If $X$ is an affine scheme of finite type, then $\tilde p$ is a closed embedding.
     In particular $\tilde X$ is an affine scheme of finite type.
@@ -265,7 +283,7 @@ be the morphism induced by $\tilde p$.
     Hence $\tilde x ∈ (\tilde U_i)_t$.
 \end{proof}
 
-\begin{Claim}
+\begin{Claim}\label{claim:d-mod:tilde_smooth}
     If $X$ is smooth, then the canonical morphism $\tilde X → \as n$ is smooth.
 \end{Claim}
 
@@ -285,6 +303,13 @@ be the morphism induced by $\tilde p$.
     [Now some argument that an equivariant lift exists.]
 \end{proof}
 
-\begin{Claim}
-    If $X$ is affine and smooth, then $\tilde p(\tilde X) = \bar Γ$, where $Γ \subseteq T × X × X$ is the graph of the action map $T × X → X$ and $\bar Γ$ denotes its scheme-theoretic closure in $\as n × X × X$.
-\end{Claim}
+\begin{proof}[Proof of Theorem~\ref{thm:d-mod:smoothness_of_compactification}]
+    Let $X$ be a smooth affine scheme with a $T$-action.
+    We want to prove that $\bar Γ \subseteq (\ps1)^n × X × X$ is smooth over $(\ps1)^n$.
+    Fix a cover of $(\ps1)^n$ by open subsets of the form $\as n$.
+    Since smoothness is local on both the source and the target, it suffices to check that the closure of $Γ$ in $\as n × X × X$ is smooth over $\as n$.
+
+    By Claim~\ref{claim:tildeAffineFiniteType}, the morphism $\tilde p$ identifies $\tilde X$ with a closed subscheme of $\as n × X × X$.
+    By \ref{lem:graph_contained_in_tilde}, we have $Γ \subseteq \tilde p(\tilde X)$ and hence also $\bar Γ \subseteq \tilde p(\tilde X)$.
+    Thus by Claim~\ref{claim:d-mod:tilde_smooth}\todo{Why does smoothness imply the equality?}, $\bar Γ = \tilde p(\tilde X)$ is smooth over $\as n$.
+\end{proof}
