@@ -1,4 +1,4 @@
-SOURCES=$(shell echo *.tex perverse-coherent/*.tex d-mods/*.tex) thesis.cls
+SOURCES=$(shell echo *.tex perverse-coherent/*.tex d-mod/*.tex) thesis.cls
 
 thesis.pdf: $(SOURCES)
 	latexmk --pdf --pdflatex=lualatex thesis.tex

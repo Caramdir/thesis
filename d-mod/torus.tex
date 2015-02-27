@@ -1,10 +1,11 @@
 \chapter{Proof of the main theorem}
+\label{ch:d-mod:torus}
 
 For this section let $G = T = \Gm^n$.
 
 \begin{Thm}
-    \label{thm:main:repeated}%
-    If the action of $T$ on $X$ is locally linear, then the morphism \eqref{eq:central_iso} induces an isomorphism of algebras
+    \label{thm:d-mod:main:repeated}%
+    If the action of $T$ on $X$ is locally linear, then the morphism \eqref{eq:d-mod:central_iso} induces an isomorphism of algebras
     \[
         \HCoh\bigl(\catDMod{\stack X}\bigr) \cong \ΓdR\bigl(p_{1,!}(p₂^!(k_{\stack X}))\bigr)
     \]
@@ -63,12 +64,7 @@ The following theorem is a generalization of \cite[Theorem~2.?]{DrinfeldGaitsgor
 It can be proved in an analogous way to that theorem, see \texttt{torus-actions.pdf}.
 However it would be nicer if there was some easy induction with \cite[Theorem~2.?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden} as the base case.
 
-\begin{Thm}
-    \label{thm:torus_graph_closure}
-    If $X$ is affine then the morphism $q\colon \bar Γ → \bar T$ is smooth.
-\end{Thm}
-
-\begin{Lem}\label{lem:key_for_stablizier}%
+\begin{Lem}\label{lem:d-mod:key_for_stablizier}%
     Let $X$ be affine.
     For any $S ∈ \Stab\stack X$ we have
     \[
@@ -115,7 +111,7 @@ However it would be nicer if there was some easy induction with \cite[Theorem~2.
             T \arrow[r, hook, "\schemej_T"] & \bar T
         \end{tikzcd}
     \]
-    By Theorem~\ref{thm:torus_graph_closure}, the vertical arrows are smooth.
+    By Theorem~\ref{thm:d-mod:smoothness_of_compactification}, the vertical arrows are smooth.
     Thus,
     \[
         \schemej_! k_Γ = 
@@ -169,8 +165,8 @@ However it would be nicer if there was some easy induction with \cite[Theorem~2.
     \]
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:main:repeated}]
-    We use Lemma~\ref{lem:key}.
-    By Lemma~\ref{lem:cover} we can assume that $X$ is affine.
-    Now the statement follows from an inductive argument using Lemma~\ref{lem:key_for_stablizier}.
+\begin{proof}[Proof of Theorem~\ref{thm:d-mod:main:repeated}]
+    We use Lemma~\ref{lem:d-mod:key}.
+    By Lemma~\ref{lem:d-mod:cover} we can assume that $X$ is affine.
+    Now the statement follows from an inductive argument using Lemma~\ref{lem:d-mod:key_for_stablizier}.
 \end{proof}
