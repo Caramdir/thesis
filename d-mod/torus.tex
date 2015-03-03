@@ -1,17 +1,18 @@
 \chapter{Proof of the main theorem}
 \label{ch:d-mod:torus}
 
-For this section let $G = T = \Gm^n$.
+Let not $G = T = \Gm^n$ be a torus acting locally linearly on $X$ and as always set $\stack X = X/T$.
 
 \begin{Thm}
     \label{thm:d-mod:main:repeated}%
-    If the action of $T$ on $X$ is locally linear, then the morphism \eqref{eq:d-mod:central_iso} induces an isomorphism of algebras
+    The morphism \eqref{eq:d-mod:central_iso} induces an isomorphism of algebras
     \[
         \HCoh\bigl(\catDMod{\stack X}\bigr) \cong \ΓdR\bigl(p_{1,!}(p₂^!(k_{\stack X}))\bigr)
     \]
 \end{Thm}
 
 Before we can prove this theorem we need to do some preparatory work.
+We will freely use the notations introduced in Chapter~\ref{ch:d-mod:strategy}, where we compactify $T=\Gm^n$ to $\bar T = (\ps1)^n$.
 
 Let $S$ be closed subgroup of $G = T$ and let $X^S$ be $S$-fixed points of $X$.
 Since $T$ is Abelian (and hence $S$ a normal subgroup), $X^S$ is a $T$-stable (closed) subscheme of $X$.
@@ -21,7 +22,9 @@ Let $\bar S$ be the closure of $S$ in $\bar T$ and consider the space
     \schemecls[S] \stack X =
     \{
         (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁\bar S
-    \}.
+    \}
+    \subseteq \schemecls\stack X
+    .
 \]
 We have a Cartesian square of closed embeddings
 \[
@@ -47,22 +50,19 @@ Finally let $\Stab\stack X$ be the set of all closed subgroups of $T$ that are s
     The subspaces $\schemecls[S] \stack X$ for $S ∈ \Stab\stack X$ cover $\schemecls\stack X$.
 \end{Lem}
 
-\begin{Lem}
+\begin{proof}
     Consider the spaces
     \[
         \schemels[S] \stack X = 
         \{
-            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁S
-        \}.
+            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ Γ \text{ and } t₂ ∈ t₁S
+        \}
+        \subseteq \schemels \stack X.
     \]
     The closure of $\schemels[S] \stack X$ in $\schemecls \stack X$ is exactly $\schemecls[S] \stack X$.
-    It is easy to see that the subspaces $\schemels[S] \stack X$ for $S ∈ \Stab \stack X$ cover $\schemels[S]$.
+    It is easy to see that the subspaces $\schemels[S] \stack X$ for $S ∈ \Stab \stack X$ cover $\schemels[S] \stack X$.
     Now the statement follows from the fact that the closure of a finite union is the union of the individual closures.
-\end{Lem}
-
-The following theorem is a generalization of \cite[Theorem~2.?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
-It can be proved in an analogous way to that theorem, see \texttt{torus-actions.pdf}.
-However it would be nicer if there was some easy induction with \cite[Theorem~2.?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden} as the base case.
+\end{proof}
 
 \begin{Lem}\label{lem:d-mod:key_for_stablizier}%
     Let $X$ be affine.
@@ -168,5 +168,7 @@ However it would be nicer if there was some easy induction with \cite[Theorem~2.
 \begin{proof}[Proof of Theorem~\ref{thm:d-mod:main:repeated}]
     We use Lemma~\ref{lem:d-mod:key}.
     By Lemma~\ref{lem:d-mod:cover} we can assume that $X$ is affine.
-    Now the statement follows from an inductive argument using Lemma~\ref{lem:d-mod:key_for_stablizier}.
+    Now isomorphism statement follows from an inductive argument using Lemma~\ref{lem:d-mod:key_for_stablizier}.
+
+    The algebra structure and the morphism of algebras follow from the constructions of Section~\ref{sec:d-mod:pre:monads} applied to the object $k_{\stack X}$.
 \end{proof}

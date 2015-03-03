@@ -46,6 +46,10 @@ then induces a morphism
     \HCoh\bigl(\catDMod{\stack X}\bigr).
 \]
 
+\begin{Rem}
+    In general it is not clear how to make $\ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)$ into an algebra.
+\end{Rem}
+
 \section{Understanding Hochschild cohomology via a relative compactification}
 
 In general the morphism~\eqref{eq:d-mod:central_iso} is of course not an isomorphism.
@@ -174,24 +178,24 @@ The various inclusions are summarized in the following squares.
 So far we have simply assumed the existence of a relative compactification $\bar Δ$ of the diagonal map $Δ$.
 We will now discuss an explicit method for constructing such a compactification.
 
-Constructing a relative compactification of $Δ\colon \stack X → \stack X × \stack X$ is the same as a first constructing a $G × G$-equivariant relative compactification of $(\proj1, a)\colon X × G → X × X$ (where $a\colon X × G → X$ is the action map) and then taking the quotient by the $G × G$ action\footnote{%
+Constructing a relative compactification of $Δ\colon \stack X → \stack X × \stack X$ is the same as a first constructing a $G × G$-equivariant relative compactification of $(\proj2, a)\colon G × X → X × X$ (where $a\colon G × X → X$ is the action map) and then taking the quotient by the $G × G$ action\footnote{%
     It might be worth mentioning that here $G × G$ acts on $X × G$ by $(s₁,s₂) \cdot (x,g) = (s₁x,\, s₂gs₁^{-1})$.
 }.
 We let 
 \[
-    Γ = \bigl\{(x, g, x, gx) ∈ X × G × X × X\bigr\}
+    Γ = \bigl\{(g, x, x, gx) ∈ G × X × X × X\bigr\}
 \]
-be the graph of $(\proj1, a)$.
+be the graph of $(\proj2, a)$.
 
-We pick a $G$-equivariant compactification $\bar G$ of $G$ and let $\bar Γ$ be the closure of $Γ$ in $X × \bar G × X × X$.
-We have an open embedding $j$ of $X × G \cong Γ$ into $\bar Γ$ and proper map $f\colon \bar Γ → X × X$ given by projection on the last two factors.
-The composition $f ∘ j$ is equal to $(\proj, a)$.
+We pick a $G$-equivariant compactification $\bar G$ of $G$ and let $\bar Γ$ be the closure of $Γ$ in $\bar G × X × X × X$.
+We have an open embedding $j$ of $G × X \cong Γ$ into $\bar Γ$ and proper map $f\colon \bar Γ → X × X$ given by projection on the last two factors.
+The composition $f ∘ j$ is equal to $(\proj2, a)$.
 
-Instead of viewing $Γ$ as the graph of $(\proj1, a)$ we can drop the third factor and regard it as the graph of the action map, i.e.
+Instead of viewing $Γ$ as the graph of $(\proj2, a)$ we can drop the third factor and regard it as the graph of the action map, i.e.
 \[
-    Γ_a = \bigl\{(x, g, gx) ∈ X × G × X\bigr\}.
+    Γ_a = \bigl\{(g, x, gx) ∈ G × X × X\bigr\}.
 \]
-The closure $\bar Γ_a$ of $Γ_a$ in $X × \bar G × X$ identifies with $\bar Γ$.
+The closure $\bar Γ_a$ of $Γ_a$ in $\bar G × X × X$ identifies with $\bar Γ$.
 Thus for ease of notation we will from now on always set $Γ = Γ_a$ and $\bar Γ = \bar Γ_a$.
 
 \begin{Def}
