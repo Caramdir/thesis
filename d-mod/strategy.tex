@@ -86,7 +86,7 @@ To understand the behavior for non-proper $f$, we will approximate it by a prope
     A \emph{relative compactification} of a morphism $f\colon X → Y$ is a commutative diagram 
     \[
         \begin{tikzcd}
-            \stack X \arrow[r, hook, "j"] \arrow[dr, "f"] & \bar{\stack X} \arrow[d, "\bar f"] \\
+            \stack X \arrow[r, hook, "j"] \arrow[dr, "f"'] & \bar{\stack X} \arrow[d, "\bar f"] \\
             & \stack Y
         \end{tikzcd}
     \]
@@ -213,6 +213,11 @@ Thus for ease of notation we will from now on always set $Γ = Γ_a$ and $\bar �
     We have an open embedding $j\colon X \hookrightarrow \bar{\stack X}$ and a proper morphism $\bar Δ\colon \bar{\stack X} → \stack X × \stack X$ induced by the map $f$ above, such that $Δ = \bar Δ ∘ j$.
 \end{Def}
 
+[ToDo: Remark about torus case (smoothness and reference).]
+
+Let $V$ be a $G$-stable subvariety of $\bar G$.
+We can do the above construction with $V$ instead of $\bar Γ$ to obtain a partial compactification which we will denote by $\bar{\stack X}_V$.
+
 \section{\Goodstack\ stacks}
 
 Let $\stack X = X/G$ be a quotient stack and consider any morphism of stacks $h\colon \stack Y → \stack X$.
@@ -233,13 +238,18 @@ Let us fix a relative compactification $\bar Δ \colon \bar{\stack X} → \stack
     If $\stack X = X/G$ is \goodstack, then there is a canonical structure of monad on $p_{2,!}p₁^!$ and the morphism $p_{2,!}p₁^! → Δ^!Δ_!$ is an isomorphism of monads.
     In particular there is an isomorphism of algebras
     \[
-        \ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)
+        \ΓdR\bigl(p_{2,!} p₁^! k_{\stack X}\bigr)
         →
         \HCoh\bigl(\catDMod{\stack X}\bigr).
     \]
 \end{Thm}
 
-ToDo: Add proof [apply to loopspace, and show that \cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}] can be applied].
+\begin{proof}[Outline of proof]
+    Apply \goodness\ for $h = \id_{\stack X}$ to obtain the base change isomorphism $p_{2,!}p₁^! → Δ^!Δ_!$.
+    Similarly use $\stack Y = \ls \stack X ×_{\stack X} \dotsc ×_{\stack X} \ls \stack X$ to obtain the further base change isomorphisms needed to obtain a monad structure on $p_{2,!}p₁^!$ induced by the groupoid $\ls \stack X \rightrightarrows \stack X$ (cf.~\cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}).
+    Then $p_{2,!}p₁^! → Δ^!Δ_!$ and the statement is evident.
+    [ToDo: Write this up in more detail.]
+\end{proof}
 
 \begin{Ex}
     For any algebraic group $G$ the stack $\B G = \pt/G$ is \goodstack. [ToDo: Add proof.]
@@ -260,7 +270,7 @@ ToDo: Add proof [apply to loopspace, and show that \cite[Lemma~II.1.7.1.4]{Gaits
 \end{proof}
 
 \begin{Lem}
-    \label{lem:d-mod:cover}%
+    \label{lem:d-mod:strategy:cover}%
     Let $U$ be a $G$-equivariant open subset of $X$ and assume that $X/G$ is \goodstack.
     Then $U/G$ is \goodstack.
     Conversely, if there exists a $G$-equivariant open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X$ is \goodstack.
@@ -324,3 +334,12 @@ ToDo: Add proof [apply to loopspace, and show that \cite[Lemma~II.1.7.1.4]{Gaits
     The sets $\bar Γ_i$ for an open cover cover of $\bar Γ$ and hence the stacks $\stack U_i = \rquot{\bar Γ_i}{G×G}$ form an open cover of $\bar{\stack X}$.
 \end{Rem}
 \fi%
+
+\begin{Lem}\label{lem:d-mod:strategy:cover-by-relative-compactifications}
+    Let $V_i$ be a $G$-stable open cover of $\bar G$.
+    Then $\stack X$ is good if and only $\tilde\imath_{\stack Y}^* \bar q_{\stack Y}^! j_! = 0$ for each relative compactification $\bar{\stack X}_{V_i}$ and each $\stack Y → \stack X$
+\end{Lem}
+
+[ToDo: Need better notation.]
+
+[ToDo: Proof (obvious).]

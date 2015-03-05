@@ -1,109 +1,149 @@
-\chapter{Proof of the main theorem}
+\chapter{Torus quotients}
 \label{ch:d-mod:torus}
 
-Let not $G = T = \Gm^n$ be a torus acting locally linearly on $X$ and as always set $\stack X = X/T$.
+The goal of this section is to prove the following theorem.
 
 \begin{Thm}
-    \label{thm:d-mod:main:repeated}%
-    The morphism \eqref{eq:d-mod:central_iso} induces an isomorphism of algebras
-    \[
-        \HCoh\bigl(\catDMod{\stack X}\bigr) \cong \ΓdR\bigl(p_{1,!}(p₂^!(k_{\stack X}))\bigr)
-    \]
+    \label{thm:d-mod:torus:is-good}%
+    Let $G$ be a torus acting locally linearly on a (?) scheme $X$.
+    Then the stack $\stack X = X/G$ is good.
 \end{Thm}
 
-Before we can prove this theorem we need to do some preparatory work.
-We will freely use the notations introduced in Chapter~\ref{ch:d-mod:strategy}, where we compactify $T=\Gm^n$ to $\bar T = (\ps1)^n$.
+By Lemma~\ref{lem:d-mod:strategy:cover}, it suffices to prove the theorem for affine schemes $X$.
+Set $G = \Gm^n$.
+We will compactify $G$ to $(\ps1)^n$.
+We note that the variety $(\ps1)^n$ can be covered by $G$-equivariant open subvarieties of the form $\as n$.
+Thus by Lemma~\ref{lem:d-mod:strategy:cover-by-relative-compactifications}, it suffices to check \goodness\ for the relative compactification $\Gm^n \subseteq \as n$.
+To simplify notation, we set $\bar{\stack X} = \bar{\stack X}_{\as n}$.
 
-Let $S$ be closed subgroup of $G = T$ and let $X^S$ be $S$-fixed points of $X$.
-Since $T$ is Abelian (and hence $S$ a normal subgroup), $X^S$ is a $T$-stable (closed) subscheme of $X$.
-Hence $X^S/T$ is a closed substack of $\stack X$.
-Let $\bar S$ be the closure of $S$ in $\bar T$ and consider the space
-\[
-    \schemecls[S] \stack X =
-    \{
-        (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁\bar S
-    \}
-    \subseteq \schemecls\stack X
-    .
-\]
-We have a Cartesian square of closed embeddings
+In the following we fix a quotient stack $\stack Y = Y/G$ and a morphism $h\colon \stack Y → \stack X$.
+We will be concerned with the diagrams
 \[
     \begin{tikzcd}
-        \schemelsc[S] \stack X \arrow[r, hook, "i_S^c"] \arrow[d, hook, "\tilde\schemei^S"] & \schemelsc\stack X \arrow[d, hook, "\tilde\schemei"] \\
-        \schemecls[S] \stack X \arrow[r, hook, "i_S"]   & \schemecls\stack X 
+        \cls_{\stack Y} \stack X \arrow[r, "\bar q"] \arrow[d] & \bar{\stack X} \arrow[d, "\bar Δ"] \\
+        \stack Y \arrow[r, "h∘Δ"] & \stack X × \stack X
+    \end{tikzcd}
+    \text{ and }
+    \begin{tikzcd}
+        \lsc_{\stack Y} \stack X \arrow[r, hook, "i"] \arrow[d] & \cls_{\stack Y} \stack X \arrow[d, "\bar q"] \\
+        \bar{\stack X}^c \arrow[r, hook] & \bar{\stack X}
     \end{tikzcd}
 \]
-Finally let $\Stab\stack X$ be the set of all closed subgroups of $T$ that are stabilizers of points of $X$, i.e.
+Rather than working with stack directly, we will base change to schemes.
+For this consider the notation introduced in the following diagram with Cartesian squares.
 \[
-    \Stab\stack X = \{ T_x : x ∈ X \}.
+    \begin{tikzcd}
+        \schemelsc_{\stack Y} \stack X \arrow[r, hook, "\schemei"] \arrow[d] & \schemecls_{\stack Y} \stack X \arrow[r, "\bar\schemeq"] \arrow[d] & \bar Γ \arrow[d] & G × X \arrow[l, hook', "\schemej"'] \arrow[d] \\
+        \lsc_{\stack Y} \stack X \arrow[r, hook, "i"] & \cls_{\stack Y} \stack X \arrow[r, "\bar q"] & \bar{\stack X} & \stack X \arrow[l, hook', "j"']
+    \end{tikzcd}
+\]
+Since pullback along the smooth vertical morphisms is conservative, it suffices to show that $\schemei^* \bar\schemeq^!\schemej_! \sheaf F = 0$ for all $G$-monodromic [ToDo: define] $\sheaf F ∈ \catDModC{G × X}$.
+Further let $\schemeh\colon X → Y$ be the $G$-equivariant morphism of schemes inducing $h$ on quotient stacks.
+Then the scheme $\schemecls_{\stack Y} \stack X$ is given by
+\[
+    \schemecls_{\stack Y} \stack X =
+    \biggl\{
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ
+    \biggr\}.
+\]
+We will cut this space into pieces according to the subgroups of $G$ that stabilize them.
+Thus let $\Stab\stack X$ be the set of all closed subgroups of $G$ that are stabilizers of points of $X$, i.e.
+\[
+    \Stab\stack X = \{ G_x : x ∈ X \}.
 \]
 
 \begin{Lem}
-    If $X$ is affine then $\Stab\stack X$ is finite.
+    The set $\Stab\stack X$ is finite.
 \end{Lem}
 
 \begin{proof}
-    $X$ can be embedded $T$-equivariantly into some $\as m$ with a linear $T$-action and for $\as m/T$ the statement is easy to see.
+    Since $X$ is affine, it can be embedded $G$-equivariantly into some $\as m$ with a linear $T$-action.
+    For $\as m/T$ the statement is easy to see.
 \end{proof}
 
+Let $S$ be closed subgroup of $G$ and let $X^S$ be the $S$-fixed points of $X$.
+Since $G$ is Abelian (and hence $S$ a normal subgroup), $X^S$ is a $G$-stable closed subscheme of $X$.
+Hence $X^S/G$ is a closed substack of $\stack X$.
+Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
+\[
+    \schemecls[S]_{\stack Y} \stack X =
+    \biggl\{
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S
+    \biggr\}
+    ⊆ 
+    \schemecls_{\stack Y} \stack X.
+\]
+
 \begin{Lem}
-    The subspaces $\schemecls[S] \stack X$ for $S ∈ \Stab\stack X$ cover $\schemecls\stack X$.
+    The subspaces $\schemecls[S]_{\stack Y} \stack X$ for $S ∈ \Stab\stack X$ cover $\schemecls_{\stack Y}\stack X$.
 \end{Lem}
 
 \begin{proof}
+    Let $\schemelsY Y \stack X$ be the smooth cover of $\ls_{\stack Y}\stack X$.
     Consider the spaces
     \[
-        \schemels[S] \stack X = 
-        \{
-            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ Γ \text{ and } t₂ ∈ t₁S
-        \}
-        \subseteq \schemels \stack X.
+        \schemelsY[S] \stack X = 
+        \biggl\{
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ Γ \text{ and } g₂ ∈ g₁S
+        \biggr\}
+        \subseteq \schemelsY \stack X.
     \]
-    The closure of $\schemels[S] \stack X$ in $\schemecls \stack X$ is exactly $\schemecls[S] \stack X$.
-    It is easy to see that the subspaces $\schemels[S] \stack X$ for $S ∈ \Stab \stack X$ cover $\schemels[S] \stack X$.
+    The closure of $\schemelsY[S] \stack X$ in $\schemeclsY \stack X$ is exactly $\schemeclsY[S] \stack X$.
+    It is easy to see that the subspaces $\schemelsY[S] \stack X$ for $S ∈ \Stab \stack X$ cover $\schemelsY[S] \stack X$.
     Now the statement follows from the fact that the closure of a finite union is the union of the individual closures.
 \end{proof}
 
+We have a Cartesian square of closed embeddings
+\[
+    \begin{tikzcd}
+        \schemelscY[S] \stack X \arrow[r, hook, "i_S^c"] \arrow[d, hook, "\schemei^S"] & \schemelscY\stack X \arrow[d, hook, "\schemei"] 
+        \\
+        \schemeclsY[S] \stack X \arrow[r, hook, "i_S"]   & \schemeclsY\stack X 
+    \end{tikzcd}
+\]
+
 \begin{Lem}\label{lem:d-mod:key_for_stablizier}%
-    Let $X$ be affine.
-    For any $S ∈ \Stab\stack X$ we have
+    For any $S ∈ \Stab\stack X$ and any $\sheaf F ∈ \catDMod{Γ}^{G×G\text{-mon}}$ we have
     \[
-        \tilde\schemei^{S,*} i_S^! \schemep₂^! \schemej_! k_Γ = 0.
+        \schemei^{S,*} i_S^! \bar\schemeq^! \schemej_! \sheaf F = 0.
     \]
 \end{Lem}
+
 
 \begin{proof}
     The scheme $\schemelsc[S] \stack X$ is of the form
     \[
-        \schemelsc[S] \stack X  = 
-        \{
-            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁(\bar S \setminus S)
-        \}.
+        \schemelscY[S] \stack X  = 
+        \biggl\{
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S \setminus S)
+        \biggr\}.
     \]
     If $S = \bar S$ the statement is trivially true.
-    Otherwise the schemes $\bar S \setminus S$ is the union of hyperplanes $H_i$ of $\bar S$.
+    Otherwise the scheme $\bar S \setminus S$ is the union of hyperplanes $H_i$ of $\bar S$.
     It suffices to prove the statement when further restricting to 
     \[
-        \{
-            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁H_i
-        \}
+        \biggl\{
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
+        \biggr\}.
     \]
     for all $i$. 
     Let $H$ be one such hyperplane.
     We will assume that $H$ is contained in the closure of the connected component of $1 ∈ S$. 
-    The proof for $H$ is a different component is the same, up to a shift by an element of $T$.
+    The proof for $H$ is a different component is the same, up to a shift by an element of $G$.
     Let $\schemei_H$ be the inclusion of
     \[
-        Z = \{
-            (x, t₁, t₂, t₁x) ∈ X^S × T × \bar T × X^S : (x, t₂, t₁x) ∈ \bar Γ \text{ and } t₂ ∈ t₁H
-        \}
+        Z = 
+        \biggl\{
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
+        \biggr\}.
     \]
-    into $\schemecls[S] \stack X$.
+    into $\schemeclsY[S] \stack X$.
     We want to compute
     \[
-        \schemei_H^{*} i_S^! \schemep₂^! \schemej_! k_Γ.
+        \schemei_H^{*} i_S^! \bar\schemeq^! \schemej_! \sheaf F.
     \]
 
+    \iffalse
     Consider the Cartesian square
     \[
         \begin{tikzcd}
@@ -125,50 +165,61 @@ Finally let $\Stab\stack X$ be the set of all closed subgroups of $T$ that are s
         \schemei_H^{*} i_S^! \schemep₂^! q^! \schemej_{T,!} k_T = 
         \schemei_H^{*} f^! \schemej_{T,!} k_T.
     \]
-    
-    Write $T \cong T₁ × S$ for some subgroup $T₁$ of $T$.
-    Then $\bar T = \bar T₁ \bar S$.
-    Let $H' = \bar T₁ H$.
-    We note that $T ∩ H' = \emptyset$.
+    \fi
 
+    Write $G \cong G₁ × S$ for some subgroup $G₁$ of $G$.
+    Then $\bar G = \bar G₁ \bar S$.
+    Let $H' = \bar G₁ H$.
+    We note that $G ∩ H' = \emptyset$.
+    
     We chose an action $μ$ of $\Gm$ on $\bar S$ that contracts $\bar S$ onto $H$.
     This induces an action of $\Gm$ on $\bar T = \bar T₁ \bar S$ by $u \cdot ts = tμ(u,s)$, contracting $\bar T$ onto $H'$.
-    The D-module $k_T$ is monodromic with respect to this action.
-    Let $π \colon \bar T → H'$ and $\tilde π\colon \schemecls[S] \stack X → Z$ be the induced contraction morphisms.
-    
-    By the contraction principle \cite[Theorem~?]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}, $\schemei_H^* = \tilde π_\renstar$ on $\Gm$-monodromic D-modules.
-    Thus,
+    Further we obtain an action of $\Gm$ on $\bar Γ$ that keeps the first $X$ coordinate fixed.
+    By construction this action contracts $\bar Γ$ onto a closed subvariety of $\bar Γ \setminus Γ$.
+    We will denote this subvariety by $Z₁$ and the contraction morphism $π\colon \bar Γ → Z₁$ by $π₁$.
+    We can also lift this action to $\schemeclsY\stack X$ where it contracts onto $Z$.
+    We will denote the corresponding contraction morphism by $π\colon \schemeclsY[S]\stack X → Z$.
+
+    We note that the D-modules $\schemej_!\sheaf F$ and $i_S^!\bar\schemeq^!\schemej_! \sheaf F$ are monodromic with respect to these $\Gm$-actions.
+    The contraction principle \cite[Theorem~C.5.3]{DrinfeldGaitsgory:arXiv:CompactGenerationOfDModOnBunG} thus implies that
+    % Note: Do not need renormalized pushforward, since π is evidently schematic.
     \[
-        \schemei_H^{*} f^! \schemej_{T,!} k_T = 
-        \tilde π_\renstar f^! \schemej_{T,!} k_T.
+        \schemei_H^* i_S^!\bar\schemeq^!\schemej_! \sheaf F = π_* i_S^!\bar\schemeq^!\schemej_! \sheaf F.
     \]
     The square
     \[
         \begin{tikzcd}
-            \schemecls[S] \arrow[r, "\tilde π"] \arrow[d, "f"] & Z \arrow[d, "f_Z"] \\
-            \bar T \arrow[r, "π"] & H'
+            \schemecls[S] \arrow[r, "π"] \arrow[d, "\schemeq ∘ i_S"] & Z \arrow[d] \\
+            \bar Γ \arrow[r, "π₁"] & Z₁
         \end{tikzcd}
     \]
-    is Cartesian.
+    is Cartesian. 
+    Let us call the right vertical map $f$.
     Base change yields
     \[
-        \tilde π_\renstar f^! \schemej_{T,!} k_T = 
-        f_Z^! π_\renstar \schemej_{T,!} k_T.
+        π_* i_S^!\bar\schemeq^!\schemej_! \sheaf F = 
+        f^!π_{1,*} \schemej_! \sheaf F.
     \]
-    Finally, let $i_{H'}\colon H' \hookrightarrow \bar T$ be the inclusion.
+    Finally, let $i_{Z₁}\colon Z₁ \hookrightarrow \bar Γ$ be the inclusion.
     Applying the contraction principle again we obtain
     \[
-        f_Z^! π_\renstar \schemej_{T,!} k_T =
-        f_Z^! i_{H'}^* \schemej_{T,!} k_T =
+        f^!π_{1,*} \schemej_! \sheaf F =
+        f^!i_{Z₁}^* \schemej_! \sheaf F =
         0.
         \qedhere
     \]
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:d-mod:main:repeated}]
-    We use Lemma~\ref{lem:d-mod:key}.
-    By Lemma~\ref{lem:d-mod:cover} we can assume that $X$ is affine.
-    Now isomorphism statement follows from an inductive argument using Lemma~\ref{lem:d-mod:key_for_stablizier}.
-
-    The algebra structure and the morphism of algebras follow from the constructions of Section~\ref{sec:d-mod:pre:monads} applied to the object $k_{\stack X}$.
+\begin{proof}[Outline of proof of Theorem~\ref{thm:d-mod:torus:is-good}]
+    Iterated Mayer-Vietoris argument using Lemma~\ref{lem:d-mod:key_for_stablizier}.
+    Note that if $S₁,\, S₂ ∈ \Stab\stack X$, then
+    \[
+        \schemeclsY[S₁]\stack X ∩ \schemeclsY[S₂]\stack X =
+        \biggl\{
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₁S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ ∩ \bar S₂)
+        \biggr\},
+    \]
+    to which we can apply the arguments of Lemma~\ref{lem:d-mod:key_for_stablizier}.
+    [ToDo: Change Lemma~\ref{lem:d-mod:key_for_stablizier} to make this explicit.]
+    [ToDo: Write up this proof.]
 \end{proof}

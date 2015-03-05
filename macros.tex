@@ -38,6 +38,8 @@
 % d-modules
 % ----------
 
+\newcommand\catDModC[1]{\catDMod{#1}^c}
+
 \newcommand\dR{\mathrm{dR}}
 \newcommand{\renstar}{\blacktriangle}
 
@@ -59,14 +61,22 @@
 %\newcommand\schemecls[1]{\overline{\mathcal{L}}\mkern2.5mu #1}
 %\newcommand\schemelsc[1]{\mathcal{L}\mkern2.5mu^c #1}
 \newcommand\schemels[2][]{\cyrmath{Л}\mkern1.5mu^{#1}#2}
+\newcommand\schemelsY[2][]{\schemels[#1]{_{\stack Y}#2}}
 \newcommand\schemecls[2][]{\overline{\cyrmath{Л}}\mkern1.5mu^{#1}#2}
+\newcommand\schemeclsY[2][]{\schemecls[#1]{_{\stack Y}#2}}
 \newcommand\schemelsc[2][]{\cyrmath{Л}\mkern1.5mu^{\if\relax\detokenize{#1}\relax\else#1,\fi c} #2}
+\newcommand\schemelscY[2][]{\schemelsc[#1]{_{\stack Y}#2}}
 
-\newcommand\schemei{\cyrmath{и}}
-\newcommand\schemej{\cyrmath{й}}
-\newcommand\schemep{\cyrmath{п}}
+%\newcommand\schemei{\cyrmath{и}}
+%\newcommand\schemej{\cyrmath{й}}
+%\newcommand\schemep{\cyrmath{п}}
+\newcommand\schemei{\tilde{\imath}}
+\newcommand\schemej{\tilde{\jmath}}
+\newcommand\schemeq{\tilde{q}}
+\newcommand\schemeh{\tilde{h}}
 
 \newcommand\Stab{\operatorname{Stab}}
 
 \newcommand\goodstack{good}
 \newcommand\Goodstack{Good}
+\newcommand\goodness{goodness}
