@@ -75,6 +75,7 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
 \]
 
 \begin{Lem}
+    \label{lem:d-mod:stabilizers_cover}%
     The subspaces $\schemecls[S]_{\stack Y} \stack X$ for $S ∈ \Stab\stack X$ cover $\schemecls_{\stack Y}\stack X$.
 \end{Lem}
 
@@ -93,102 +94,88 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
     Now the statement follows from the fact that the closure of a finite union is the union of the individual closures.
 \end{proof}
 
-We have a Cartesian square of closed embeddings
+It will be useful to have a slight generalization of the schemes $\schemeclsY[S]$.
+Let $S₁ \subseteq S₂$ be two subgroups of $G$ contained in $\Stab\stack X$.
+We set
+\[
+    \schemeclsY[S₁,S₂] \stack X =
+    \biggl\{
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S₁
+    \biggr\}.
+\]
+Clearly we have $\schemeclsY[S₁,S₂]{\stack X} \subseteq \schemecls[S₁]{\stack X}$ and $\schemeclsY[S] \stack X = \schemeclsY[S,S] \stack X$.
+
+Consider the Cartesian square of closed embeddings
 \[
     \begin{tikzcd}
-        \schemelscY[S] \stack X \arrow[r, hook, "i_S^c"] \arrow[d, hook, "\schemei^S"] & \schemelscY\stack X \arrow[d, hook, "\schemei"] 
+        \schemelscY[S₁,S₂] \stack X \arrow[r, hook, "i_{S₁,S₂}^c"] \arrow[d, hook, "\schemei^{S₁,S₂}"] & \schemelscY\stack X \arrow[d, hook, "\schemei"] 
         \\
-        \schemeclsY[S] \stack X \arrow[r, hook, "i_S"]   & \schemeclsY\stack X 
+        \schemeclsY[S₁,S₂] \stack X \arrow[r, hook, "i_{S₁,S₂}"]   & \schemeclsY\stack X 
     \end{tikzcd}
 \]
 
 \begin{Lem}\label{lem:d-mod:key_for_stablizier}%
-    For any $S ∈ \Stab\stack X$ and any $\sheaf F ∈ \catDModHol{Γ}^{G×G\text{-mon}}$ we have
+    For any $S₁ ⊆ S₂$ in $\Stab\stack X$ and any $\sheaf F ∈ \catDModHolMon{Γ}{G×G}$ we have
     \[
-        \schemei^{S,*} i_S^! \bar\schemeq^! \schemej_! \sheaf F = 0.
+        \schemei^{S₁,S₂,*} i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F = 0.
     \]
 \end{Lem}
 
 
 \begin{proof}
-    The scheme $\schemelsc[S] \stack X$ is of the form
+    The scheme $\schemelsc[S₁,S₂] \stack X$ is given by
     \[
-        \schemelscY[S] \stack X  = 
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S \setminus S)
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ \setminus S₁)
         \biggr\}.
     \]
-    If $S = \bar S$ the statement is trivially true.
-    Otherwise the scheme $\bar S \setminus S$ is the union of hyperplanes $H_i$ of $\bar S$.
+    If $S₁ = \bar S₁$ the statement is trivially true.
+    Otherwise the scheme $\bar S₁ \setminus S₁$ is the union of hyperplanes $H_i$ of $\bar S₁$.
     It suffices to prove the statement when further restricting to 
     \[
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
         \biggr\}.
     \]
     for all $i$. 
     Let $H$ be one such hyperplane.
-    We will assume that $H$ is contained in the closure of the connected component of $1 ∈ S$. 
+    We will assume that $H$ is contained in the closure of the connected component of $1 ∈ S₁$. 
     The proof for $H$ is a different component is the same, up to a shift by an element of $G$.
     Let $\schemei_H$ be the inclusion of
     \[
         Z = 
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
         \biggr\}.
     \]
-    into $\schemeclsY[S] \stack X$.
+    into $\schemeclsY[S₁,S₂] \stack X$.
     We want to compute
     \[
-        \schemei_H^{*} i_S^! \bar\schemeq^! \schemej_! \sheaf F.
+        \schemei_H^{*} i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F.
     \]
 
-    \iffalse
-    Consider the Cartesian square
-    \[
-        \begin{tikzcd}
-            Γ \arrow[r, hook, "\schemej"] \arrow[d, "\tilde q"] & \bar Γ \arrow[d, "q"] \\
-            T \arrow[r, hook, "\schemej_T"] & \bar T
-        \end{tikzcd}
-    \]
-    By Theorem~\ref{thm:d-mod:smoothness_of_compactification}, the vertical arrows are smooth.
-    Thus,
-    \[
-        \schemej_! k_Γ = 
-        \schemej_! \tilde q^* k_T = 
-        q^* \schemej_{T,!} k_T = 
-        q^! \schemej_{T,!} k_T.
-    \]
-    Let $f = q ∘ \schemep₂ ∘ i_S$, so that
-    \[
-        \schemei_H^{*} i_S^! \schemep₂^! \schemej_! k_Γ = 
-        \schemei_H^{*} i_S^! \schemep₂^! q^! \schemej_{T,!} k_T = 
-        \schemei_H^{*} f^! \schemej_{T,!} k_T.
-    \]
-    \fi
-
-    Write $G \cong G₁ × S$ for some subgroup $G₁$ of $G$.
-    Then $\bar G = \bar G₁ \bar S$.
+    Write $G \cong G₁ × S₁$ for some subgroup $G₁$ of $G$.
+    Then $\bar G = \bar G₁ \bar S₁$.
     Let $H' = \bar G₁ H$.
     We note that $G ∩ H' = \emptyset$.
     
-    We chose an action $μ$ of $\Gm$ on $\bar S$ that contracts $\bar S$ onto $H$.
-    This induces an action of $\Gm$ on $\bar T = \bar T₁ \bar S$ by $u \cdot ts = tμ(u,s)$, contracting $\bar T$ onto $H'$.
+    We chose an action $μ$ of $\Gm$ on $\bar S₁$ that contracts $\bar S₁$ onto $H$.
+    This induces an action of $\Gm$ on $\bar G = \bar G₁ \bar S₁$ by $u \cdot ts = tμ(u,s)$, contracting $\bar G$ onto $H'$.
     Further we obtain an action of $\Gm$ on $\bar Γ$ that keeps the first $X$ coordinate fixed.
     By construction this action contracts $\bar Γ$ onto a closed subvariety of $\bar Γ \setminus Γ$.
     We will denote this subvariety by $Z₁$ and the contraction morphism $π\colon \bar Γ → Z₁$ by $π₁$.
-    We can also lift this action to $\schemeclsY\stack X$ where it contracts onto $Z$.
-    We will denote the corresponding contraction morphism by $π\colon \schemeclsY[S]\stack X → Z$.
+    We can also lift this action to $\schemeclsY[S₁,S₂]\stack X$ where it contracts onto $Z$.
+    We will denote the corresponding contraction morphism by $π\colon \schemeclsY[S₁,S₂]\stack X → Z$.
 
-    We note that the D-modules $\schemej_!\sheaf F$ and $i_S^!\bar\schemeq^!\schemej_! \sheaf F$ are monodromic with respect to these $\Gm$-actions.
+    We note that the D-modules $\schemej_!\sheaf F$ and $i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F$ are monodromic with respect to these $\Gm$-actions.
     The contraction principle Theorem~\ref{thm:d-mod:pre:contraction_principle} thus implies that
     \[
-        \schemei_H^* i_S^!\bar\schemeq^!\schemej_! \sheaf F = π_* i_S^!\bar\schemeq^!\schemej_! \sheaf F.
+        \schemei_H^* i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F = π_* i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F.
     \]
     The square
     \[
         \begin{tikzcd}
-            \schemecls[S] \arrow[r, "π"] \arrow[d, "\schemeq ∘ i_S"] & Z \arrow[d] \\
+            \schemecls[S₁,S₂] \arrow[r, "π"] \arrow[d, "\schemeq ∘ i_{S₁,S₂}"] & Z \arrow[d] \\
             \bar Γ \arrow[r, "π₁"] & Z₁
         \end{tikzcd}
     \]
@@ -196,7 +183,7 @@ We have a Cartesian square of closed embeddings
     Let us call the right vertical map $f$.
     Base change yields
     \[
-        π_* i_S^!\bar\schemeq^!\schemej_! \sheaf F = 
+        π_* i_{S₁,S₂}^!\bar\schemeq^!\schemej_! \sheaf F = 
         f^!π_{1,*} \schemej_! \sheaf F.
     \]
     Finally, let $i_{Z₁}\colon Z₁ \hookrightarrow \bar Γ$ be the inclusion.
@@ -210,15 +197,11 @@ We have a Cartesian square of closed embeddings
 \end{proof}
 
 \begin{proof}[Outline of proof of Theorem~\ref{thm:d-mod:torus:is-good}]
-    Iterated Mayer-Vietoris argument using Lemma~\ref{lem:d-mod:key_for_stablizier}.
+    Iterated Mayer-Vietoris argument using lemmas~\ref{lem:d-mod:stabilizers_cover} and~\ref{lem:d-mod:key_for_stablizier}.
     Note that if $S₁,\, S₂ ∈ \Stab\stack X$, then
     \[
-        \schemeclsY[S₁]\stack X ∩ \schemeclsY[S₂]\stack X =
-        \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₁S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ ∩ \bar S₂)
-        \biggr\},
+        \schemeclsY[S₁]\stack X ∩ \schemeclsY[S₂]\stack X = 
+        \schemeclsY[S₁∩S₂,\, S₁S₂].
     \]
-    to which we can apply the arguments of Lemma~\ref{lem:d-mod:key_for_stablizier}.
-    [ToDo: Change Lemma~\ref{lem:d-mod:key_for_stablizier} to make this explicit.]
     [ToDo: Write up this proof.]
 \end{proof}
