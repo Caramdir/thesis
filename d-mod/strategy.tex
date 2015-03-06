@@ -34,7 +34,7 @@ Consider the Cartesian square
     \end{tikzcd}
 \]
 Let us assume for the moment that $Δ$ (and hence $p_i$) was proper.
-Then by Section~\ref{sec:d-mod:pre:monads} we have an isomorphism of monads
+Then $Δ_* = Δ_!$ and $p_{2,*} = p_{2,!}$ and by Section~\ref{sec:d-mod:pre:monads} we have an isomorphism of monads
 \begin{equation}
     \label{eq:d-mod:central_iso}
     p_{2,!} p₁^! → Δ^!Δ_!,
@@ -47,7 +47,7 @@ which induces an isomorphism of algebras
 \]
 Of course, if $X$ is not an algebraic space, then $Δ$ is not proper (nor is it in general smooth).
 Thus in general \eqref{eq:d-mod:central_iso} is not an isomorphism and there is no canonical structure of monad on $p_{2,!} p₁^!$.
-Note however that on compact D-modules we always have a morphism as in \eqref{eq:d-mod:central_iso} given by the adjunctions
+Note however that on holonomic D-modules we always have a morphism as in \eqref{eq:d-mod:central_iso} given by the adjunctions
 \begin{equation}
     \label{eq:d-mod:central_iso_adjunctions}
     p_{2,!}p₁^! →
@@ -65,8 +65,8 @@ Consider a Cartesian diagram of stacks
         \stack X₂ \arrow[r, "g"] & \stack Y
     \end{tikzcd}
 \]
-(with $f$ schematic?)
-We have a morphism of functors $\catDMod{\stack X₁} → \catDMod{\stack X₂}$ [compact D-modules!],
+with $f$ and $g$ schematic.
+We have a morphism of functors $\catDModHol{\stack X₁} → \catDModHol{\stack X₂}$,
 \begin{equation}
     \label{eq:d-mod:base-change-morphism}
      p_! q^! → g^! f_!

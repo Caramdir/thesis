@@ -3,17 +3,44 @@
 Everything over an algebraically closed field of characteristic $0$.
 QCA stacks (?)
 
+\section{Category theory}
+
+\begin{itemize}
+    \item Note on dg categories
+    \item Co-complete categories and continuous functors
+\end{itemize}
+
 \section{D-modules on stacks}
 
 \begin{itemize}
     \item Definition via $\catIndCoh{\stack X_{\dR}}$.
     \item $f^!$, $f_*$, $Γ_{\dR}$
-    \item $ω_{\stack X}$
-    \item $k_{\stack X}$ and $f^*$.
-    \item compact D-modules and preservation of them (under $f_*$ if schematic and $f^!$ in general); safety
-    \item duality (on compacts?)
-    \item non-standard functors on compact D-modules $f_!$, $f^*$ [We should probably worry a bit that all $_!$ and $^*$ functors are defined on the objects to which we apply them.]
-    \item base change (via adjunctions)
+    \item ($ω_{\stack X}$)
+    \item $k_{\stack X}$
+\end{itemize}
+
+In this thesis we will be mainly concerned with the subcategory of holonomic D-modules.
+See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic D-modules on arbitrary $k$-schemes and their compatibility with $f^!$, $f_*$ and $\dualize$.
+
+\begin{Def}
+    A $D$-module $\sheaf F ∈ \catDMod{\stack X}$ is called \emph{holonomic} if $f^!\sheaf F$ is holonomic for any smooth morphism $f\colon Z → \stack X$ from a scheme $Z$.
+    The full subcategory of holonomic D-modules will be denoted with $\catDModHol{\stack X}$.
+\end{Def}
+
+\begin{Prop}
+    Let $f\colon \stack X → \stack Y$ be a schematic morphism.
+    Then $f^!$ and $f_*$ restrict to functors 
+    \[
+        f^!\colon \catDModHol{\stack Y} → \catDModHol{\stack X}
+        \quad\text{and}\quad
+        f_*\colon \catDModHol{\stack X} → \catDModHol{\stack Y}.
+    \]
+\end{Prop}
+
+\begin{itemize}
+    \item duality (on coherent/holonomic)
+    \item non-standard functors on holonomic D-modules $f_!$, $f^*$ [We should probably worry a bit that all $_!$ and $^*$ functors are defined on the objects to which we apply them.]
+    \item base change (via adjunctios)
     \item Monodromic D-modules and the contraction principle
 \end{itemize}
 

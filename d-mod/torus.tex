@@ -37,7 +37,7 @@ For this consider the notation introduced in the following diagram with Cartesia
         \lsc_{\stack Y} \stack X \arrow[r, hook, "i"] & \cls_{\stack Y} \stack X \arrow[r, "\bar q"] & \bar{\stack X} & \stack X \arrow[l, hook', "j"']
     \end{tikzcd}
 \]
-Since pullback along the smooth vertical morphisms is conservative, it suffices to show that $\schemei^* \bar\schemeq^!\schemej_! \sheaf F = 0$ for all $G$-monodromic [ToDo: define] $\sheaf F ∈ \catDModC{G × X}$.
+Since pullback along the smooth vertical morphisms is conservative, it suffices to show that $\schemei^* \bar\schemeq^!\schemej_! \sheaf F = 0$ for all $G$-monodromic [ToDo: define] $\sheaf F ∈ \catDModHol{G × X}$.
 Further let $\schemeh\colon X → Y$ be the $G$-equivariant morphism of schemes inducing $h$ on quotient stacks.
 Then the scheme $\schemecls_{\stack Y} \stack X$ is given by
 \[
@@ -103,7 +103,7 @@ We have a Cartesian square of closed embeddings
 \]
 
 \begin{Lem}\label{lem:d-mod:key_for_stablizier}%
-    For any $S ∈ \Stab\stack X$ and any $\sheaf F ∈ \catDMod{Γ}^{G×G\text{-mon}}$ we have
+    For any $S ∈ \Stab\stack X$ and any $\sheaf F ∈ \catDModHol{Γ}^{G×G\text{-mon}}$ we have
     \[
         \schemei^{S,*} i_S^! \bar\schemeq^! \schemej_! \sheaf F = 0.
     \]
