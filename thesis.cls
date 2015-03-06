@@ -240,8 +240,8 @@
 \newtheorem{Q}[Thm]{Question}
 \newtheorem{Problem}[Thm]{Problem}
 \newtheorem{Warning}[Thm]{Warning}
-\declaretheorem[name=Example,sibling=Thm,qed={\lower-0.3ex\hbox{$◃$}}]{Ex}
-\declaretheorem[name=Examples,sibling=Ex,qed={\lower-0.3ex\hbox{$◃$}}]{Exs}
+\declaretheorem[name=Example,sibling=Thm,qed={\lower-0.3ex\hbox{$◯$}}]{Ex}
+\declaretheorem[name=Examples,sibling=Ex,qed={\lower-0.3ex\hbox{$◯$}}]{Exs}
 
 \let\@version\@empty%
 \newcommand{\version}[1]{\gdef\@version{#1}}%
