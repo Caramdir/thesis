@@ -37,7 +37,7 @@ For this consider the notation introduced in the following diagram with Cartesia
         \lsc_{\stack Y} \stack X \arrow[r, hook, "i"] & \cls_{\stack Y} \stack X \arrow[r, "\bar q"] & \bar{\stack X} & \stack X \arrow[l, hook', "j"']
     \end{tikzcd}
 \]
-Since pullback along the smooth vertical morphisms is conservative, it suffices to show that $\schemei^* \bar\schemeq^!\schemej_! \sheaf F = 0$ for all $G$-monodromic [ToDo: define] $\sheaf F ∈ \catDModHol{G × X}$.
+Since pullback along the smooth vertical morphisms is conservative, it suffices to show that $\schemei^* \bar\schemeq^!\schemej_! \sheaf F = 0$ for all $G$-monodromic $\sheaf F ∈ \catDModHol{G × X}$ (see Definition~\ref{def:d-mod:pre:monodromic} for the meaning of the word \enquote{monodromic}).
 Further let $\schemeh\colon X → Y$ be the $G$-equivariant morphism of schemes inducing $h$ on quotient stacks.
 Then the scheme $\schemecls_{\stack Y} \stack X$ is given by
 \[
@@ -181,8 +181,7 @@ We have a Cartesian square of closed embeddings
     We will denote the corresponding contraction morphism by $π\colon \schemeclsY[S]\stack X → Z$.
 
     We note that the D-modules $\schemej_!\sheaf F$ and $i_S^!\bar\schemeq^!\schemej_! \sheaf F$ are monodromic with respect to these $\Gm$-actions.
-    The contraction principle \cite[Theorem~C.5.3]{DrinfeldGaitsgory:arXiv:CompactGenerationOfDModOnBunG} thus implies that
-    % Note: Do not need renormalized pushforward, since π is evidently schematic.
+    The contraction principle Theorem~\ref{thm:d-mod:pre:contraction_principle} thus implies that
     \[
         \schemei_H^* i_S^!\bar\schemeq^!\schemej_! \sheaf F = π_* i_S^!\bar\schemeq^!\schemej_! \sheaf F.
     \]
