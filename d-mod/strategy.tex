@@ -246,8 +246,12 @@ Let us fix a relative compactification $\bar Δ \colon \bar{\stack X} → \stack
 
 \begin{proof}[Outline of proof]
     Apply \goodness\ for $h = \id_{\stack X}$ to obtain the base change isomorphism $p_{2,!}p₁^! → Δ^!Δ_!$.
-    Similarly use $\stack Y = \ls \stack X ×_{\stack X} \dotsc ×_{\stack X} \ls \stack X$ to obtain the further base change isomorphisms needed to obtain a monad structure on $p_{2,!}p₁^!$ induced by the groupoid $\ls \stack X \rightrightarrows \stack X$ (cf.~\cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}).
-    Then $p_{2,!}p₁^! → Δ^!Δ_!$ and the statement is evident.
+    Similarly use $\stack Y = \ls \stack X ×_{\stack X} \dotsc ×_{\stack X} \ls \stack X$ to obtain the further base change isomorphisms needed to obtain a monad structure on 
+    \[
+        p_{2,!}p₁^! \colon \catDModHol{\stack X} → \catDModHol{\stack X}
+    \]
+    induced by the groupoid $\ls \stack X \rightrightarrows \stack X$ (cf.~\cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}).
+    Then $p_{2,!}p₁^! → Δ^!Δ_!$ is an isomorphism of monads and the statement is evident.
     [ToDo: Write this up in more detail.]
 \end{proof}
 

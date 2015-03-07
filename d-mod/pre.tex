@@ -3,7 +3,7 @@
 \begin{itemize}
     \item Everything over an algebraically closed field of characteristic $0$.
     \item Assumptions on stacks.
-    \item Note on dg categories.
+    \item Note on dg categories / linear stable ($∞$,1)-categories.
 \end{itemize}
 
 \section{D-modules on stacks}
@@ -55,20 +55,12 @@ See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic
     \]
 \end{Thm}
 
-\section{Hochschild cohomology}
-
-\begin{itemize}
-    \item Co-complete categories and continuous functors
-    \item Definition via $\Hom_{\cat{Funct}_{\text{(cont)}}}(\id, \id)$.
-    \item Continuous functors and kernels.
-    \item The case of D-modules.
-\end{itemize}
 
 \section{Monads}
 \label{sec:d-mod:pre:monads}
 
 \begin{itemize}
-    \item monads (on dg categories), morphisms between monads
+    \item monads (on dg categories; \cite[Section~4.7]{Lurie:2014-draft:HigherAlgebra}), morphisms between monads
     \item $T$ a monad on $\cat C$, then $\Hom_{\cat C}(X, TX)$ is a (unital, associative) $k$-algebra for all $X ∈ \cat C$.
     \item morphisms of monads give morphisms of algebras
     \item monads from adjunction
@@ -112,7 +104,7 @@ This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{G₀}$ the stru
         \[
             \begin{tikzcd}[column sep=small]
                 {} & & G₁ \arrow[dddll, bend right, "s"] \arrow[dddrr, bend left, "t"] & & \\
-                & & G₁ ×_{G₀} \arrow[u, "m"] \arrow[dl, "π₁"] \arrow[dr, "π₂"] G₁ & & \\
+                & & G₁ ×_{G₀} \arrow[u, "m"] \arrow[dl, "p₂"] \arrow[dr, "p₁"] G₁ & & \\
                 & G₁ \arrow[dl, "s"] \arrow[dr, "t"] & & G₁ \arrow[dl, "s"] \arrow[dr, "t"] & \\
                 G₀ & & G₀ & & G₀
             \end{tikzcd}
@@ -122,7 +114,7 @@ This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{G₀}$ the stru
         \[
             T² =
             s_*t^!s_*t^! =
-            (s∘π₁)_*(t∘π₂)^! =
+            (s∘p₂)_*(t∘p₁)^! =
             (s∘m)_*(t∘m)^! =
             s_*m_*m^!t^! →
             s_*t^! =
@@ -133,5 +125,14 @@ This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{G₀}$ the stru
 \begin{itemize}
     \item this is actually a monad
     \item base change morphism from groupoid monad ($X ×_S X$) to adjunction monad (proper case)
-    \item monads from groupoids (general case): \cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}
+    \item monads from groupoids (general case): \cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}, \cite[Section~4.7.6]{Lurie:2014-draft:HigherAlgebra}
+\end{itemize}
+
+\section{Hochschild cohomology}
+
+\begin{itemize}
+    \item Co-complete categories and continuous functors
+    \item Definition via $\Hom_{\cat{Funct}_{\text{(cont)}}}(\id, \id)$.
+    \item Continuous functors and kernels.
+    \item The case of D-modules: via kernel; adjunction monad; algebra structure is the one induced from the adjunction monad.
 \end{itemize}
