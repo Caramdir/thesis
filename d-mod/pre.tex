@@ -8,16 +8,35 @@
 
 \section{D-modules on stacks}
 
-\begin{itemize}
-    \item References: \cite{GaitsgoryRozenblyum:prelim:StudyInDAG,GaitsgoryRozenblyum:2014:CrystalsAndDModules,FrancisGaitsgory:2012:ChiralKoszulDuality,DrinfeldGaitsgory:2013:FinitenessQuestions}, also \cite{BeilinsonDrifeld:unpublished:Hitchin}
-    \item Definition via $\catIndCoh{\stack X_{\dR}}$.
-    \item $f^!$, $f_*$, $Γ_{\dR}$
-    \item $\otimes$
-    \item $ω_{\stack X}$; unit of $\otimes$
-    \item $k_{\stack X}$
-\end{itemize}
+The second part of this thesis is primarily concerned with D-modules on quotient stacks.
+Unfortunately there is currently no comprehensive source available that covers all the basic constructions and properties of D-modules on stacks (or even the \emph{dg category} of D-modules on schemes).
+Thus we collect all the relevant properties (without proof) in this section.
+The upshot is that the familiar \enquote{six functors formalism} essentially works for holonomic D-modules and schematic morphisms of stacks.
 
-In this thesis we will be mainly concerned with the subcategory of holonomic D-modules.
+The category of D-modules on a stack $\stack X$ can be either constructed via descent \cite{BeilinsonDrifeld:unpublished:Hitchin,DrinfeldGaitsgory:2013:FinitenessQuestions} or equivalently as ind-coherent sheaves on the de Rham space of $\stack X$ \cite{GaitsgoryRozenblyum:2014:CrystalsAndDModules}.
+While the first construction is more \enquote{hands on}, the second construction is often more useful from a theoretical point of view.
+It is explained in detail in the upcoming book \cite{GaitsgoryRozenblyum:prelim:StudyInDAG} (see also \cite{FrancisGaitsgory:2012:ChiralKoszulDuality} for an overview).
+Many basic properties of the category $\catDMod{\stack X}$ are explored in \cite{DrinfeldGaitsgory:2013:FinitenessQuestions} and most of the following assertions are taken from there.
+
+For any morphism $f\colon \stack X → \stack Y$ the constructions yield a continuous functor $f^!\colon \catDMod{\stack Y} → \catDMod{\stack X}$ and (after some work) a not necessarily continuous functor $f_*\colon \catDMod{\stack X} → \catDMod{\stack Y}$.
+If $p\colon \stack X → \pt$ is the structure map then we set
+\[
+    \ΓdR(\stack X,\, {-}) = p_*({-}) \colon \catDMod{\stack X} → \catVect.
+\]
+The functor $\ΓdR$ is representable by a D-module $k_{\stack X}$, i.e.
+\[
+    \ΓdR(\stack X,\, {-}) = \Hom_{\catDMod{\stack X}}(k_{\stack X},\, {-}).
+\]
+Again we note that $\ΓdR(\stack X,\, {-})$ is usually not continuous and hence the object $k_{\stack X}$ not compact.
+
+Let $Δ\colon \stack X → \stack X × \stack X$ be the diagonal.
+The category $\catDMod{\stack X}$ has a monoidal structure given by the tensor product
+\[
+    \sheaf F \otimes \sheaf G = Δ^!\bigl( \sheaf F \boxtimes \sheaf G \bigr).
+\]
+The unit for this monoidal structure is $ω_{\stack X} = p^! k$.
+
+We will be mainly concerned with the subcategory of holonomic D-modules since they enjoy extended functoriality.
 See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic D-modules on arbitrary $k$-schemes and their compatibility with $f^!$, $f_*$ and $\dualize$.
 
 \begin{Def}
@@ -36,8 +55,7 @@ See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic
 \end{Prop}
 
 \begin{itemize}
-    \item $ω_X$ and $k_X$ are always holonomic.
-    \item duality (on holonomic); interchanges $ω_X$ and $k_X$.
+    \item duality
 \end{itemize}
 
 The duality functor allows us to define the \emph{non-standard} functors $f_!$ and $f^*$ for any schematic morphism $f\colon \stack X → \stack Y$ by
@@ -55,6 +73,11 @@ In some situations we can identify the non-standard functors with their standard
 If $f$ is smooth of relative dimension $d$ then $f^* = f^![-2d]$.
 If $f$ is proper then $f_! = f_*$ an in particular $f_*$ is left adjoint to $f^!$.
 
+\begin{itemize}
+    \item $ω_X$ and $k_X$ are always holonomic.
+    \item duality interchanges $ω_X$ and $k_X$.
+\end{itemize}
+
 We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions}.
 
 \begin{Lem}
@@ -71,10 +94,11 @@ We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{Dr
         \end{tikzcd}
     \]
     with schematic morphism $f$ (and hence $p$).
-    Then there is a base change isomorphism of functors $\catDMod{\stack{X₁}} → \catDMod{\stack{X₂}}$
+    Then there is a base change isomorphism
     \[
-        p_* q^! \isoto g^! f_*.
+        p_* q^! \isoto g^! f_*
     \]
+    of functors from $\catDMod{\stack{X₁}}$ to $\catDMod{\stack{X₂}}$.
     If furthermore $f$ (and hence $p$) is proper, then this isomorphism coincides with the natural transformation
     \[
         p_* q^! →
