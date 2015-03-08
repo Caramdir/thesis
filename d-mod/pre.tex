@@ -12,7 +12,8 @@
     \item References: \cite{GaitsgoryRozenblyum:prelim:StudyInDAG,GaitsgoryRozenblyum:2014:CrystalsAndDModules,FrancisGaitsgory:2012:ChiralKoszulDuality,DrinfeldGaitsgory:2013:FinitenessQuestions}, also \cite{BeilinsonDrifeld:unpublished:Hitchin}
     \item Definition via $\catIndCoh{\stack X_{\dR}}$.
     \item $f^!$, $f_*$, $Γ_{\dR}$
-    \item ($ω_{\stack X}$)
+    \item $\otimes$
+    \item $ω_{\stack X}$; unit of $\otimes$
     \item $k_{\stack X}$
 \end{itemize}
 
@@ -21,7 +22,7 @@ See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic
 
 \begin{Def}
     A $D$-module $\sheaf F ∈ \catDMod{\stack X}$ is called \emph{holonomic} if $f^!\sheaf F$ is holonomic for any smooth morphism $f\colon Z → \stack X$ from a scheme $Z$.
-    The full subcategory of holonomic D-modules will be denoted with $\catDModHol{\stack X}$.
+    The full subcategory of holonomic D-modules will be denoted $\catDModHol{\stack X}$.
 \end{Def}
 
 \begin{Prop}
@@ -35,11 +36,72 @@ See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic
 \end{Prop}
 
 \begin{itemize}
-    \item duality (on coherent/holonomic)
-    \item non-standard functors on holonomic D-modules $f_!$, $f^*$ [We should probably worry a bit that all $_!$ and $^*$ functors are defined on the objects to which we apply them.]
-    \item smooth morphisms ($f^! = f^*$ up to shift; $f^!$ is conservative)
-    \item proper morphisms ($f_* = f_!$)
-    \item base change (via adjunctios)
+    \item $ω_X$ and $k_X$ are always holonomic.
+    \item duality (on holonomic); interchanges $ω_X$ and $k_X$.
+\end{itemize}
+
+The duality functor allows us to define the \emph{non-standard} functors $f_!$ and $f^*$ for any schematic morphism $f\colon \stack X → \stack Y$ by
+\[
+    f^* = \dualize f^! \dualize\colon \catDModHol{\stack Y} → \catDModHol{\stack X}
+    \quad\text{and}\quad
+    f_! = \dualize f_* \dualize \colon \catDModHol{\stack X} → \catDModHol{\stack Y}.
+\]
+We obtain adjoint pairs $(f_!,\, f^!)$ and $(f^*,\, f_*)$.
+In particular we have 
+\[
+    k_{\stack X} = f^* k_{\stack Y}.
+\]
+In some situations we can identify the non-standard functors with their standard counterparts.
+If $f$ is smooth of relative dimension $d$ then $f^* = f^![-2d]$.
+If $f$ is proper then $f_! = f_*$ an in particular $f_*$ is left adjoint to $f^!$.
+
+We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions}.
+
+\begin{Lem}
+    For a smooth and schematic morphism $f$ the functor $f^!$ is conservative.
+\end{Lem}
+
+\begin{Prop}[{\cite[\RomanNum{III}.4.2.1.3]{GaitsgoryRozenblyum:prelim:StudyInDAG}}]
+    \label{prop:d-mod:pre:base-change}%
+    Consider a Cartesian square
+    \[
+        \begin{tikzcd}
+            \stack Z \arrow[d, "p"] \arrow[r, "q"] & \stack X₁ \arrow[d, "f"] \\
+            \stack X₂ \arrow[r, "g"] & \stack Y
+        \end{tikzcd}
+    \]
+    with schematic morphism $f$ (and hence $p$).
+    Then there is a base change isomorphism of functors $\catDMod{\stack{X₁}} → \catDMod{\stack{X₂}}$
+    \[
+        p_* q^! \isoto g^! f_*.
+    \]
+    If furthermore $f$ (and hence $p$) is proper, then this isomorphism coincides with the natural transformation
+    \[
+        p_* q^! →
+        p_* q^! f^! f_* =
+        p_* p^! g^! f_* →
+        g^! f_*
+    \]
+    induced by $(f_*,\,f^!)$ and $(p_*,\, p^!)$ adjunctions.
+\end{Prop}
+
+\begin{Prop}
+    \label{prop:d-mod:pre:projection-formula}%
+    If $f\colon \stack X → \stack Y$ is a schematic morphism then the \emph{projection formula} holds, i.e.~there is a functorial isomorphism
+    \[
+        \sheaf F \otimes f_*(\sheaf G) \cong f_*\bigl( f^! \sheaf F \otimes \sheaf G)
+    \]
+    for $\sheaf F ∈ \catDMod{\stack Y}$ and $\sheaf G ∈ \catDMod{\stack X}$.
+\end{Prop}
+
+\begin{Rem}
+    Propositions \ref{prop:d-mod:pre:base-change} and \ref{prop:d-mod:pre:projection-formula} hold more generally when $f$ is merely a \enquote{safe} morphism.
+    Alternatively they hold in full generality after replacing $f_*$ by the \enquote{renormalized de Rham pushforward}.
+    We fill not use either notion in this thesis and refer the interested reader to \cite{DrinfeldGaitsgory:2013:FinitenessQuestions}.
+\end{Rem}
+
+\begin{itemize}
+    \item recollement (follows from \cite[Section~2.5]{GaitsgoryRozenblyum:2014:CrystalsAndDModules})
 \end{itemize}
 
 \begin{Def}
@@ -70,7 +132,7 @@ See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic
 \end{itemize}
 
 \begin{Def}
-    A \emph{groupoid} $\mathcal G$ in $\cat{Stacks}$ consists of a stack $G₀$ of \enquote{objects} and a stack $G₁$ of \enquote{morphisms} with
+    A \emph{groupoid} $\mathcal G$ in $\cat{Stacks}$ consists of a stack $G₀$ of \enquote{objects} and a stack $G₁$ of \enquote{morphisms} together with
     \begin{itemize}
         \item \emph{source} and \emph{target} maps $s,t\colon G₁ \rightrightarrows G₀$,
         \item a \emph{unit} $e\colon G₀ → G₁$,
@@ -93,7 +155,7 @@ See \cite{Braverman:LecturesOnAlgebraicDmodules} for the Definition of holonomic
     The source and target maps are given by $p₁$ and $p₂$, the unit by the diagonal $Δ\colon X → X×_SX$, the inverse by interchanging the factors and multiplication is $p₁₃\colon X ×_S X ×_S X → X×_SX$.
 \end{Ex}
 
-Let us for the moment assume that $s$ (and hence $t$) is proper.
+Let us for the moment assume that $s$ (and hence $t$) is proper and schematic.
 In this case the maps $e$ and $m$ are also proper, since $s ∘ e = \id_{G₀}$ and $s ∘ m = s ∘ p₂$ are proper [ToDo: reference].
 In particular the functors $e^!\colon \catDMod{G₁} → \catDMod{G₀}$ and $m^!\colon \catDMod{G₁} → \catDMod{G₁ ×_{G₀} G₁}$ have left adjoints given by $e_*$ and $m_*$ respectively.
 This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{G₀}$ the structure of a monad in the following way:
