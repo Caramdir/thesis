@@ -87,7 +87,7 @@ We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{Dr
 
 \begin{Prop}
     \label{prop:d-mod:pre:projection-formula}%
-    If $f\colon \stack X → \stack Y$ is a schematic morphism then the \emph{projection formula} holds, i.e.~there is a functorial isomorphism
+    If $f\colon \stack X → \stack Y$ is a schematic morphism then the projection formula holds, i.e.~there is a functorial isomorphism
     \[
         \sheaf F \otimes f_*(\sheaf G) \cong f_*\bigl( f^! \sheaf F \otimes \sheaf G)
     \]
@@ -100,9 +100,32 @@ We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{Dr
     We fill not use either notion in this thesis and refer the interested reader to \cite{DrinfeldGaitsgory:2013:FinitenessQuestions}.
 \end{Rem}
 
-\begin{itemize}
-    \item recollement (follows from \cite[Section~2.5]{GaitsgoryRozenblyum:2014:CrystalsAndDModules})
-\end{itemize}
+For D-modules on stacks we have the usual recollement package.
+Let $i\colon \stack Z \hookrightarrow \stack X$ be a closed embedding and $j\colon \stack U \hookrightarrow \stack X$ the complementary open.
+We have adjoint pairs $(i_*,\, i^!)$ and $(j^!,\, j_*)$.
+
+\begin{Prop}[{\cite[Section~2.5]{GaitsgoryRozenblyum:2014:CrystalsAndDModules}}]
+    \label{prop:d-mod:recollement-std}%
+    There is an exact triangle of functors
+    \[
+        i_*i^! → \id → j_*j^!
+    \]
+    on $\catDMod{\stack X}$, the adjunction morphisms
+    \[
+        \id → i^!i_*
+        \quad\text{and}\quad
+        j^!j_* → \id
+    \]
+    are isomorphisms, the functors $j^!i_*$ and $i^!j_*$ vanish and $i_*$ and $j_*$ are full embeddings.
+\end{Prop}
+
+On holonomic D-modules we have the additional adjoint pairs $(i^*,\, i_*)$ and $(j_!,\, j^*)$.
+By applying duality to Proposition~\ref{prop:d-mod:recollement-std} we obtain the distinguished triangle
+\[
+    j_! j^* → \id → i_*i^*
+\]
+and the identity $i^*j_! = 0$ on holonomic D-modules.
+Further, functor $j_!$ is a full embedding $\catDModHol{\stack U} \hookrightarrow \catDModHol{\stack X}$.
 
 \begin{Def}
     \label{def:d-mod:pre:monodromic}%
@@ -116,7 +139,7 @@ We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{Dr
     Let $i\colon X^0 \hookrightarrow X$ be the closed subscheme of $\Gm$-fixed points and let $π\colon X → X^0$ be the contraction morphism induced by the $\Gm$-equivariant morphism $\as 1 → \{0\}$.
     Then there is an isomorphism of functors
     \[
-        i^* \cong π_* \colon \catDModMon{X}{G} → \catDMod{X^0}.
+        i^* \cong π_* \colon \catDModMon{X}{\Gm} → \catDMod{X^0}.
     \]
 \end{Thm}
 
