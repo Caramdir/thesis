@@ -26,12 +26,13 @@
 \ProcessOptions\relax
 
 \KOMAoptions{
+    paper=letter,
     fontsize=10pt,
     footinclude=false,
     headinclude=false,
     pagesize,
     twoside,
-    open=right,
+    open=any,
 }
 \recalctypearea
 
