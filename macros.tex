@@ -28,9 +28,16 @@
 \newcommand\measuringFam{\mathfrak M}
 \newcommand\Xtop[1][X]{#1^{G,\mathrm{gen}}}
 
-\newcommand\dcohb[1]{D_{\mathrm{coh}}^b(#1)}
-\newcommand\dcohbG[2][G]{D_{\mathrm{coh}}^b(#2)^{#1}}
+\newcommand\dcat[3][]{\mathbf{D}_{#1}^{#2}(#3)}
+\newcommand\dcoh[2][]{\dcat[\mathrm{coh}]{#1}{#2}}
+\newcommand\dqc[2][]{\dcat[\mathrm{qc}]{#1}{#2}}
+\newcommand\dcohb[1]{\dcoh[b]{#1}}
+\newcommand\dcohbG[2][G]{\dcohb{#2}^{#1}}
+\newcommand\dqcb[1]{\dqc[b]{#1}}
+\newcommand\dqcbG[2][G]{\dqcb{#2}^{#1}}
 \newcommand\dconstrb[1]{D_{\mathrm{constr}}^b(#1)}
+
+\newcommand\dpc[3][p]{\perv[#1]\dcat{#2}{#3}^G}
 
 \newcommand\lciname{strong}
 

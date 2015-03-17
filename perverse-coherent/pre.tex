@@ -2,19 +2,26 @@
 
 Assumptions on $X$ and $G$-action.
 $X$: finite type over a field (for dualizing complex), locally noetherian (for $Γ_Z$ to behave nicely) (do we need algebraic closure, separated, noetherian, etc.?)
-Notation for inclusions.
+Notation for inclusions.\todo{}
+
+We will make use of the usual notations for derived categories.
+Thus $\dqc{X}$ is the derived category of the Abelian category of quasi-coherent sheaves on $X$ and $\dcoh{X}$ is its full subcategory of complexes with coherent cohomology.
+More generally $\dcat{}{X}$ is the derived category of sheaves of $k$-modules on $X$.
+For a ring $R$, the derived category of $R$-modules will be denoted by $\dcat{}{R}$.
+To avoid cluttering the notation we will also usually suppress the signifiers $\mathbb R$ and $\mathbb L$ on functors between derived categories.
+Note that unlike in Part~\ref{part:d-mod} we will only work on the level of triangulated categories and not their dg enhancements.
 
 \section{Operations on coherent sheaves}
 
 We will be mainly concerned with the category $\dcohbG{X}$, the bounded derived category of $G$-equivariant coherent sheaves on $X$.
 For the reader familiar with stacks, this is the same category as the bounded derived category of coherent sheaves on the quotient stack $[X/G]$.
+It is also equivalent to the full subcategory of $\dqcbG{X}$ consisting of complexes with coherent cohomology \cite[?]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}\todo{Look up reference.}.
 There is a forgetful functor
 \[
     \Forget\colon \dcohbG{X} → \dcohb{X}
 \]
 to the non-equivariant bounded derived category of coherent sheaves on $X$.
 We will frequently apply functors defined on the latter category to equivariant sheaves without explicitly mentioning the functor $\Forget$.
-To avoid cluttering the notation we will also usually suppress the signifiers $\mathbb R$ and $\mathbb L$ on functors between derived categories.
 
 Let $Z$ be a closed subscheme of $X$.
 Then there are functors $ι_Z^!$ and $ι_Z^*$ from $\dcohb X$ to $\dcohb Z$, defined by
@@ -27,18 +34,17 @@ We note again that the symbols $\otimes$ and $\sheafHom$ denote the correspondin
 If $U$ is an open subscheme of $X$ then the functor $ι_U^* = ι_Z^!$ is the restriction functor $\dcohb X → \dcohb U$.
 For a general locally closed subscheme, the restriction functors are defined be composing the above functors.
 
-We will also need the corresponding $\underline{k}$-module functors, which we will denote by bold letters.
-In particular, if $\mathbf{Z}$ is a closed subspace of $X$ (as a topological space), then we set
+We will also need the corresponding $k$-module functors, which we will denote by bold letters.
+In particular, if $Z$ is a closed subspace of $X$ (as a topological space), then we set
 \[
-    \mathbf{ι}_{\mathbf{Z}}^!({-}) = \sheafHom_{\underline{k}_X}(\underline k_{\mathbf Z},\, {-}).
+    \mathbf{ι}_{Z}^!({-}) = \sheafHom_{k_X}(k_{Z},\, {-}).
 \]
 Following \cite[Variation~3 in~\RomanNum{IV}.1]{Hartshorne:1966:ResiduesAndDuality} we write
 \[
-    \lc{\mathbf Z} = \mathbf{ι}_{\mathbf{Z},*} \mathbf{ι}_{\mathbf{Z}}^!.
+    \lc{Z} = \mathbf{ι}_{Z,*} \mathbf{ι}_{Z}^!.
 \]
-By abuse of notation, if $Z$ is a closed subscheme of $X$, we write $\lc{Z} = \lc{\mathbf{Z}}$, where $\mathbf{Z}$ is $Z$ viewed as a topological subspace of $X$.
 Again we note that these functors should be seen as functors between the derived categories.
-It is well known that if $\sheaf F$ is a\todo{derived!}\ quasi-coherent sheaf on $X$, then $\lc{Z} \sheaf F$ is again quasi-coherent \cite[Corollaire~\RomanNum{II}.3]{SGA2}.
+It is well known that if $\sheaf F$ is a (complex of) quasi-coherent sheaf(s) on $X$, then $\lc{Z} \sheaf F$ is again quasi-coherent \cite[Corollaire~\RomanNum{II}.3]{SGA2}.
 
 Let $x$ be a (not necessarily closed) point of $X$.
 We will write $\mathbf ι_x^*$ for the functor of talking stalks at $x$ and set $\mathbf ι_x^! = \mathbf ι_x^*\lc{\overline{\{x\}}}$.
@@ -48,20 +54,21 @@ Finally we will need the Grothendieck-Verdier duality functor on $\dcohbG X$.
 It is defined exactly as in the non-equivariant situation (cf.~\cite[Chapter~\RomanNum{V}]{Hartshorne:1966:ResiduesAndDuality}).
 Thus, an equivariant dualizing complex on $X$ is an object $\dualizingCx ∈ \dcohbG X$ such each object $\sheaf F ∈ \dcohbG X$ is $\dualizingCx$-reflexive, i.e.~such that the natural transformation
 \[
-    \sheaf F → \dualize\dualize \sheaf F = \sheafHom(\sheafHom(\sheaf F, \dualizingCx),\, \dualizingCx) \qquad (\sheaf F ∈ \dcohb X)
+    \sheaf F → \sheafHom(\sheafHom(\sheaf F, \dualizingCx),\, \dualizingCx) \qquad (\sheaf F ∈ \dcohb X)
 \]
 is an isomorphism.
 We write $\dualize$ for the endofunctor $\sheafHom({-}, \dualizingCx)$ of $\dcohbG X$.
-Since $\sheafHom$ commutes with the forgetful functor, if $\dualizingCx$ is an equivariant dualizing complex, then $\Forget(\dualizingCx) ∈ \dcohb X$ is a dualizing complex too.
+Since $\sheafHom$ commutes with the forgetful functor, if $\dualizingCx$ is an equivariant dualizing complex, then $\Forget(\dualizingCx) ∈ \dcohb X$ is a (non-equivariant) dualizing complex.
 Under our assumptions on $X$ there always exists an equivariant dualizing complex $\dualizingCx$ \cite[Theorem~2.18]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
 Using \cite[\RomanNum{V}.7]{Hartshorne:1966:ResiduesAndDuality}, we will further assume that for each (not necessarily closed) point $x ∈ X$ the complex $\mathbf{ι}_x^! \dualizingCx$ is concentrated in cohomological degree $-\dim x$.
 
-ToDo: All the theorems from \cite{BrodmannSharp:1998:LocalCohomology}, \cite{SGA2} and \cite{Hartshorne:1966:ResiduesAndDuality} that we need.
+\todo{All the theorems from \cite{BrodmannSharp:1998:LocalCohomology}, \cite{SGA2} and \cite{Hartshorne:1966:ResiduesAndDuality} that we need.}
+\todo{Connecting text.}
 
 \begin{Lem}
     \label{lem:pre:stalk-and-costalk-vanishing}%
     Let $\sheaf F$ be a coherent sheaf on $X$ and let $x$ be a closed point of $X$.
-    Then $\mathbf ι_z^* \dualize \sheaf F ∈ D^{\ge 0}(\O_x)$ if and only if $\mathbf ι_z^! \sheaf F ∈ D^{\le 0}(\O_x)$.
+    Then $\mathbf ι_z^* \dualize \sheaf F ∈ \dcat{\ge 0}{\O_x}$ if and only if $\mathbf ι_z^! \sheaf F ∈ \dcat{\le 0}{\O_x}$.
 \end{Lem}
 
 \begin{proof}
@@ -78,7 +85,7 @@ ToDo: All the theorems from \cite{BrodmannSharp:1998:LocalCohomology}, \cite{SGA
     \label{lem:pre:top-and-qc-restriction-vanishing}%
     Let $\sheaf F$ be a coherent sheaf on $X$ and let $Z$ be a closed subvariety of $X$.
     Let $n$ be an integer.
-    Then $\lc{Z} \sheaf F ∈ D^{\ge 0}(Z)$ if and only if $ι_Z^! \sheaf F ∈ D^{\ge 0}(Z)$.
+    Then $\lc{Z} \sheaf F ∈ \dcat{\ge 0}{Z}$ if and only if $ι_Z^! \sheaf F ∈ \dcat{\ge 0}{Z}$.
 \end{Lem}
 
 \begin{proof}
@@ -106,29 +113,32 @@ Following \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves} we know have 
     \label{def:perverse-t-structure}%
     Given a perversity $p$ we define the following full subcategories of $\dcohbG X$:
     \begin{align*}
-        \perv[p] D^{≤0}(X)^G & =
-        \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}, \\
-        \perv[p] D^{≥0}(X)^G & =
-        \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}.
+        \dpc{≤0}{X} & =
+        \bigl\{ \sheaf F ∈ \dcohb{X} : \mathbf ι_x^*\sheaf F ∈ \dcat{≤p(x)}{\O_x} \text{ for all $x ∈ \Xtop$}\bigr\}, \\
+        \dpc{≥0}{X} & =
+        \bigl\{ \sheaf F ∈ \dcohb{X} : \mathbf ι_x^!\sheaf F ∈ \dcat{≥p(x)}{\O_x} \text{ for all $x ∈ \Xtop$}\bigr\}.
     \end{align*}
 \end{Def}
 
 \begin{Thm}[{\cite[Theorem~3.10]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}}]
     \label{thm:perverse-t-structure}%
-    If $p$ is monotone and comonotone, then $(\perv[p] D^{≤0}(X)^G,\ \perv[p] D^{≤0}(X)^G)$ defines a t-structure on $\dcohbG X$.
+    If $p$ is monotone and comonotone, then $(\dpc{≤0}{X},\, \dpc{≤0}{X})$ defines a t-structure on $\dcohbG X$.
 \end{Thm}
 
 This t-structure is called the \emph{perverse t-structure} with respect to $p$ on $\dcohbG X$.
 Objects in its heart are called \emph{perverse coherent sheaves} (with respect to $p$ on $X$).
 
 The perverse t-structure is compatible with duality, exchanging the perversity $p$ with its dual.
+
 \begin{Lem}[{\cite[Lemma~3.3]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}}]
     \label{lem:perverse-t-structure-and-duality}%
     Let $p$ be any perversity. Then
     \[
-        \dualize\bigl(\perv D^{≤0}(X)^G\bigr) = \perv D^{≥0}(X)^G.
+        \dualize\bigl(\dpc{≤0}{X}\bigr) = \dpc[\overline p]{≥0}{X}.
     \]
 \end{Lem}
+
+\todo{Middle perversity. Example. Achar's notes.}
 
 For later use we state the following variant of the Grothendieck Finiteness Theorem \cite[Théorème~2.1]{SGA2}.
 The given formulation is from \cite[Corollary~3.12]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}, where the reader can find a short proof using the theory of perverse coherent sheaves.
@@ -136,6 +146,6 @@ The given formulation is from \cite[Corollary~3.12]{ArinkinBezrukavnikov:2010:Pe
     \label{thm:grothendieck-finiteness}%
     Let $p$ be a monotone and comonotone perversity on $X$.
     Let $x ∈ \Xtop$, set $U = X \setminus \overline x$ and let $j\colon U \hookrightarrow X$ be the inclusion.
-    Let $\sheaf F ∈ \perv D^{≥0}(U)^G$.
+    Let $\sheaf F ∈ \dpc{≥0}{U}$.
     Then $H^n(j_*\sheaf F)$ is coherent for $n ≤ p(x)-2$.
 \end{Thm}
