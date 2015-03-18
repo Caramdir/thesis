@@ -2,21 +2,20 @@
 
 \begin{Assumption}
     In this chapter we will always assume that $p$ is a monotone and comonotone perversity function.
-    Then Theorem~\ref{thm:perverse-t-structure} guarantees the existence the perverse t-structure on $D_c^b(X)^G$.
+    Then Theorem~\ref{thm:perverse-t-structure} guarantees the existence the perverse t-structure on $\dcohbG{X}$.
 \end{Assumption}
 
 \section{Some reformulations}
 
 In this  section we will give some reformulations of the perverse t-structure from Definition~\ref{def:perverse-t-structure}.
-The equivalent conditions are inspired by Kashiwara's definition of a (non-equivariant) perverse t-structure on $D_c^b(X)$ in~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}.
+The equivalent conditions are inspired by Kashiwara's definition of a (non-equivariant) perverse t-structure on $\dcohbG X$ in~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}.
 
-% TODO: Do we actually need the comonotonicity assumption (i.e. the t-structure?)
 \begin{Prop}\label{prop:equivDeligneKashiwara:le}%
-    Let $\sheaf F ∈ D_c^b(X)^G$.
+    Let $\sheaf F ∈ \dcohbG X$.
     The following are equivalent:
     \begin{enumerate}
         \item \label{li:prop:equivDeligneKashiwara:le:1}%
-            $\sheaf F ∈ \perv D^{≤0}(X)^G$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+            $\sheaf F ∈ \dpc{≤0}{X}$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ \dcat{≤p(x)}{\O_x}$ for all $x ∈ \Xtop$;
         \item \label{li:prop:equivDeligneKashiwara:le:2}%
             $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
     \end{enumerate}
@@ -26,26 +25,25 @@ A crucial fact that we will implicitly use quite often in the following argument
 In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
 \begin{proof}
-    First let $\sheaf F ∈ \perv D^{≤0}(X)^G$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
+    First let $\sheaf F ∈ \dpc{≤0}{X}$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
     Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
     Then $H^k(\mathbf ι_x^* \sheaf F) \ne 0$. 
-    But on the other hand, $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
+    But on the other hand, $\mathbf ι_x^*\sheaf F ∈ \dcat{≤p(x)}{\O_x}$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
 
     Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ \Xtop$.
     If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
-    Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)^G$.
+    Thus monotonicity of the perversity implies that $\sheaf F ∈ \dpc{≤0}{X}$.
 \end{proof}
 
-% TODO: Where do we use comonotonicity (just for definition of the t-structure? Do we actually need the t-structure?).
 \begin{Prop}\label{prop:equivDeligneKashiwara:ge}%
-    Let $\sheaf F ∈ D_c^b(X)^G$ and let $p$ be strictly monotone (in addition to our standard comonotonicity assumption).
+    Let $\sheaf F ∈ \dcohbG{X}$ and let $p$ be strictly monotone.
     \begin{enumerate}
         \item \label{li:prop:equivDeligneKashiwara:ge:1}%
-            $\sheaf F ∈ \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+            $\sheaf F ∈ \dpc{\ge 0}{X}$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ \dcat{≥p(x)}{\O_x}$ for all $x ∈ \Xtop$;
         \item \label{li:prop:equivDeligneKashiwara:ge:2}%
-            $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ \Xtop$;
+            $\lc {\overline x}\sheaf F ∈ \dcat{≥p(x)}{X}$ for all $x ∈ \Xtop$;
         \item \label{li:prop:equivDeligneKashiwara:ge:3}%
-            $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
+            $\lc {Y}\sheaf F ∈ \dcat{≥p(\dim Y)}{X}$ for all $G$-invariant closed subvarieties $Y$ of $X$;
         \item \label{li:prop:equivDeligneKashiwara:ge:4}%
             $\dim\left( \overline x ∩ \supp\left( H^k(\dualize \sheaf F) \right) \right) ≤ -p(x) - k$ for all $x ∈ \Xtop$ and all $k$.
     \end{enumerate}
@@ -54,10 +52,10 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
 \begin{proof}
     The implications from \ref{li:prop:equivDeligneKashiwara:ge:3} to \ref{li:prop:equivDeligneKashiwara:ge:2} and \ref{li:prop:equivDeligneKashiwara:ge:2} to \ref{li:prop:equivDeligneKashiwara:ge:1} are trivial and the equivalence of \ref{li:prop:equivDeligneKashiwara:ge:2} and \ref{li:prop:equivDeligneKashiwara:ge:4} follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
     Thus we only need to show that \ref{li:prop:equivDeligneKashiwara:ge:1} implies \ref{li:prop:equivDeligneKashiwara:ge:3}.
-    So assume that $\sheaf F ∈ \perv D^{≥0}(X)^G$.
+    So assume that $\sheaf F ∈ \dpc{≥0}{X}$.
     We induct on the dimension of $Y$.
     
-    If $\dim Y = 0$, then $Γ(X,\lc Y \sheaf F) = \bigoplus_{y ∈ \Xtop[Y]} \mathbf ι_y^!\sheaf F$ and thus $\lc Y\sheaf F ∈ D^{≥p(0)}(X)$ by assumption.
+    If $\dim Y = 0$, then $Γ(X,\lc Y \sheaf F) = \bigoplus_{y ∈ \Xtop[Y]} \mathbf ι_y^!\sheaf F$ and thus $\lc Y\sheaf F ∈ \dcat{≥p(0)}{X}$ by assumption.
 
     Now let $\dim Y > 0$.
     We first assume that $Y$ is irreducible with generic point $x ∈ \Xtop$.
@@ -100,28 +98,28 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
     \[
         \lc {Y₁\cap Y₂} \sheaf F → \lc {Y₁} \sheaf F \oplus \lc{Y₂}\sheaf F → \lc{Y} \sheaf F \xrightarrow{+1},
     \]
-    where $\lc {Y₁\cap Y₂} \sheaf F ∈ D^{\ge p(\dim Y₁\cap Y₂)}(X) \subseteq D^{\ge p(\dim Y)+1}$ (by the induction hypothesis and strict monotonicity of $p$) and $\lc{Y₁} \sheaf F$ and $\lc{Y₂} \sheaf F$ are in $D^{\ge p(\dim Y)}(X)$ by induction on the number of components of $Y$.
-    Thus $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}$ as required.
+    where $\lc {Y₁\cap Y₂} \sheaf F ∈ \dcat{\ge p(\dim Y₁\cap Y₂)}{X} \subseteq \dcat{\ge p(\dim Y)+1}{X}$ (by the induction hypothesis and strict monotonicity of $p$) and $\lc{Y₁} \sheaf F$ and $\lc{Y₂} \sheaf F$ are in $\dcat{\ge p(\dim Y)}{X}$ by induction on the number of components of $Y$.
+    Thus $\lc Y \sheaf F ∈ \dcat{\ge p(\dim Y)}X$ as required.
 \end{proof}
 
-\begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]%
+\begin{Lem}%[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]%
     \label{lem:supportAndLocalCohomology+}%
-    Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$, and $n$ an integer.
-    Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
+    Let $\sheaf F ∈ \dcohb{X}$, $Z$ a closed subset of $X$, and $n$ an integer.
+    Then $\lc Z\sheaf F ∈ \dqc[≥n]{X}$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
 \end{Lem}
 
 This lemma extends \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} to singular varieties.
 The proof is essentially the same as for the smooth case, but we will include it here for completeness.
 
 \begin{proof}
-    By~\cite[Proposition~\textsc{vii}.1.2]{SGA2}, $\lc Z\sheaf F ∈ D_{qc}^{\ge n}(X)$ if and only if 
+    By~\cite[Proposition~\textsc{vii}.1.2]{SGA2}, $\lc Z\sheaf F ∈ \dqc[\ge n]{X}$ if and only if 
     \begin{equation}
         \label{eq:supportAndCohomology+}%
-        \sheafHom(\sheaf G,\sheaf F) ∈ D_c^{\ge n}(X)
+        \sheafHom(\sheaf G,\sheaf F) ∈ \dqc[\ge n](X)
     \end{equation}
     for all $\sheaf G ∈ \catCoh{X}$ with $\supp \sheaf G \subseteq Z$.
     Let $d(n) = -n$ be the dual standard perversity.
-    Then by~\cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \perv[d] D^{\le -n}(X)$.
+    Then by~\cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \dpc[d]{\le -n}{X}$.
     By~\cite[Proposition~\textsc{v}.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara:le} we need to show that
     \[
         \dim \supp H^{k}\left(\sheaf G \otimes_{\O_X} \dualize \sheaf F\right) \le - k - n 
@@ -163,51 +161,49 @@ The proof is essentially the same as for the smooth case, but we will include it
     We will show in Theorem~\ref{thm:existence_of_lcimeasuring} that the condition $-\dim x \le p(x) \le 0$ is sufficient for the existence of a \lciname\ $p$-measuring collection, at least when $X$ is affine.
 \end{Rem}
 
-% Warning: the conditions might be mixed up.
 \begin{Thm}\label{thm:main}%
-    Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity on $X$.
-    Let $\sheaf F \in D_c^b(X)^G$.
+    Let $\sheaf F \in \dcohbG{X}$.
     \begin{enumerate}
         \item\label{li:thm:main:ge}% strict comonotonicity
-            Assume that $X$ has a $p$-measuring collection $\measuringFam$.
+            Assume $p$ is strictly monotone and that $X$ has a $p$-measuring collection $\measuringFam$.
             Then the following are equivalent.
             \begin{enumerate}
                 \item\label{li:thm:main:ge:def}
-                    $\sheaf F \in \perv D^{≥0}(X)^G$;
+                    $\sheaf F \in \dpc{≥0}{X}$;
                 \item\label{li:thm:main:ge:qc}
-                    $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$;
+                    $i_Z^!\sheaf F \in \dcat{≥0}{Z}$ for all $Z ∈ \measuringFam$;
                 \item\label{li:thm:main:ge:top}
-                    $\lc Z \sheaf F \in D^{≥0}(Z)$ for all $Z ∈ \measuringFam$.
+                    $\lc Z \sheaf F \in \dcat{≥0}{X}$ for all $Z ∈ \measuringFam$.
             \end{enumerate}
         \item\label{li:thm:main:le-weak}% strict monotonicity
-            Assume that $X$ has a $\bar p$-measuring collection $\measuringFam$.
+            Assume that $p$ is strictly comonotone and that $X$ has a $\bar p$-measuring collection $\measuringFam$.
             Then the following are equivalent.
             \begin{enumerate}
-                \item $\sheaf F \in \perv D^{≤0}(X)^G$;
-                \item $\lc{z}i_Z^*\sheaf F \in D^{≤0}(Z)$ for all $Z ∈ \measuringFam$ and all $z ∈ Z$.
+                \item $\sheaf F \in \dpc{≤0}{X}$;
+                \item $\lc{z}i_Z^*\sheaf F \in \dcat{≤0}{Z}$ for all $Z ∈ \measuringFam$ and all $z ∈ Z$.
             \end{enumerate}
         \item\label{li:thm:main:le-lci}% neither(?)
             Assume that $X$ has a \lciname\ $p$-measuring collection $\measuringFam$.
             Then the following are equivalent.
             \begin{enumerate}
-                \item $\sheaf F \in \perv D^{≤0}(X)^G$;
-                \item $\lc Z \sheaf F \in D^{≤0}(Z)$ for all $Z ∈ \measuringFam$.
+                \item $\sheaf F \in \dpc{≤0}{X}$;
+                \item $\lc Z \sheaf F \in \dcat{≤0}{X}$ for all $Z ∈ \measuringFam$.
             \end{enumerate}
     \end{enumerate}
-    In particular, if $X$ has a \lciname\ $p$-measuring collection $\measuringFam$, then $\sheaf F$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $Z ∈ \measuringFam$.
+    In particular, if $p$ is strictly monotone and $X$ has a \lciname\ $p$-measuring collection $\measuringFam$, then $\sheaf F$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $Z ∈ \measuringFam$.
 \end{Thm}
 
-% TODO: Reformulate the arguments in this proof. It is slightly convoluted.
 \begin{proof}[Proof of Theorem~\ref{thm:main}\ref{li:thm:main:ge}]
+    \todo{Reformulate the arguments in this proof. It is slightly convoluted.}
     The equivalence of \ref{li:thm:main:ge:top} and \ref{li:thm:main:ge:qc} follows directly from Lemma~\ref{lem:pre:top-and-qc-restriction-vanishing}.
     We will prove the equivalence of \ref{li:thm:main:ge:def} and \ref{li:thm:main:ge:top}.
 
-    By Proposition~\ref{prop:equivDeligneKashiwara:ge}, $\sheaf F ∈ \perv D^{≥0}(X)^G$ if and only if
+    By Proposition~\ref{prop:equivDeligneKashiwara:ge}, $\sheaf F ∈ \dpc{≥0}{X}$ if and only if
     \begin{align}
         \label{eq:main:+supp1}%
         & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &&  \text{for all $x ∈ \Xtop$ and all $k$}. \\
         %
-        \intertext{Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with}
+        \intertext{Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ \dcat{≥0}{X}$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with}
         %
         \notag
         & \dim\left( Z ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k && \text{ for all $k$ and all $Z ∈ \measuringFam$}. \\
@@ -254,19 +250,19 @@ The proof is essentially the same as for the smooth case, but we will include it
     by monotonicity of $p$.
 \end{proof}
 
-% TODO: Some transitional text.
+\todo{Some transitional text.}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}\ref{li:thm:main:le-weak}]
-    Let $\sheaf F ∈ \perv D^{\le 0}(X)^G$.
-    By Lemma~\ref{lem:perverse-t-structure-and-duality} this is equivalent to $\dualize \sheaf F ∈ \perv[\bar p] D^{\ge 0}(X)^G$\todo{(Strict) comonotonicity of $\bar p$?}.
-    By part~\ref{li:thm:main:ge} this is in turn equivalent to $\mathbf ι_z^* ι_Z^! \dualize \sheaf F ∈ D^{\ge 0}(\catVect)$.
-    The sheaf $ι_Z^! \dualize \sheaf F = \dualize ι_Z^* \sheaf F$ is coherent, so that the statement follows from Lemma~\ref{lem:pre:stalk-and-costalk-vanishing}.
+    Let $\sheaf F ∈ \dpc{\le 0}{X}$.
+    By Lemma~\ref{lem:perverse-t-structure-and-duality} this is equivalent to $\dualize \sheaf F ∈ \dpc[\bar p]{\ge 0}{X}$.
+    By part~\ref{li:thm:main:ge} this is in turn equivalent to $\mathbf ι_z^* ι_Z^! \dualize \sheaf F ∈ \dcat{\ge 0}{\O_z}$ for all $Z ∈ \measuringFam$ and $z ∈ Z$.
+    The sheaf $ι_Z^! \dualize \sheaf F = \dualize ι_Z^* \sheaf F$ is coherent, so that the statement now follows from Lemma~\ref{lem:pre:stalk-and-costalk-vanishing}.
 \end{proof}
 
 The following lemma encapsulates the central argument of the proof of the remaining part of Theorem~\ref{thm:main}.
 
 \begin{Lem}\label{lem:supportAndLocalCohomology-}%
-    Let $\sheaf F ∈ \catCoh{X}^G$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
+    Let $\sheaf F ∈ \dcohbGheart{X}$ be a $G$-equivariant coherent sheaf on $X$ (i.e.~a complex concentrated in degree $0$), let $p$ be a monotone perversity and let $n$ be an integer.
     Assume that $X$ has enough $p$-measuring subvarieties and let $\measuringFam$ be a $p$-measuring family of subvarieties of $X$.
     Then the following are equivalent:
     \begin{enumerate}
@@ -307,16 +303,16 @@ The following lemma encapsulates the central argument of the proof of the remain
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}\ref{li:thm:main:le-lci}]
-    We use the description of $\perv[p] D^{≤0}(X)^G$ given by Proposition~\ref{prop:equivDeligneKashiwara:le}, i.e.
+    We use the description of $\dpc{≤0}{X}$ given by Proposition~\ref{prop:equivDeligneKashiwara:le}, i.e.
     \[
-    \perv D^{≤0}(X)^G = \left\{ \sheaf F ∈ D_c^b(X)^G : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
+        \dpc{≤0}{X} = \left\{ \sheaf F ∈ \dcohbG{X} : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
     \]
-    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}(X)^G$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z ∈ \measuringFam$.
+    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \dpc{≤0}{X}$ if and only if $\lc Z\sheaf F ∈ \dcat{≤0}{X}$ for all $p$-measuring subvarieties $Z ∈ \measuringFam$.
 
     The equivalence is trivial for $k \ll 0$.
     For the induction step note that there is a distinguished triangle
     \[
-    τ_{<k} \sheaf F → \sheaf F → H^k(\sheaf F)[-k] \xrightarrow{+1}.
+        τ_{<k} \sheaf F → \sheaf F → H^k(\sheaf F)[-k] \xrightarrow{+1}.
     \]
     Applying the functor $\lc Z$ and taking cohomology we obtain an exact sequence
     \begin{multline*}

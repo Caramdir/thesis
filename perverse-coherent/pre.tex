@@ -1,8 +1,11 @@
 \chapter{Prerequisites}
 
-Assumptions on $X$ and $G$-action.
-$X$: finite type over a field (for dualizing complex), locally noetherian (for $Γ_Z$ to behave nicely) (do we need algebraic closure, separated, noetherian, etc.?)
-Notation for inclusions.\todo{}
+% finite type (implies Noetherian): dualizing complex is nice
+% assumption of G: makes X/G have affine diagonal
+Throughout this part we will be concerned with a scheme $X$ with an action by an affine group scheme $G$.
+We assume that $X$ and $G$ are both of finite type over a field $k$.
+
+\todo{Notation for inclusions.}
 
 We will make use of the usual notations for derived categories.
 Thus $\dqc{X}$ is the derived category of the Abelian category of quasi-coherent sheaves on $X$ and $\dcoh{X}$ is its full subcategory of complexes with coherent cohomology.
@@ -15,7 +18,7 @@ Note that unlike in Part~\ref{part:d-mod} we will only work on the level of tria
 
 We will be mainly concerned with the category $\dcohbG{X}$, the bounded derived category of $G$-equivariant coherent sheaves on $X$.
 For the reader familiar with stacks, this is the same category as the bounded derived category of coherent sheaves on the quotient stack $[X/G]$.
-It is also equivalent to the full subcategory of $\dqcbG{X}$ consisting of complexes with coherent cohomology \cite[?]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}\todo{Look up reference.}.
+It is also equivalent to the full subcategory of $\dqcbG{X}$ consisting of complexes with coherent cohomology \cite[Corollary~2.11]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
 There is a forgetful functor
 \[
     \Forget\colon \dcohbG{X} → \dcohb{X}
@@ -68,7 +71,7 @@ Using \cite[\RomanNum{V}.7]{Hartshorne:1966:ResiduesAndDuality}, we will further
 \begin{Lem}
     \label{lem:pre:stalk-and-costalk-vanishing}%
     Let $\sheaf F$ be a coherent sheaf on $X$ and let $x$ be a closed point of $X$.
-    Then $\mathbf ι_z^* \dualize \sheaf F ∈ \dcat{\ge 0}{\O_x}$ if and only if $\mathbf ι_z^! \sheaf F ∈ \dcat{\le 0}{\O_x}$.
+    Then $\mathbf ι_x^* \dualize \sheaf F ∈ \dcat{\ge 0}{\O_x}$ if and only if $\mathbf ι_x^! \sheaf F ∈ \dcat{\le 0}{\O_x}$.
 \end{Lem}
 
 \begin{proof}
@@ -138,7 +141,16 @@ The perverse t-structure is compatible with duality, exchanging the perversity $
     \]
 \end{Lem}
 
-\todo{Middle perversity. Example. Achar's notes.}
+\begin{Ex}
+    The best-studied case of perverse coherent sheaves is the nilpotent cone $N$ of a reductive group $G$ with the adjoint action.
+    It is well known that there are finitely many $G$-orbits on $N$, all of which are even dimensional.
+    Thus there is a \emph{middle perversity} given by
+    \[
+        p(x) = \overline p(x) = -\frac 12 \dim x, \qquad x ∈ \Xtop[N].
+    \]
+    This t-structure has important applications in geometric representation theory, for example \cite{Bezrukavnikov:2003:QuasiExceptionalSets} and \cite{BezrukavnikovMircovic:2013:RepresentationsOfSSLieAlgebrasInPrimeCharAndNoncommutativeSpringerResolution}.
+    For an overview of the theory of perverse coherent sheaves on nilpotent cones and the related category of exotic sheaves we refer to \cite{Achar:arXiv:NotesOnExoticAndPerverseCoherentSheaves}.
+\end{Ex}
 
 For later use we state the following variant of the Grothendieck Finiteness Theorem \cite[Théorème~2.1]{SGA2}.
 The given formulation is from \cite[Corollary~3.12]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}, where the reader can find a short proof using the theory of perverse coherent sheaves.
