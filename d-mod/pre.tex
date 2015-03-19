@@ -3,7 +3,7 @@
 \begin{itemize}
     \item Everything over an algebraically closed field of characteristic $0$.
     \item Assumptions on stacks.
-    \item Note on dg categories \cite{Keller:2006:OnDGCategories} and linear stable ($∞$,1)-categories \cite{Lurie:2014-draft:HigherAlgebra}.
+    \item Note on dg categories \cite{Keller:2006:OnDGCategories} and linear stable ($∞$,1)-categories \cite{Lurie:2014-draft:HigherAlgebra}.\todo{Why are they the same? Why are $A_∞$-algebras in vectors spaces over a field of characteristic $0$ the same as dg-algebras?}
 \end{itemize}
 
 \section{D-modules on stacks}
@@ -55,16 +55,20 @@ We refer to \cite{Braverman:LecturesOnAlgebraicDmodules} for proofs in the case 
     \]
 \end{Prop}
 
-\begin{itemize}
-    \item duality
-\end{itemize}
-
-The duality functor allows us to define the \emph{non-standard} functors $f_!$ and $f^*$ for any schematic morphism $f\colon \stack X → \stack Y$ by
+The Verdier duality functor on schemes induces an involutive anti auto-equivalence
 \[
-    f^* = \dualize f^! \dualize\colon \catDModHol{\stack Y} → \catDModHol{\stack X}
-    \quad\text{and}\quad
-    f_! = \dualize f_* \dualize \colon \catDModHol{\stack X} → \catDModHol{\stack Y}.
+    \dualize_{\stack X}\colon \catDModHol{\stack X}^\mathrm{op} → \catDModHol{\stack X}
 \]
+such that for each smooth morphism $Z → \stack X$ of relative dimension $d$ from a scheme $Z$ one has
+\[
+    f^! ∘ \dualize_{\stack X} \cong \dualize_{Z} ∘ f^![-2d].
+\]
+The Verdier duality functor then allows us to define the \emph{non-standard functors} $f_!$ and $f^*$ for any schematic morphism $f\colon \stack X → \stack Y$ by
+\begin{align*}
+    f^* & = \dualize_{\stack X} ∘ f^! ∘ \dualize_{\stack Y} \colon \catDModHol{\stack Y} → \catDModHol{\stack X} \\
+    \intertext{and}
+    f_! & = \dualize_{\stack Y} ∘ f_* ∘ \dualize_{\stack X} \colon \catDModHol{\stack X} → \catDModHol{\stack Y}.
+\end{align*}
 We obtain adjoint pairs $(f_!,\, f^!)$ and $(f^*,\, f_*)$.
 In particular we have 
 \[
@@ -73,11 +77,10 @@ In particular we have
 In some situations we can identify the non-standard functors with their standard counterparts.
 If $f$ is smooth of relative dimension $d$ then $f^* = f^![-2d]$.
 If $f$ is proper then $f_! = f_*$ an in particular $f_*$ is left adjoint to $f^!$.
-
-\begin{itemize}
-    \item $ω_X$ and $k_X$ are always holonomic.
-    \item duality interchanges $ω_X$ and $k_X$.
-\end{itemize}
+The objects $ω_{\stack X}$ and $k_{\stack X}$ are always holonomic and
+\[
+    \dualize_{\stack X} ω_{\stack X} = k_{\stack X}.
+\]
 
 We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions}.
 
@@ -172,10 +175,41 @@ Further, functor $j_!$ is a full embedding $\catDModHol{\stack U} \hookrightarro
 \section{Monads}
 \label{sec:d-mod:pre:monads}
 
+We will deduce Theorem~\ref{thm:d-mod:main} from a isomorphism of monads on $\catDMod{\stack X}$.
+In this section we give a short introduction to the theory of monads and the specific constructions that we will use.
+However, in the interest of readability we will mainly do so informally, skipping over the intricacies of $∞$-categories.
+The interested reader can find the correct $∞$-categorical formulations in the given references.
+
+Thus we think of a \emph{monad} on a category $\cat C$ as consisting of a triple $(T, η, μ)$, where $T\colon \cat C → \cat C$ is an endofunctor of $\cat C$, and $η\colon \id_{\cat C} → T$ and $μ\colon T∘T → T$ are natural transformations that the diagrams
+\begin{equation}
+    \label{eq:d-mod:pre:monad-identities}
+    \begin{tikzcd}
+        T³ \arrow[r, "Tμ"] \arrow[d, "μT"'] & T² \arrow[d, "μ"] \\
+        T² \arrow[r, "μ"'] & T
+    \end{tikzcd}
+    \quad\text{and}\quad
+    \begin{tikzcd}
+        T \arrow[r, "Tη"] \arrow[d, "ηT"'] \arrow[dr, equal] & T² \arrow[d, "μ"] \\
+        T² \arrow[r, "μ"'] & T
+    \end{tikzcd}
+\end{equation}
+commute.
+Alternatively, we can think of $T$ being a monoid in the category of endofunctors of $\cat C$ with the monoidal structure given by composition of endofunctors.
+This definition also gives the correct generalization to $∞$-categories \cite[Definition~4.7.0.1]{Lurie:2014-draft:HigherAlgebra}.
+
+Let $X$ be an object of the category $\cat C$.
+Then $T$ gives the vector space $\Hom_{\cat C}(X, TX)$ the structure of an algebra with multiplication map
+\[
+    (f,g) \mapsto μ_X ∘ Tf ∘ g,
+\]
+\[
+    \begin{tikzcd}
+        X \arrow[r, "g"] & TX \arrow[r, "Tf"] & T²X \arrow[r, "μ_X"] & TX.
+    \end{tikzcd}
+\]
+The identities~\ref{eq:d-mod:pre:monad-identities} ensure that the algebra is associative and unital.\todo{Actually in the $∞$-categorical setting we should obtain an $A_∞$-algebra.}\todo{Put this into my notes on monads.}
+
 \begin{itemize}
-    \item monads (on dg categories; \cite[Section~4.7]{Lurie:2014-draft:HigherAlgebra}), morphisms between monads
-    \item $T$ a monad on $\cat C$, then $\Hom_{\cat C}(X, TX)$ is a (unital, associative) $k$-algebra for all $X ∈ \cat C$.
-    \item morphisms of monads give morphisms of algebras
     \item monads from adjunction
 \end{itemize}
 
