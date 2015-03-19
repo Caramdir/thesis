@@ -2,7 +2,7 @@
 \label{ch:d-mod:strategy}
 
 Let $X$ be a scheme of finite type over an algebraically closed field $k$ of characteristic $0$.
-Suppose an algebraic group $G$ over $k$ acts on $X$.
+Suppose an affine algebraic group $G$ over $k$ acts on $X$.
 Let $\stack X = X/G$ be the corresponding quotient stack.
 We are interested in computing the Hochschild cohomology
 \[
@@ -18,7 +18,7 @@ Let us for the moment just assume that $\stack X$ is a QCA stack [with schematic
 
 The dualizing module $ω_{\stack X}$ is always holonomic. 
 Thus we can compute $\dualize Δ_* ω_{\stack X} = Δ_! k_{\stack X}$.
-With this we observe that
+With this we observe that\todo{Because of duality this should be an anti-isomorphism?}
 \begin{align*}
     \HCoh\bigl(\catDMod{\stack X}\bigr) 
     & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}) & &\text{(definition)} \\
@@ -250,7 +250,7 @@ Let us fix a relative compactification $\bar Δ \colon \bar{\stack X} → \stack
     \[
         p_{2,!}p₁^! \colon \catDModHol{\stack X} → \catDModHol{\stack X}
     \]
-    induced by the groupoid $\ls \stack X \rightrightarrows \stack X$ (cf.~\cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}).
+    induced by the groupoid $\ls \stack X \rightrightarrows \stack X$ (cf.~Lemma~\ref{lem:d-mod:pre:groupoid_monad_hol}).
     Then $p_{2,!}p₁^! → Δ^!Δ_!$ is an isomorphism of monads and the statement is evident.
     [ToDo: Write this up in more detail.]
 \end{proof}
