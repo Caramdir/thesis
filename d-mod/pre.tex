@@ -209,9 +209,17 @@ Then $T$ gives the vector space $\Hom_{\cat C}(X, TX)$ the structure of an algeb
 \]
 The identities~\ref{eq:d-mod:pre:monad-identities} ensure that the algebra is associative and unital.\todo{Actually in the $∞$-categorical setting we should obtain an $A_∞$-algebra.}\todo{Put this into my notes on monads.}
 
-\begin{itemize}
-    \item monads from adjunction
-\end{itemize}
+The most common source of monads is from a pair of adjoint functors $F\colon \cat C \rightleftarrows \cat D \cocolon G$.
+One simply sets $T = G ∘ F$ and $η$ and $μ$ are given by the adjunction morphisms
+\[
+    \id[\cat C] → G ∘ F = T
+    \qquad\text{and}\qquad
+    T² = G ∘ (F ∘ G) ∘ F → G ∘ F = T.
+\]
+We note that the correct construction in more complicated in the $∞$-categorical case and refer to \cite[Section~4.7]{Lurie:2014-draft:HigherAlgebra}.
+
+We will also make use of a second -- geometric -- construction.
+For this let us quickly review the definition of a groupoid.
 
 \begin{Def}
     A \emph{groupoid} $\mathcal G$ in $\cat{Stacks}$ consists of a stack $G₀$ of \enquote{objects} and a stack $G₁$ of \enquote{morphisms} together with
@@ -269,11 +277,60 @@ This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{G₀}$ the stru
         \]
 \end{itemize}
 
-\begin{itemize}
-    \item this is actually a monad
-    \item base change morphism from groupoid monad ($X ×_S X$) to adjunction monad (proper case)
-    \item monads from groupoids (general case): \cite[Lemma~II.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG}, \cite[Section~4.7.6]{Lurie:2014-draft:HigherAlgebra}
-\end{itemize}
+In the non-$∞$-categorical setting (say when $\mathcal G$ is a groupoid in smooth varieties) one could easily check by hand that this is indeed a monad.
+To obtain the statement in our setting one applies an argument similar to \cite[Section~\RomanNum{II}.1.7.2]{GaitsgoryRozenblyum:prelim:StudyInDAG}.
+We will discuss this in slightly more generality below.
+
+Let now $f\colon \stack X → \stack Y$ be schematic and proper. 
+The Cartesian diagram
+\[
+    \begin{tikzcd}
+        \stack X ×_{\stack Y} \stack X \arrow[r, "p_s"] \arrow[d, "p_t"] & \stack X \arrow[d, "f"] \\
+        \stack X \arrow[r, "f"] & \stack Y
+    \end{tikzcd}
+\]
+induces a groupoid with $\stack{G₀} = \stack X$ and $\stack{G₁} = \stack X ×_{\stack Y} \stack X$.
+The above constructions now give two monads on $\catDMod{\stack{X}}$: one by $(f_*,f^!)$ adjunction and one from the groupoid structure.
+The base change isomorphism
+\[
+    p_{t,*} p_s^! → f^! f_*
+\]
+gives an identification of these monads and hence of the algebras that they induce.
+
+We will need to apply this construction in the case where $f$ is not proper.
+Unfortunately, in this case non of the adjunctions used to define the monads are available.
+We rectify this by restricting to the full subcategory of of holonomic D-modules and using the $!$-pushforward functors instead of the $*$-pushforward ones.
+Of course, by doing so we do not automatically have base change isomorphisms available anymore.
+Thus we have to explicitly require that all necessary base changes hold (this is usually called the Beck-Chevalley condition).
+
+In order to formulate the condition, we need the concept of the \emph{nerve} of the groupoid $\mathcal G$.
+This is the simplicial stack $\stack{G_\cx}$, where 
+\[
+    \stack G_i = \underbrace{\stack G₁ ×_{\stack G₀} \dotsb ×_{\stack G₀} \stack G₁}_{\text{$i$ times}}.
+\]
+We refer to \cite[Section~6.1.2]{Lurie:2009:HigherToposTheory} for the correct $∞$-categorical setup.
+The following lemma is now an immediate corollary of \cite[Lemma~\RomanNum{II}.1.7.1.4]{GaitsgoryRozenblyum:prelim:StudyInDAG} or \cite[Theorem~4.7.6.2]{Lurie:2014-draft:HigherAlgebra}.
+
+\begin{Lem}
+    Let $f\colon \stack X → \stack Y$ be a schematic morphism of stacks and let $\stack G_\cx$ be the corresponding groupoid.
+    For each map $F\colon [n] → [m]$ in $\cat{Δ}^{\mathrm{op}}$ consider the corresponding square
+    \[
+        \begin{tikzcd}
+            \stack G_{n+1} \arrow[r, "p_s"] \arrow[d, "p_{F+1}"] & \stack G_n \arrow[d, "p_F"] \\
+            \stack G_{m+1} \arrow[r, "p_s"] & \stack G_m
+        \end{tikzcd}
+    \]
+    where the vertical arrows are induced by $F$.
+    Assume that for each such square the base change composition
+    \[
+        p_{F+1,!} p_s^! → 
+        p_{F+1,!} p_s^! p_F^! p_{F,!} =
+        p_{F+1,!} p_{F+1}^! p_s^!  p_{F,!} →
+        p_s^! p_{F,!}
+    \]
+    given by the adjunction morphisms is an isomorphism of functors $\catDModHol{\stack G_n} → \catDModHol{\stack G_{m+1}}$.
+    Then the endofunctor $p_{t,!} p_s^!$ of $\catDModHol{\stack X}$ has a canonical structure of a monad and as such is isomorphic to the adjunction monad $f^!f_!$.
+\end{Lem}
 
 \section{Hochschild cohomology}
 
