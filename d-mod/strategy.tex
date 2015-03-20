@@ -1,31 +1,23 @@
-\chapter{The strategy}
+\chapter{Base change for non-proper maps}
 \label{ch:d-mod:strategy}
 
-Let $X$ be a scheme of finite type over an algebraically closed field $k$ of characteristic $0$.
-Suppose an affine algebraic group $G$ over $k$ acts on $X$.
-Let $\stack X = X/G$ be the corresponding quotient stack.
+Let $\stack X$ be any stack (recall the assumptions we made in Chapter~\ref{ch:d-mod:pre}).
 We are interested in computing the Hochschild cohomology
 \[
     \HCoh\bigl(\catDMod{\stack X}\bigr) = \Hom_{\catDMod{\stack X × \stack X}}(Δ_*ω_{\stack X},\, Δ_*ω_{\stack X}),
 \]
 where $Δ\colon \stack X → \stack X × \stack X$ is the diagonal map.
-In this chapter we will outline a strategy for computing the Hochschild cohomology.
-We will apply this strategy to the case $G = \Gm^n$ in Chapter~\ref{ch:d-mod:torus}.
-
-\section{The morphism}
-
-Let us for the moment just assume that $\stack X$ is a QCA stack [with schematic diagonal].
-
 The dualizing module $ω_{\stack X}$ is always holonomic. 
 Thus we can compute $\dualize Δ_* ω_{\stack X} = Δ_! k_{\stack X}$.
-With this we observe that\todo{Because of duality this should be an anti-isomorphism?}
+With this we observe that
 \begin{align*}
     \HCoh\bigl(\catDMod{\stack X}\bigr) 
     & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}) & &\text{(definition)} \\
-    & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_! k_{\stack X},\, Δ_! k_{\stack X}) & & \text{(duality)} \\
-    & = \Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X}) & & \text{(adjunction)} \\
-    & = \ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)
+    & = \opalg{\Hom_{\catDMod{\stack X × \stack X}}(Δ_! k_{\stack X},\, Δ_! k_{\stack X})} & & \text{(duality)} \\
+    & = \opalg{\Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X})} & & \text{(adjunction)} \\
+    & = \opalg{\ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)},
 \end{align*}
+where the algebra structure on $\ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr) = \Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X})$ is the one induced by the $(Δ_!,Δ^!)$-adjunction monad.
 Consider the Cartesian square
 \[
     \begin{tikzcd}
@@ -41,22 +33,23 @@ Then $Δ_* = Δ_!$ and $p_{2,*} = p_{2,!}$ and by Section~\ref{sec:d-mod:pre:mon
 \end{equation}
 which induces an isomorphism of algebras
 \[
-    \ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)
+    \ΓdR\bigl(p_{2,!} p₁^! k_{\stack X}\bigr)
     →
-    \HCoh\bigl(\catDMod{\stack X}\bigr).
+    \ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr).
 \]
 Of course, if $X$ is not an algebraic space, then $Δ$ is not proper (nor is it in general smooth).
 Thus in general \eqref{eq:d-mod:central_iso} is not an isomorphism and there is no canonical structure of monad on $p_{2,!} p₁^!$.
-Note however that on holonomic D-modules we always have a morphism as in \eqref{eq:d-mod:central_iso} given by the adjunctions
-\begin{equation}
-    \label{eq:d-mod:central_iso_adjunctions}
-    p_{2,!}p₁^! →
-    p_{2,!}p₁^! Δ^! Δ_! =
-    p_{2,!}p₂^! Δ^! Δ_! →
-    Δ^! Δ_!.
-\end{equation}
+The goal of this chapter is to give a criterion for the assumptions of Lemma~\ref{lem:d-mod:pre:groupoid_monad_hol}.
+%Note however that on holonomic D-modules we always have a morphism as in \eqref{eq:d-mod:central_iso} given by the adjunctions
+%\begin{equation}
+%    \label{eq:d-mod:central_iso_adjunctions}
+%    p_{2,!}p₁^! →
+%    p_{2,!}p₁^! Δ^! Δ_! =
+%    p_{2,!}p₂^! Δ^! Δ_! →
+%    Δ^! Δ_!.
+%\end{equation}
 
-\section{A lemma on base change}
+\section{A lemma on base change}\label{sec:d-mod:strategy:base-change}
 
 Consider a Cartesian diagram of stacks
 \[
@@ -83,7 +76,7 @@ If $f$ is proper, then \eqref{eq:d-mod:base-change-morphism} is an isomorphism \
 To understand the behavior for non-proper $f$, we will approximate it by a proper morphism.
 
 \begin{Def}
-    A \emph{relative compactification} of a morphism $f\colon X → Y$ is a commutative diagram 
+    A \emph{relative compactification} of a morphism $f\colon \stack X → \stack Y$ is a commutative diagram 
     \[
         \begin{tikzcd}
             \stack X \arrow[r, hook, "j"] \arrow[dr, "f"'] & \bar{\stack X} \arrow[d, "\bar f"] \\
@@ -94,26 +87,29 @@ To understand the behavior for non-proper $f$, we will approximate it by a prope
 \end{Def}
 
 Let us assume that in the above situation there exists a relative compactification of $f\colon \stack X₁ → \stack Y$.
-Let $\stack X₁^c$ be a closed complement of $\stack X₁$ in $\bar{\stack X}₁$.
-We introduce some further notation in the following Cartesian diagrams.
+Let $\stack X₁^c$ be the closed complement of the open inclusion $j\colon \stack X₁ \hookrightarrow \bar{\stack X}₁$.
+Similarly, we let $\bar{\stack Z} = \stack X₂ ×_{\stack Y} \bar{\stack X}₁$ and $\stack Z^c = \stack X₂ ×_{\stack Y} \stack X₁^c$.
+The notation for the corresponding inclusion and projection maps is summarized in the following Cartesian diagrams.
 \[
     \begin{tikzcd}
         \bar{\stack Z} \arrow[d, "\bar p"] \arrow[r, "\bar q"] & \bar{\stack X}₁ \arrow[d, "\bar f"] \\
         \stack X₂ \arrow[r, "g"] & \stack Y
     \end{tikzcd}
-    \qquad
+    \qquad\qquad
     \begin{tikzcd}
-        \stack Z^c \arrow[r, hook, "i"] \arrow[d, "p^c"] & \bar{\stack Z} \arrow[d, "\bar f"] \\
+        \stack Z^c \arrow[r, hook, "i"] \arrow[d] & \bar{\stack Z} \arrow[d, "\bar q"] \\
         \stack X₁^c \arrow[r, hook] & \bar{\stack X}₁
     \end{tikzcd}
 \]
+We note that $\bar{\stack Z}$ is the disjoint union of the closed substack $\stack Z^c$ and the open substack $\stack Z$.
 
 \begin{Lem}
     \label{lem:d-mod:base-change-criterion}%
     The cone of the morphism~\eqref{eq:d-mod:base-change-morphism} is
     \[
-        p^c_! i^* \bar{q}^! j_!.
+        \bar p_! i_*i^* \bar{q}^! j_!.
     \]
+    In particular, if $i^* \bar{q}^! j_! = 0$, then~\eqref{eq:d-mod:base-change-morphism} is an isomorphism of functors.
 \end{Lem}
 
 \begin{proof}
@@ -170,22 +166,29 @@ We introduce some further notation in the following Cartesian diagrams.
         =
         g^! f_!.
     \end{equation}
-    We note that the adjunction $\id → j^!j_!$ labeled $α$ is an isomorphism and the composition of the maps in \eqref{eq:lem:d-mod:base-change-criterion:pf:split_morphism_base_change} is exactly the isomorphism of proper base change \cite[\RomanNum{III}.4.2.1.3]{GaitsgoryRozenblyum:prelim:StudyInDAG}.
-    Thus the cone of the whole composition composition is exactly the cone of the morphism $β$, i.e.
+    We note that the adjunction $\id → j^!j_!$ labeled $α$ is an isomorphism and the composition of the maps in \eqref{eq:lem:d-mod:base-change-criterion:pf:split_morphism_base_change} is exactly the isomorphism of proper base change (cf.~Proposition~\ref{prop:d-mod:pre:base-change}).
+    Thus the cone of the whole composition composition is exactly the cone of the morphism $β$, which is given by the recollement triangle
     \[
-        \bar p_! \tilde\imath_* \tilde\imath^* \bar q^! j_! = p^c_! \tilde\imath^* \bar q^! j_!.
+        \bar p_! \tilde\jmath_! \tilde\jmath^! \bar q^! j_! 
+        \xrightarrow{β}
+        \bar p_! \bar q^! j_!
+        \xrightarrow{\phantom{β}}
+        \bar p_! i_* i^* \bar q^! j_!
+        \xrightarrow{+1}.
         \qedhere
     \]
 \end{proof}
 
-\section{How to obtain a relative compactification}
+\section{Relative compactification for quotient stack}
 \label{sec:d-mod:strategy:compactification}%
 
-Let us now consider the specific situation of a quotient stack $\stack X = X/G$ and the diagonal morphism $Δ\colon \stack X → \stack X × \stack X$.
-We will show how to construct a relative compactification of $Δ$.
+Let $X$ be a scheme of finite type over an algebraically closed field $k$ of characteristic $0$.
+Suppose an affine algebraic group $G$ over $k$ acts on $X$.
+Let $\stack X = X/G$ be the corresponding quotient stack.
+We will construct a relative compactification show how to construct a relative compactification of the diagonal morphism $Δ\colon \stack X → \stack X × \stack X$.
 
 Constructing a relative compactification of $Δ\colon \stack X → \stack X × \stack X$ is the same as a first constructing a $G × G$-equivariant relative compactification of $(\proj2, a)\colon G × X → X × X$ (where $a\colon G × X → X$ is the action map) and then taking the quotient by the $G × G$ action\footnote{%
-    It might be worth mentioning that here $G × G$ acts on $X × G$ by $(s₁,s₂) \cdot (x,g) = (s₁x,\, s₂gs₁^{-1})$.
+    Here $G × G$ acts on $G × X$ by $(s₁,s₂) \cdot (g,x) = (s₂gs₁^{-1},\, s₁x)$.
 }.
 We let 
 \[
@@ -213,96 +216,120 @@ Thus for ease of notation we will from now on always set $Γ = Γ_a$ and $\bar �
     We have an open embedding $j\colon X \hookrightarrow \bar{\stack X}$ and a proper morphism $\bar Δ\colon \bar{\stack X} → \stack X × \stack X$ induced by the map $f$ above, such that $Δ = \bar Δ ∘ j$.
 \end{Def}
 
-[ToDo: Remark about torus case (smoothness and reference).]
+\begin{Rem}
+    In the case of $G = \Gm$ the compactification $\bar Γ$ is explicitly described in \cite{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
+    In particular, if $X$ is smooth it is shown there that $\bar Γ$ is smooth over $\ps1$.
+    It is possible to extend the methods of \cite{DrinfeldGaitsgory:2014:OnATheoremOfBraden} to quotients by higher dimensional tori.
+    The resulting constructions are highly useful for doing explicit computations.
+\end{Rem}
 
-Let $V$ be a $G$-stable subvariety of $\bar G$.
-We can do the above construction with $V$ instead of $\bar Γ$ to obtain a partial compactification which we will denote by $\bar{\stack X}_V$.
+It is useful to consider only partial compactifications.
+For this let $V$ be a $G$-stable subvariety of $\bar G$ and let $\bar Γ_V$ be the closure of $Γ$ in $G × V$.
+We set
+\[
+    \bar{\stack X}_V = \rquot{\bar Γ_V}{G×G}.
+\]
+Clearly, if $\left\{V_i\right\}$ is an open cover of $\bar G$ by $G$-stable subvarieties, then $\left\{\bar{\stack X}_{V_i}\right\}$ is an open cover of $\bar{\stack X}$.
 
 \section{\Goodstack\ stacks}
 
-Let $\stack X = X/G$ be a quotient stack and consider any morphism of stacks $h\colon \stack Y → \stack X$.
-Consider the Cartesian diagram
+Let $\stack X = X/G$ be a quotient stack as before.
+For any morphism of stacks $h\colon \stack Y → \stack X$ we set $\lsY{\stack X} = \stack X ×_{\stack X × \stack X} \stack Y$.
+Thus we have the Cartesian diagram
 \[
     \begin{tikzcd}
-        \ls_{\stack Y} \stack X \arrow[r, "q"] \arrow[d] & \stack X \arrow[d, "Δ"] \\
+        \lsY \stack X \arrow[r, "q_{\stack Y}"] \arrow[d] & \stack X \arrow[d, "Δ"] \\
         \stack Y \arrow[r, "h∘Δ"] & \stack X × \stack X
     \end{tikzcd}
 \]
-Let us fix a relative compactification $\bar Δ \colon \bar{\stack X} → \stack X × \stack X$ as in Section~\ref{sec:d-mod:strategy:compactification} and set $\tilde\imath_{\stack Y} = \tilde\imath$ and $\bar q_{\stack Y} = \bar q$.
+Let us fix a relative compactification $\bar Δ \colon \bar{\stack X} → \stack X × \stack X$ as in Section~\ref{sec:d-mod:strategy:compactification}.
+As in Section~\ref{sec:d-mod:strategy:base-change} we set $\clsY{\stack X} = \bar{\stack X} ×_{\stack X × \stack X} \stack Y$ and $\lscY{\stack X} = \stack X^c ×_{\stack X × \stack X} \stack Y$.
+We let $\bar q_{\stack Y}\colon \clsY\stack X$ be the projection morphism and $i\colon \lscY\stack X \hookrightarrow \clsY\stack X$ the inclusion.
 
 \begin{Def}
-    A quotient stack $\stack X = X/G$ is called \emph{\goodstack}\footnote{ToDo: Come up with a better name.} if for every quotient stack $\stack Y = Y/G$ and morphism $\stack Y → \stack X$ one has $\tilde\imath_{\stack Y}^* \bar q_{\stack Y}^! j_! = 0$.
+    A quotient stack $\stack X = X/G$ is called \emph{\goodstack} if for every quotient stack $\stack Y = Y/G$ and morphism $\stack Y → \stack X$ one has $i_{\stack Y}^* \bar q_{\stack Y}^! j_! = 0$.
 \end{Def}
+
+We will show in Chapter~\ref{ch:d-mod:torus} that any stack of the form $\rquot{X}{\Gm^n}$ is \goodstack.
+The reason for this definition is the following theorem which lets us compute the Hochschild cohomology of $\catDMod{\stack X}$ for \goodstack\ quotient stacks.
 
 \begin{Thm}
     If $\stack X = X/G$ is \goodstack, then there is a canonical structure of monad on $p_{2,!}p₁^!$ and the morphism $p_{2,!}p₁^! → Δ^!Δ_!$ is an isomorphism of monads.
     In particular there is an isomorphism of algebras
     \[
-        \ΓdR\bigl(p_{2,!} p₁^! k_{\stack X}\bigr)
-        →
-        \HCoh\bigl(\catDMod{\stack X}\bigr).
+        \HCoh\bigl(\catDMod{\stack X}\bigr)
+        \cong
+        \opalg{\ΓdR\bigl(p_{2,!} p₁^! k_{\stack X}\bigr)}.
     \]
 \end{Thm}
 
-\begin{proof}[Outline of proof]
-    Apply \goodness\ for $h = \id_{\stack X}$ to obtain the base change isomorphism $p_{2,!}p₁^! → Δ^!Δ_!$.
-    Similarly use $\stack Y = \ls \stack X ×_{\stack X} \dotsc ×_{\stack X} \ls \stack X$ to obtain the further base change isomorphisms needed to obtain a monad structure on 
+\begin{proof}
+    We apply Lemma~\ref{lem:d-mod:pre:groupoid_monad_hol} to the groupoid $\ls\stack X \rightrightarrows \stack X$.
+    Thus we let $\stack G_\cx$ be the simplicial stack with 
     \[
-        p_{2,!}p₁^! \colon \catDModHol{\stack X} → \catDModHol{\stack X}
+        \stack G_i = \underbrace{\ls\stack X ×_{\stack X} \dotsb ×_{\stack X} \ls\stack X}_{\text{$i$ factors}}.
     \]
-    induced by the groupoid $\ls \stack X \rightrightarrows \stack X$ (cf.~Lemma~\ref{lem:d-mod:pre:groupoid_monad_hol}).
-    Then $p_{2,!}p₁^! → Δ^!Δ_!$ is an isomorphism of monads and the statement is evident.
-    [ToDo: Write this up in more detail.]
+    Any morphism $F\colon [n] → [m]$ in $\cat{Δ}^{\mathrm{op}}$ induces a diagram
+    \[
+        \begin{tikzcd}
+            \stack G_{n+1} \arrow[d] \arrow[r] & \stack G_{m+1} \arrow[d] \arrow[r] & \stack X \arrow[d, "Δ"] \\
+            \stack G_{n} \arrow[r] & \stack G_m \arrow[r] & \stack X × \stack X
+        \end{tikzcd}
+    \]
+    We have to show that base change holds along the right-hand square.
+    But by the assumption and Lemma~\ref{lem:d-mod:base-change-criterion}, base change holds along the outer rectangle and the left-hand square.
+    Thus it also holds along the right-hand square.
 \end{proof}
 
 \begin{Ex}
-    For any algebraic group $G$ the stack $\B G = \pt/G$ is \goodstack. [ToDo: Add proof.]
+    For any algebraic group $G$ the stack $\B G = \pt/G$ is \goodstack\todo{Add proof.}.
 \end{Ex}
 
 \begin{Ex}
-    The stack $\ps1/\as1$ is not \goodstack.
+    The stack $\ps1/\as1$ is an example of a stack that is not \goodstack.
     In fact a direct computation shows that Theorem~\ref{thm:d-mod:main} does not hold for this stack.
 \end{Ex}
 
+We finish this section with some useful observations for proving that a stack is \goodstack.
+
 \begin{Lem}
-    If $\stack X = X/G$ and $\stack Y = Y/H$ are \goodstack, then $\stack X × \stack Y$ is \goodstack.
+    If $\stack X₁ = X₁/G$ and $\stack X₂ = X₂/H$ are \goodstack, then $\stack X₁ × \stack X₂$ is \goodstack.
 \end{Lem}
 
 \begin{proof}
-    Follows from compatibility of $\tilde\imath^*\bar{p₂}^!j_!$ with $\boxtimes$ and coproducts.
-    (Note that $\lsc (\stack X × \stack Y) = \lsc \stack X × \cls \stack Y ∪ \cls \stack X × \lsc \stack Y$.)
+    Follows from compatibility of $i_{\stack Y}^*\bar{q}_{\stack Y}^!j_!$ with $\boxtimes$ and coproducts.
+    (Note that $\lscY{(\stack X₁ × \stack X₂)} = \lscY \stack{X₁} × \clsY \stack{X₂} ∪ \clsY{\stack X₁} × \lscY{\stack X₂}$.)
 \end{proof}
 
 \begin{Lem}
     \label{lem:d-mod:strategy:cover}%
-    Let $U$ be a $G$-equivariant open subset of $X$ and assume that $X/G$ is \goodstack.
-    Then $U/G$ is \goodstack.
+    Let $U$ be a $G$-equivariant open subset of $X$.
+    If $X/G$ is \goodstack then $U/G$ is also \goodstack.
     Conversely, if there exists a $G$-equivariant open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X$ is \goodstack.
 \end{Lem}
 
 \begin{proof}
-    [ToDo: Rewrite for stronger condition]
-    Let $\stack U = U/G$ be the open substack.
+    Let $\stack U = U/G$ and let $\stack Y$ be a quotient stack mapping into $\stack U$ (and hence also into $\stack X$).
     Consider the diagram
     \[
         \begin{tikzcd}
-            \lsc \stack U \arrow[r, hook] \arrow[d, hook, "α"] & \cls \stack U \arrow[r] \arrow[d, hook, "β"] & \bar{\stack U} \arrow[d, hook, "γ"] & \stack U \arrow[l, hook'] \arrow[d, hook, "δ"] \\
-            \lsc \stack X \arrow[r, hook] & \cls \stack X \arrow[r] & \bar{\stack X} & \stack X \arrow[l, hook'] 
+            \lscY \stack U \arrow[r, hook, "i_{\stack U, \stack Y}"] \arrow[d, hook, "α"] & \clsY{\stack U} \arrow[r, "\bar q_{\stack U,\stack Y}"] \arrow[d, hook, "β"] & \bar{\stack U} \arrow[d, hook, "γ"] & \stack U \arrow[l, hook', "j_{\stack U}"'] \arrow[d, hook, "δ"] \\
+            \lscY \stack X \arrow[r, hook, "i_{\stack X, \stack Y}"]                      & \clsY{\stack X} \arrow[r, "\bar q_{\stack X,\stack Y}"]                      & \bar{\stack X}                      & \stack X \arrow[l, hook', "j_{\stack X}"'] 
         \end{tikzcd}
     \]
     The vertical arrows are open embeddings and all squares are Cartesian (where we use the same compactification of $G$ for $\bar{\stack X}$ and $\bar{\stack U}$).
     Thus
     \begin{equation}
         \label{eq:lem:d-mod:cover}
-        \tilde\imath_{U}^*\bar p_{U,2}^!j_{U,!} k_{\stack U} = 
-        \tilde\imath_{Z}^*\bar p_{Z,2}^!j_{Z,!} δ^* k_{\stack X} = 
-        α^* \tilde\imath_{X}^*\bar p_{X,2}^!j_{X,!} k_{\stack X} = 
+        i_{\stack U, \stack Y}^* \bar q_{\stack U,\stack Y}^! j_{\stack U,!} = 
+        i_{\stack U, \stack Y}^* \bar q_{\stack U,\stack Y}^! j_{\stack U,!} δ^* δ_*= 
+        α^* i_{\stack X, \stack Y}^* \bar q_{\stack X, \stack Y}^! j_{\stack X,!} δ_* =
         0.
     \end{equation}
-    The second statement follows form the fact that vanishing of a sheaf can be tested locally and reading~\eqref{eq:lem:d-mod:cover} backwards.
+    The second statement follows form the fact that vanishing of a sheaf can be tested locally and the same argument as~\eqref{eq:lem:d-mod:cover}.
 \end{proof}
 
-[ToDo: Reduction to schemes?]
+\todo{Similarly: smooth covers}
 %Consider the diagram\footnote{Use of Cyrillic letters is probably not the best idea, especially since italic \enquote{и} and \enquote{п} look like \enquote{u} and \enquote{n}. However we will stick with it until I come up with a better notation.}
 %\[
 %    \begin{tikzcd}
