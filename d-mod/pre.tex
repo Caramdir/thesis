@@ -1,10 +1,18 @@
 \chapter{Prerequisites}%
 \label{ch:d-mod:pre}
 
+We fix an algebraically closed base field $k$ of characteristic $0$.
+All stacks in this thesis are assumed to be algebraic QCA stacks over $k$.
+The QCA condition was introduced in \cite{DrinfeldGaitsgory:2013:FinitenessQuestions}, as the category of D-modules is well-behaved on these stacks.
+In particular for any stack $\stack X$ this means that:
 \begin{itemize}
-    \item Everything over an algebraically closed field of characteristic $0$.
-    \item Assumptions on stacks.
+    \item The diagonal morphism $Δ\colon \stack X → \stack X × \stack X$ is schematic.
+    \item There exists a scheme $Z$ with a smooth and surjective map $Z → \stack X$.
+    \item $\stack X$ is quasi-compact.
+    \item The automorphism groups of the geometric points of $\stack X$ are affine.
+    \item The (classical) loop space (or inertia stack) $\stack X ×_{\stack X × \stack X} \stack X$ is of finite presentation over $\stack X$.
 \end{itemize}
+For us the main examples of (QCA) stacks will be quotient stacks and the reader may add the adjective \enquote{quotient} to every occurrence of the word \enquote{stack}.
 
 In order to correctly define categories of D-modules on stacks it is necessary to work with dg-categories.
 We refer to \cite{Keller:2006:OnDGCategories} for an introduction to dg categories.
@@ -393,7 +401,7 @@ such that the unit map is given by $Δ_*p^!$.
 In particular, we the object $u$ is $Δ_*ω_{\stack X}$.
 We summarize this in the following lemma.
 
-\begin{Lem}
+\begin{Lem}\label{lem:d-mod:pre:hcoh}
     Let $\stack X$ be (QCA) stack. 
     Then the Hochschild cohomology of $\catDMod{\stack X}$ is given by the dg algebra
     \[

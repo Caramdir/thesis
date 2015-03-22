@@ -1,7 +1,7 @@
 \chapter{Base change for non-proper maps}
 \label{ch:d-mod:strategy}
 
-Let $\stack X$ be any stack (recall the assumptions we made in Chapter~\ref{ch:d-mod:pre}).
+Let $\stack X$ be any stack (recall the assumptions all stacks to be QCA).
 We are interested in computing the Hochschild cohomology
 \[
     \HCoh\bigl(\catDMod{\stack X}\bigr) = \Hom_{\catDMod{\stack X × \stack X}}(Δ_*ω_{\stack X},\, Δ_*ω_{\stack X}),
@@ -12,7 +12,7 @@ Thus we can compute $\dualize Δ_* ω_{\stack X} = Δ_! k_{\stack X}$.
 With this we observe that
 \begin{align*}
     \HCoh\bigl(\catDMod{\stack X}\bigr) 
-    & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}) & &\text{(definition)} \\
+    & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}) & &\text{(Lemma~\ref{lem:d-mod:pre:hcoh})} \\
     & = \opalg{\Hom_{\catDMod{\stack X × \stack X}}(Δ_! k_{\stack X},\, Δ_! k_{\stack X})} & & \text{(duality)} \\
     & = \opalg{\Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X})} & & \text{(adjunction)} \\
     & = \opalg{\ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)},
@@ -247,13 +247,13 @@ As in Section~\ref{sec:d-mod:strategy:base-change} we set $\clsY{\stack X} = \ba
 We let $\bar q_{\stack Y}\colon \clsY\stack X$ be the projection morphism and $i\colon \lscY\stack X \hookrightarrow \clsY\stack X$ the inclusion.
 
 \begin{Def}
-    A quotient stack $\stack X = X/G$ is called \emph{\goodstack} if for every quotient stack $\stack Y = Y/G$ and morphism $\stack Y → \stack X$ one has $i_{\stack Y}^* \bar q_{\stack Y}^! j_! = 0$.
+    A quotient stack $\stack X = X/G$ is called \emph{\goodstack} if for every quotient stack $\stack Y = Y/G$ and morphism $\stack Y → \stack X$ the functor $i_{\stack Y}^* \bar q_{\stack Y}^! j_!$ vanishes on $\catDModHol{\stack X}$.
 \end{Def}
 
 We will show in Chapter~\ref{ch:d-mod:torus} that any stack of the form $\rquot{X}{\Gm^n}$ is \goodstack.
 The reason for this definition is the following theorem which lets us compute the Hochschild cohomology of $\catDMod{\stack X}$ for \goodstack\ quotient stacks.
 
-\begin{Thm}
+\begin{Thm}\label{thm:d-mod:good-is-good}
     If $\stack X = X/G$ is \goodstack, then there is a canonical structure of monad on $p_{2,!}p₁^!$ and the morphism $p_{2,!}p₁^! → Δ^!Δ_!$ is an isomorphism of monads.
     In particular there is an isomorphism of algebras
     \[
@@ -326,51 +326,53 @@ We finish this section with some useful observations for proving that a stack is
         α^* i_{\stack X, \stack Y}^* \bar q_{\stack X, \stack Y}^! j_{\stack X,!} δ_* =
         0.
     \end{equation}
-    The second statement follows form the fact that vanishing of a sheaf can be tested locally and the same argument as~\eqref{eq:lem:d-mod:cover}.
+    For the second statement note that the stacks $\lscY{\stack U_i}$ form an open cover of $\lscY{\stack X}$ and apply the same argument as~\eqref{eq:lem:d-mod:cover} backwards.
 \end{proof}
 
-\todo{Similarly: smooth covers}
-%Consider the diagram\footnote{Use of Cyrillic letters is probably not the best idea, especially since italic \enquote{и} and \enquote{п} look like \enquote{u} and \enquote{n}. However we will stick with it until I come up with a better notation.}
-%\[
-%    \begin{tikzcd}
-%        \schemelsc \stack{X} \arrow[r, hook, "\tilde\schemei"] \arrow[d, "σ_{\lsc\stack X}"]
-%            & \schemecls{\stack X} \arrow[r, "\bar\schemep₂"] \arrow[d, "σ_{\cls{\stack X}}"]
-%                & \bar Γ \arrow[d, "σ_{\bar{\stack X}}"]
-%                    & Γ \arrow[l, hook', "\schemej"'] \arrow[d, "σ_{\stack X}"]
-%        \\
-%        \lsc\stack X \arrow[r, hook, "\tilde\imath"]
-%        & \cls{\stack X} \arrow[r, "\bar p₂"]
-%                & \bar{\stack X}
-%                    & \stack X \arrow[l, hook', "j"']
-%    \end{tikzcd}
-%\]
-%where the top row are the obvious smooth covers of the stacks at the bottom and the squares are all Cartesian.
-%The vertical arrows are all smooth of the same dimension. 
-%Hence,
-%\[
-%    σ_{\lsc{\stack X}}^* \tilde\imath^*\bar{p}₂^!j_! k_{\stack X} =
-%    \tilde{\schemei}^* \bar{\schemep}₂^! \schemej_! σ_{\stack X}^* k_{\stack X} =
-%    \tilde{\schemei}^* \bar{\schemep}₂^! \schemej_! k_{Γ}.
-%\]
-%The functor $σ_{\lsc{\stack X}}^*$ is conservative, which implies the following lemma.
-%
-%\begin{Lem}
-%    The stack $X/G$ is \goodstack\ if and only if $\tilde{\schemei}^* \bar{\schemep}₂^! \schemej_! k_{Γ} = 0$.
-%\end{Lem}
+The same argument can be used to reduce the computation to a smooth cover.
+We will now introduce notation for the special case of the cover $\bar Γ → \bar{\stack X}$.
+The corresponding covers of the other relevant stacks are introduced in the following diagram with Cartesian squares.
+\begin{equation}
+    \label{eq:d-mod:strategy:scheme-cover}
+    \begin{tikzcd}
+        \schemelscY \stack X \arrow[r, hook, "\schemei_{\stack Y}"] \arrow[d] & \schemeclsY \stack X \arrow[r, "\bar\schemeq_{\stack Y}"] \arrow[d] & \bar Γ \arrow[d] & Γ \arrow[l, hook', "\schemej"'] \arrow[d] \\
+        \lscY \stack X \arrow[r, hook, "i_{\stack Y}"]                        & \clsY \stack X \arrow[r, "\bar q_{\stack Y}"]                       & \bar{\stack X}   & \stack X \arrow[l, hook', "j"']
+    \end{tikzcd}
+\end{equation}
+We note that all vertical morphisms are smooth and the spaces in the top row are schemes.
+Let $\schemeh\colon X → Y$ be the $G$-equivariant morphism of schemes inducing $h$ on quotient stacks.
+Then the scheme $\schemeclsY \stack X$ is given by
+\[
+    \schemeclsY \stack X =
+    \biggl\{
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ
+    \biggr\}.
+\]
 
-\iffalse
-\begin{Rem}
-    Let $V_i$ be a $G$-equivariant open cover of $\bar G$.
-    Then we can consider $Γ$ as a subset of $X × V_i × X$ and take its closure $\bar Γ_i$.
-    The sets $\bar Γ_i$ for an open cover cover of $\bar Γ$ and hence the stacks $\stack U_i = \rquot{\bar Γ_i}{G×G}$ form an open cover of $\bar{\stack X}$.
-\end{Rem}
-\fi%
-
-\begin{Lem}\label{lem:d-mod:strategy:cover-by-relative-compactifications}
-    Let $V_i$ be a $G$-stable open cover of $\bar G$.
-    Then $\stack X$ is good if and only $\tilde\imath_{\stack Y}^* \bar q_{\stack Y}^! j_! = 0$ for each relative compactification $\bar{\stack X}_{V_i}$ and each $\stack Y → \stack X$
+\begin{Lem}\label{lem:d-mod:strategy:scheme-cover}
+    A stack $X/G$ is \goodstack\ if for each morphism $Y/G → X/G$ the composition $\schemei_{\stack Y}^* \bar\schemeq_{\stack Y}^! \schemej_!$ vanishes on $\catDModHolMon{Γ}{G×G}$.
 \end{Lem}
 
-[ToDo: Need better notation.]
+\begin{proof}
+    Follows from the fact that pullback along the smooth vertical morphisms in \eqref{eq:d-mod:strategy:scheme-cover} is conservative \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions}.
+\end{proof}
 
-[ToDo: Proof (obvious).]
+Let $\left\{V_i\right\}$ be a $G$-stable open cover of $\bar G$ and consider the corresponding open cover $\left\{\bar{\stack X}_{V_i}\right\}$ of $\stack X$.
+We obtain corresponding open covers $\left\{\cls_{V_i,\stack Y} \stack X\right\}$ and $\left\{\lsc_{V_i,\stack Y} \stack X\right\}$ of $\clsY{\stack X}$ and $\lscY{\stack X}$ respectively.
+We let $i_{V_i,\stack X}$, $\bar q_{V_i,\stack X}$ and $j_{V_i}$ be the corresponding maps, i.e.
+\[
+    \begin{tikzcd}
+        \cls_{V_i,\stack Y} \stack X \arrow[r, hook, "i_{V_i,\stack X}"] & 
+        \lsc_{V_i,\stack Y} \stack X \arrow[r, "\bar q_{V_i,\stack X}"] &
+        \bar{\stack X}_{V_i} &
+        \stack X \arrow[l, hook', "j_{V_i}"'].
+    \end{tikzcd}
+\]
+
+\begin{Lem}\label{lem:d-mod:strategy:cover-by-relative-compactifications}
+    With the above notation, the $\stack X$ is good if and only $i_{V_i,\stack Y}^* \bar q_{V_i,\stack Y}^! j_{V_i,!}$ vanishes on $\catDModHol{\stack X}$ for all $V_i$ and all $\stack Y → \stack X$.
+\end{Lem}
+
+\begin{proof}
+    Similar to the proofs of Lemmas~\ref{lem:d-mod:strategy:cover} and~\ref{lem:d-mod:strategy:scheme-cover}.
+\end{proof}

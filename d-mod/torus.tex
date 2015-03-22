@@ -1,53 +1,46 @@
 \chapter{Torus quotients}
 \label{ch:d-mod:torus}
 
-The goal of this section is to prove the following theorem.
+In this chapter we will apply the tools from the previous chapter to torus quotient stacks.
+Specifically, we will prove the following theorem.
 
 \begin{Thm}
     \label{thm:d-mod:torus:is-good}%
-    Let $G$ be a torus acting locally linearly on a (?) scheme $X$.
+    Let $G$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
     Then the stack $\stack X = X/G$ is good.
 \end{Thm}
 
-By Lemma~\ref{lem:d-mod:strategy:cover}, it suffices to prove the theorem for affine schemes $X$.
-Set $G = \Gm^n$.
-We will compactify $G$ to $(\ps1)^n$.
-We note that the variety $(\ps1)^n$ can be covered by $G$-equivariant open subvarieties of the form $\as n$.
-Thus by Lemma~\ref{lem:d-mod:strategy:cover-by-relative-compactifications}, it suffices to check \goodness\ for the relative compactification $\Gm^n \subseteq \as n$.
-To simplify notation, we set $\bar{\stack X} = \bar{\stack X}_{\as n}$.
+Together with Theorem~\ref{thm:d-mod:good-is-good} this implies our main result, Theorem~\ref{thm:d-mod:main}.
 
-In the following we fix a quotient stack $\stack Y = Y/G$ and a morphism $h\colon \stack Y → \stack X$.
-We will be concerned with the diagrams
+By Lemma~\ref{lem:d-mod:strategy:cover}, it suffices to prove Theorem~\ref{thm:d-mod:torus:is-good} for stacks $X/G$ with $X$ affine.
+We fix an isomorphism $G \cong \Gm^n$ and compactify $G$ to $\bigl(\ps1\bigr)^n$.
+That the variety $\bigl(\ps1\bigr)^n$ can be covered by $G$-equivariant open subvarieties of the form $\as n$.
+Thus by Lemma~\ref{lem:d-mod:strategy:cover-by-relative-compactifications}, it suffices to check \goodness\ for the relative compactification $\Gm^n \subseteq \as n$.
+To simplify notation, we drop the subscript $\as n$ from the notation and set $\bar{\stack X} = \bar{\stack X}_{\as n}$ and similarly for the various maps.
+
+We fix a quotient stack $\stack Y = Y/G$ and a morphism $h\colon \stack Y → \stack X$, induced by a $G$-equivariant morphism $\schemeh\colon Y → X$.
+According to Lemma~\ref{lem:d-mod:strategy:scheme-cover}, rather than working with stack directly, we can base change to schemes.
+We will use the notation of Lemma~\ref{lem:d-mod:strategy:scheme-cover}, but for ease of notation we will drop the subscript $\stack Y$ from the maps.
+Thus we are concerned with the diagram
 \[
     \begin{tikzcd}
-        \cls_{\stack Y} \stack X \arrow[r, "\bar q"] \arrow[d] & \bar{\stack X} \arrow[d, "\bar Δ"] \\
-        \stack Y \arrow[r, "h∘Δ"] & \stack X × \stack X
-    \end{tikzcd}
-    \text{ and }
-    \begin{tikzcd}
-        \lsc_{\stack Y} \stack X \arrow[r, hook, "i"] \arrow[d] & \cls_{\stack Y} \stack X \arrow[d, "\bar q"] \\
-        \bar{\stack X}^c \arrow[r, hook] & \bar{\stack X}
-    \end{tikzcd}
-\]
-Rather than working with stack directly, we will base change to schemes.
-For this consider the notation introduced in the following diagram with Cartesian squares.
-\[
-    \begin{tikzcd}
-        \schemelsc_{\stack Y} \stack X \arrow[r, hook, "\schemei"] \arrow[d] & \schemecls_{\stack Y} \stack X \arrow[r, "\bar\schemeq"] \arrow[d] & \bar Γ \arrow[d] & G × X \arrow[l, hook', "\schemej"'] \arrow[d] \\
-        \lsc_{\stack Y} \stack X \arrow[r, hook, "i"] & \cls_{\stack Y} \stack X \arrow[r, "\bar q"] & \bar{\stack X} & \stack X \arrow[l, hook', "j"']
+        \schemelscY \stack X \arrow[r, hook, "\schemei"] &
+        \schemeclsY \stack X \arrow[r, "\bar\schemeq"] &
+        \bar Γ &
+        Γ \arrow[l, hook', "\schemej"'],
     \end{tikzcd}
 \]
-Since pullback along the smooth vertical morphisms is conservative \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions}, it suffices to show that $\schemei^* \bar\schemeq^!\schemej_! \sheaf F = 0$ for all $G×G$-monodromic $\sheaf F ∈ \catDModHol{G × X}$ (see Definition~\ref{def:d-mod:pre:monodromic} for the meaning of the word \enquote{monodromic}).
-Further let $\schemeh\colon X → Y$ be the $G$-equivariant morphism of schemes inducing $h$ on quotient stacks.
-Then the scheme $\schemecls_{\stack Y} \stack X$ is given by
+where we have to show that $\schemei^* \bar\schemeq^! \schemej_!$ vanishes on $\catDModHolMon{Γ}{G×G}$.
+
+We will cut the scheme
 \[
-    \schemecls_{\stack Y} \stack X =
+    \schemeclsY \stack X =
     \biggl\{
         \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ
-    \biggr\}.
+    \biggr\}
 \]
-We will cut this space into pieces according to the subgroups of $G$ that stabilize them.
-Thus let $\Stab\stack X$ be the set of all closed subgroups of $G$ that are stabilizers of points of $X$, i.e.
+into pieces according to the subgroups of $G$ that stabilize them.
+For this let $\Stab\stack X$ be the set of all closed subgroups of $G$ that are stabilizers of points of $X$, i.e.
 \[
     \Stab\stack X = \{ G_x : x ∈ X \}.
 \]
@@ -203,5 +196,5 @@ Consider the Cartesian square of closed embeddings
         \schemeclsY[S₁]\stack X ∩ \schemeclsY[S₂]\stack X = 
         \schemeclsY[S₁∩S₂,\, S₁S₂].
     \]
-    [ToDo: Write up this proof.]
+    \todo{Add some details.}
 \end{proof}
