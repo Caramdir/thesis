@@ -212,7 +212,7 @@ Alternatively, we can think of $T$ being a monoid in the category of endofunctor
 This definition also gives the correct generalization to $∞$-categories \cite[Definition~4.7.0.1]{Lurie:2014-draft:HigherAlgebra}.
 
 Let $X$ be an object of the category $\cat C$.
-Then $T$ gives the vector space $\Hom_{\cat C}(X, TX)$ the structure of an algebra with multiplication map
+Then $T$ gives the vector space $\Hom_{\cat C}(X, TX)$ the structure of a dg algebra with multiplication map
 \[
     (f,g) \mapsto μ_X ∘ Tf ∘ g,
 \]
@@ -221,7 +221,7 @@ Then $T$ gives the vector space $\Hom_{\cat C}(X, TX)$ the structure of an algeb
         X \arrow[r, "g"] & TX \arrow[r, "Tf"] & T²X \arrow[r, "μ_X"] & TX.
     \end{tikzcd}
 \]
-The identities~\ref{eq:d-mod:pre:monad-identities} ensure that the algebra is associative and unital.\todo{Actually in the $∞$-categorical setting we should obtain an $A_∞$-algebra.}\todo{Put this into my notes on monads.}
+The identities~\ref{eq:d-mod:pre:monad-identities} ensure that the algebra is associative and unital.
 
 The most common source of monads is from a pair of adjoint functors $F\colon \cat C \rightleftarrows \cat D \cocolon G$.
 One simply sets $T = G ∘ F$ and $η$ and $μ$ are given by the adjunction morphisms
