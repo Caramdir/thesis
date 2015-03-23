@@ -31,10 +31,22 @@
     footinclude=false,
     headinclude=false,
     pagesize,
-    twoside,
+    twoside=false,
     open=any,
 }
 \recalctypearea
+\RequirePackage[
+    includehead=true,
+    includefoot=true,
+    left=1in,
+    right=1in,
+    top=1in,
+    bottom=1in,
+    headsep=2em,
+]{geometry}
+
+\RequirePackage{setspace}
+\doublespacing
 
 \RequirePackage{newunicodechar}
 \newunicodechar{ }{ } % no-break space
@@ -170,18 +182,16 @@
 \dottedcontents{subsection}[6.1em]{}{3.2em}{1pc}
 
 \pagestyle{scrheadings}
-
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\renewcommand*{\partpagestyle}{scrheadings}
 \AtBeginDocument{%
     \clearscrheadfoot%
-    \lehead{\normalfont\scshape\MakeLowercase{\headmark}}%
-    \rohead{\normalfont\itshape\headmark}%
-    \rofoot{\pagemark}%
-    \lefoot{\pagemark}%
-    \setheadsepline{0.4pt}[\color{black!30}]%
+    \ohead{\normalfont\pagemark}
 }
-\appto\backmatter{%
-    \rohead{\normalfont\scshape\MakeLowercase{\headmark}}%
-}
+
+\let\frontmatter\relax
+\let\mainmatter\relax
+\let\backmatter\relax
 
 \RequirePackage{tikz}
 \usetikzlibrary{
