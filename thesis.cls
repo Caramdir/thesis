@@ -262,27 +262,44 @@
 \newcommand\maketitlepage{%
     \thispagestyle{plain}%
     \begin{titlepage}%
-        \begin{flushleft}%
-            \vspace*{3cm}
-
-            \noindent%
-            \huge\scshape\color{sectioningcolor}%
-            \MakeLowercase{\@title}\\[0.6cm]%
-            \Large%
-            \MakeLowercase{\@author}\\[1cm]%
-            \normalcolor%
-            \large%
-            \ifx\@version\@empty\else%
-                version \MakeLowercase{\@version}\\
-            \fi%
-            \MakeLowercase{\ifx\@date\today\else\@date\fi}%
-        \end{flushleft}%
+        \begin{centering}%
+            \begin{spacing}{1}%
+                \Large%
+                \textsc{northwestern university}
+                \vfill\vfill
+                \@title
+                \vfill\vfill
+                \textsc{a dissertation}
+                \vfill\vfill
+                \textsc{submitted to the graduate school\\in partial fulfillment of the requirements}
+                \vfill\vfill
+                for the degree
+                \vfill\vfill
+                \textsc{doctor of philosophy}
+                \vfill\vfill
+                Field of Mathematics
+                \vfill\vfill
+                By
+                \vfill
+                \@author
+                \vfill\vfill
+                \textsc{evanston, illinois}
+                \vfill\vfill
+                June 2015
+            \end{spacing}
+        \end{centering}%
     \end{titlepage}%
-    \cleardoublepage%
+    \clearpage
 }
 
 \newenvironment{abstract}{%
     \chapter*{Abstract}
+    \begin{centering}
+        \@title
+
+        \@author
+        
+    \end{centering}
 }{%
 }
 
