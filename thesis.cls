@@ -270,4 +270,10 @@
     \end{titlepage}%
     \cleardoublepage%
 }
+
+\newenvironment{abstract}{%
+    \chapter*{Abstract}
+}{%
+}
+
 \endinput
