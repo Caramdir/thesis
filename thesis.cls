@@ -130,6 +130,7 @@
     {1ex}
     {\Huge\MakeLowercase}
     []
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
 
 \titleformat
     {\section}
