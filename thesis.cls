@@ -10,10 +10,8 @@
 
 \newif\ifbw
 \newif\iffinal
-\newif\ifofficial
 
 \IfEndWith{\jobname}{\detokenize{-bw}}{\bwtrue}{}
-\IfEndWith{\jobname}{\detokenize{-official}}{\officialtrue}{}
 
 \DeclareOption{bw}{
     \bwtrue
@@ -115,11 +113,6 @@
 ]{TeX Gyre Cursor}
 
 \setmathfont{TeX Gyre Termes Math}
-
-\ifofficial
-	\RequirePackage{setspace}
-	\doublespacing
-\fi
 
 \ifbw
     \colorlet{sectioningcolor}{black}
