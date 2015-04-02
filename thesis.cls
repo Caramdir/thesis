@@ -29,7 +29,7 @@
     footinclude=false,
     headinclude=false,
     pagesize,
-    twoside,
+    twoside=semi,
     open=any,
 }
 \recalctypearea
