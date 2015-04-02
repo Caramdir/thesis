@@ -302,10 +302,8 @@ We finish this section with some useful observations for proving that a stack is
 \end{proof}
 
 \begin{Lem}
-    \label{lem:d-mod:strategy:cover}%
     Let $U$ be a $G$-equivariant open subset of $X$.
     If $X/G$ is \goodstack then $U/G$ is also \goodstack.
-    Conversely, if there exists a $G$-equivariant open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X$ is \goodstack.
 \end{Lem}
 
 \begin{proof}
@@ -326,7 +324,16 @@ We finish this section with some useful observations for proving that a stack is
         α^* i_{\stack X, \stack Y}^* \bar q_{\stack X, \stack Y}^! j_{\stack X,!} δ_* =
         0.
     \end{equation}
-    For the second statement note that the stacks $\lscY{\stack U_i}$ form an open cover of $\lscY{\stack X}$ and apply the same argument as~\eqref{eq:lem:d-mod:cover} backwards.
+\end{proof}
+
+\begin{Lem}
+    \label{lem:d-mod:strategy:cover}%
+    If there exists a $G$-equivariant open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X/G$ is \goodstack.
+\end{Lem}
+
+\begin{proof}\todo{Write out proof}
+    Show first that the stacks $\lscY{\stack U_i}$ form an open cover of $\lscY{\stack X}$.
+    Then apply the same argument as~\eqref{eq:lem:d-mod:cover} backwards.
 \end{proof}
 
 The same argument can be used to reduce the computation to a smooth cover.
