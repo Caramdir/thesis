@@ -25,7 +25,7 @@
 
 \KOMAoptions{
     paper=letter,
-    fontsize=10pt,
+    fontsize=12pt,
     footinclude=false,
     headinclude=false,
     pagesize,
