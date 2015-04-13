@@ -2,11 +2,14 @@
 \label{ch:d-mod:torus}
 
 In this chapter we will apply the tools from the previous chapter to torus quotient stacks.
-Specifically, we will prove the following theorem.\todo{We actually don't really use affineness in the actual proof?}
+Specifically, we will prove the following theorem.
 
 \begin{Thm}
     \label{thm:d-mod:torus:is-good}%
-    Let $G$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
+    Let $G$ be a torus acting locally linearly\footnote{
+        We only use the \enquote{locally linear} assumption to prove Lemma~\ref{lem:d-mod:finitely_many_stabilizers}, i.e.~that $\Stab\stack X$ is locally finite.
+        Thus we could just assume that instead.}
+    on a scheme $X$ of finite type over $k$.
     Then the stack $\stack X = X/G$ is good.
 \end{Thm}
 
@@ -14,7 +17,7 @@ Together with Theorem~\ref{thm:d-mod:good-is-good} this implies our main result,
 
 By Lemma~\ref{lem:d-mod:strategy:cover}, it suffices to prove Theorem~\ref{thm:d-mod:torus:is-good} for stacks $X/G$ with $X$ affine.
 We fix an isomorphism $G \cong \Gm^n$ and compactify $G$ to $\bigl(\ps1\bigr)^n$.
-That the variety $\bigl(\ps1\bigr)^n$ can be covered by $G$-equivariant open subvarieties of the form $\as n$.
+The variety $\bigl(\ps1\bigr)^n$ can be covered by $G$-equivariant open subvarieties of the form $\as n$.
 Thus by Lemma~\ref{lem:d-mod:strategy:cover-by-relative-compactifications}, it suffices to check \goodness\ for the relative compactification $\Gm^n \subseteq \as n$.
 To simplify notation, we drop the subscript $\as n$ from the notation and set $\bar{\stack X} = \bar{\stack X}_{\as n}$ and similarly for the various maps.
 
@@ -47,6 +50,7 @@ For this let $\Stab\stack X$ be the set of all closed subgroups of $G$ that are 
 \]
 
 \begin{Lem}
+    \label{lem:d-mod:finitely_many_stabilizers}%
     The set $\Stab\stack X$ is finite.
 \end{Lem}
 

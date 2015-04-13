@@ -3,27 +3,29 @@
 
 We fix an algebraically closed base field $k$ of characteristic $0$.
 All stacks in this thesis are assumed to be algebraic QCA stacks over $k$.
-The QCA condition was introduced in \cite{DrinfeldGaitsgory:2013:FinitenessQuestions}, as the category of D-modules is well-behaved on these stacks.
-In particular for any stack $\stack X$ this means that:
+As we will summarize in Section~\ref{sec:d-mod:pre:d-mods}, the QCA condition ensures that the category of D-modules on stacks is well-behaved.
+In particular for any stack $\stack X$ we have:
 \begin{itemize}
     \item The diagonal morphism $Δ\colon \stack X → \stack X × \stack X$ is schematic.
     \item There exists a scheme $Z$ with a smooth and surjective map $Z → \stack X$.
     \item $\stack X$ is quasi-compact.
     \item The automorphism groups of the geometric points of $\stack X$ are affine.
-    \item The (classical) loop space (or inertia stack) $\stack X ×_{\stack X × \stack X} \stack X$ is of finite presentation over $\stack X$.
+    \item The loop space (or inertia stack) $\ls \stack X = \stack X ×_{\stack X × \stack X} \stack X$ is of finite presentation over $\stack X$.
 \end{itemize}
-For us the main examples of (QCA) stacks will be quotient stacks and the reader may add the adjective \enquote{quotient} to every occurrence of the word \enquote{stack}.
+The first two conditions ensure that the stack is algebraic, the other three that it is quasi-compact with affine automorphism group (QCA).
+For details on QCA stacks we refer to~\cite{DrinfeldGaitsgory:2013:FinitenessQuestions}.
+Every quotient of a scheme of finite type over $k$ by an affine algebraic group is a QCA stack, and we will be mainly interested in these.
 
 In order to correctly define categories of D-modules on stacks it is necessary to work with dg-categories.
 We refer to \cite{Keller:2006:OnDGCategories} for an introduction to dg categories.
-It is often convenient to regard (pretriangulated) dg categories as $k$-linear stable $(∞,1)$-categories, which can be done via the nerve construction \cite{Cohn:arXiv:DGCategoriesAreStableInfinityCategories,Faonte:arXiv:SimplicialNerveOfAnAinfinityCategory}. %\cite[Section~1.3.1]{Lurie:2014-draft:HigherAlgebra}
+It is often convenient to regard (pretriangulated) dg categories as $k$-linear stable $(∞,1)$-categories \cite{Lurie:2009:HigherToposTheory,Lurie:2014-draft:HigherAlgebra}, which can be done via the nerve construction \cite{Cohn:arXiv:DGCategoriesAreStableInfinityCategories,Faonte:arXiv:SimplicialNerveOfAnAinfinityCategory}. %\cite[Section~1.3.1]{Lurie:2014-draft:HigherAlgebra}
 We will switch between those two languages without explicitly mentioning the intervening constructions and apply results from \cite{Lurie:2014-draft:HigherAlgebra} to dg categories.
 Fortunately, a superficial knowledge of dg/$∞$-categories should be sufficient for reading this thesis.
 
 \section{D-modules on stacks}
 
 The second part of this thesis is primarily concerned with D-modules on quotient stacks.
-Unfortunately there is currently no comprehensive source available that covers all the basic constructions and properties of D-modules on stacks (or even the \emph{dg category} of D-modules on schemes).
+Unfortunately there is currently no comprehensive text available that covers all the basic constructions and properties of D-modules on stacks (or even the \emph{dg category} of D-modules on schemes).
 Thus we collect all the relevant properties (without proof) in this section.
 The upshot is that the familiar \enquote{six functors formalism} essentially works for holonomic D-modules and schematic morphisms of stacks.
 
@@ -61,7 +63,7 @@ We refer to \cite{Braverman:LecturesOnAlgebraicDmodules} for proofs in the case 
 
 \begin{Prop}
     Let $f\colon \stack X → \stack Y$ be a schematic morphism.
-    Then $f^!$ and $f_*$ restrict to functors 
+    Then $f^!$ and $f_*$ restrict to functors
     \[
         f^!\colon \catDModHol{\stack Y} → \catDModHol{\stack X}
         \quad\text{and}\quad
@@ -84,13 +86,13 @@ The Verdier duality functor then allows us to define the \emph{non-standard func
     f_! & = \dualize_{\stack Y} ∘ f_* ∘ \dualize_{\stack X} \colon \catDModHol{\stack X} → \catDModHol{\stack Y}.
 \end{align*}
 We obtain adjoint pairs $(f_!,\, f^!)$ and $(f^*,\, f_*)$.
-In particular we have 
+In particular we have
 \[
     k_{\stack X} = f^* k_{\stack Y}.
 \]
 In some situations we can identify the non-standard functors with their standard counterparts.
 If $f$ is smooth of relative dimension $d$ then $f^* = f^![-2d]$.
-If $f$ is proper then $f_! = f_*$ an in particular $f_*$ is left adjoint to $f^!$.
+If $f$ is proper then $f_! = f_*$ and in particular $f_*$ is left adjoint to $f^!$.
 The objects $ω_{\stack X}$ and $k_{\stack X}$ are always holonomic and
 \[
     \dualize_{\stack X} ω_{\stack X} = k_{\stack X}.
@@ -167,12 +169,14 @@ By applying duality to Proposition~\ref{prop:d-mod:recollement-std} we obtain th
     j_! j^* → \id → i_*i^*
 \]
 and the identity $i^*j_! = 0$ on holonomic D-modules.
-Further, functor $j_!$ is a full embedding $\catDModHol{\stack U} \hookrightarrow \catDModHol{\stack X}$.
+Further, the functor $j_!$ is a full embedding $\catDModHol{\stack U} \hookrightarrow \catDModHol{\stack X}$.
+
+It is often useful to consider the pullback of a D-module on $\stack X$ to a smooth cover.
 
 \begin{Def}
     \label{def:d-mod:pre:monodromic}%
-    Let $X$ be a scheme with an action of an algebraic group $G$ and let $p\colon X → X/G$.
-    The \emph{monodromic} subcategory $\catDModMon{X}{G} ⊆ \catDMod{X}$ is the subcategory generated by the essential image of $p^!\colon \catDMod{X/G} → \catDMod{X}$.
+    Let $X$ be a scheme with an action of an algebraic group $G$ and let $p\colon X → X/G$ be the quotient map.
+    The \emph{monodromic} subcategory $\catDModMon{X}{G} ⊆ \catDMod{X}$ is the full subcategory generated by the essential image of $p^!\colon \catDMod{X/G} → \catDMod{X}$ (or equivalently by the essential image of $p^*$).
 \end{Def}
 
 \begin{Thm}[Contraction principle~{\cite[Proposition~3.2.2]{DrinfeldGaitsgory:2014:OnATheoremOfBraden}}]
@@ -231,26 +235,28 @@ One simply sets $T = G ∘ F$ and $η$ and $μ$ are given by the adjunction mo
     T² = G ∘ (F ∘ G) ∘ F → G ∘ F = T.
 \]
 We note that the correct construction in more complicated in the $∞$-categorical case and refer to \cite[Section~4.7]{Lurie:2014-draft:HigherAlgebra}.
+For any $X ∈ \cat C$ the algebra construction above gives an isomorphism of algebra
+\[
+    \Hom_{\cat C}(X, (GF)(X)) \cong
+    \Hom_{\cat D}(FX, FX).
+\]
 
-We will also make use of a second -- geometric -- construction.
-For this let us quickly review the definition of a groupoid.
-
-\begin{Def}
-    A \emph{groupoid} $\mathcal G$ in stacks consists of a stack $\stack G₀$ of \enquote{objects} and a stack $\stack G₁$ of \enquote{morphisms} together with
-    \begin{itemize}
-        \item \emph{source} and \emph{target} maps $s,t\colon \stack G₁ \rightrightarrows \stack G₀$,
-        \item a \emph{unit} $e\colon G₀ → G₁$,
-        \item a \emph{multiplication} (or \emph{composition}) map $m\colon \stack G₁ ×\limits_{s,\stack G₀,t} \stack G₁ → \stack G₁$),
-        \item a \emph{inverse} map $ι\colon \stack G₁ → \stack G₁$,
-    \end{itemize}
-    such that
-    \begin{itemize}
-        \item $s ∘ e = t ∘ e = \id_{\stack G₀}$,
-        \item $s ∘ m = s ∘ p₂$ and $t ∘ m = t ∘ p₁$ (where $p_i\colon \stack G₁ ×_{s,\stack G₀,t} \stack G₂$ are the projection maps).
-        \item $m$ is associative,
-        \item $ι$ interchanges $s$ and $t$ and is an inverse for $m$.
-    \end{itemize}
-\end{Def}
+Another common way to obtain monads in geometry is via a groupoid.
+Recall that a groupoid $G_{\cx}$ in stacks consists of a stack $\stack G₀$ of \enquote{objects} and a stack $\stack G₁$ of \enquote{morphisms} together with
+\begin{itemize}
+    \item \emph{source} and \emph{target} maps $s,t\colon \stack G₁ \rightrightarrows \stack G₀$,
+    \item a \emph{unit} $e\colon G₀ → G₁$,
+    \item a \emph{multiplication} (or \emph{composition}) map $m\colon \stack G₁ ×\limits_{s,\stack G₀,t} \stack G₁ → \stack G₁$),
+    \item an \emph{inverse} map $ι\colon \stack G₁ → \stack G₁$,
+\end{itemize}
+such that
+\begin{itemize}
+    \item $s ∘ e = t ∘ e = \id_{\stack G₀}$,
+    \item $s ∘ m = s ∘ p₂$ and $t ∘ m = t ∘ p₁$ (where $p_i\colon \stack G₁ ×_{s,\stack G₀,t} \stack G₁$ are the projection maps).
+    \item $m$ is associative,
+    \item $ι$ interchanges $s$ and $t$ and is an inverse for $m$,
+\end{itemize}
+where all identities have to be understood in the correct $∞$-categorical way \cite[Section~6.1.2]{Lurie:2009:HigherToposTheory}.
 
 \begin{Ex}
     For our purpose the most important example is the following:
@@ -260,7 +266,7 @@ For this let us quickly review the definition of a groupoid.
 \end{Ex}
 
 Let us for the moment assume that $s$ (and hence $t$) is proper and schematic.
-In this case the maps $e$ and $m$ are also proper, since $s ∘ e = \id_{\stack G₀}$ and $s ∘ m = s ∘ p₂$ are proper [ToDo: reference].
+In this case the maps $e$ and $m$ are also proper, since $s ∘ e = \id_{\stack G₀}$ and $s ∘ m = s ∘ p₂$ are proper.
 In particular the functors $e^!\colon \catDMod{\stack G₁} → \catDMod{\stack G₀}$ and $m^!\colon \catDMod{\stack G₁} → \catDMod{\stack G₁ ×_{\stack G₀} \stack G₁}$ have left adjoints given by $e_*$ and $m_*$ respectively.
 This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{\stack G₀}$ the structure of a monad in the following way:
 
@@ -291,11 +297,11 @@ This allows us to give the endofunctor $T = s_*t^!$ of $\catDMod{\stack G₀}$ t
         \]
 \end{itemize}
 
-In the non-$∞$-categorical setting (say when $\mathcal G$ is a groupoid in smooth varieties) one could easily check by hand that this is indeed a monad.
-To obtain the statement in our setting one applies an argument similar to \cite[Section~\RomanNum{II}.1.7.2]{GaitsgoryRozenblyum:prelim:StudyInDAG}.
-We will discuss this in slightly more generality below.
+In the non-$∞$-categorical setting one could easily check by hand that this is indeed a monad.
+To obtain the corresponding derived statement one applies an argument similar to \cite[Section~\RomanNum{II}.1.7.2]{GaitsgoryRozenblyum:prelim:StudyInDAG}.
+We will discuss a version of this below.
 
-Let now $f\colon \stack X → \stack Y$ be schematic and proper. 
+Let now $f\colon \stack X → \stack Y$ be schematic and proper.
 The Cartesian diagram
 \[
     \begin{tikzcd}
@@ -309,16 +315,21 @@ The base change isomorphism
 \[
     p_{t,*} p_s^! → f^! f_*
 \]
-gives an identification of these monads and hence of the algebras that they induce.
+gives an identification of these monads and hence of the algebras that they induce, i.e.~for any $\sheaf F ∈ \catDMod{\stack X}$ we have
+\[
+    \Hom(\sheaf F,\, p_{t,*} p_s^!\sheaf F) \cong
+    \Hom(\sheaf F,\, f^! f_* \sheaf F) \cong
+    \Hom(f_*\sheaf F,\, f_* \sheaf F).
+\]
 
-We will need to apply this construction in the case where $f$ is not proper.
-Unfortunately, in this case non of the adjunctions used to define the monads are available.
+We will need to apply this construction for non-proper $f$.
+Unfortunately, in this case none of the adjunctions used to define the monads are available.
 We rectify this by restricting to the full subcategory of of holonomic D-modules and using the $!$-pushforward functors instead of the $*$-pushforward ones.
 Of course, by doing so we do not automatically have base change isomorphisms available anymore.
 Thus we have to explicitly require that all necessary base changes hold (this is usually called the Beck-Chevalley condition).
 
-In order to formulate the condition, we need the concept of the \emph{nerve} of the groupoid $\mathcal G$.
-This is the simplicial stack $\stack{G}_\cx$, where 
+In order to formulate the condition, we need the concept of the \emph{nerve} of a groupoid.
+This is the simplicial stack, also denoted $\stack{G}_\cx$, with
 \[
     \stack G_i = \underbrace{\stack G₁ ×_{\stack G₀} \dotsb ×_{\stack G₀} \stack G₁}_{\text{$i$ factors}}.
 \]
@@ -338,7 +349,7 @@ The following lemma is now an immediate corollary of \cite[Lemma~\RomanNum{II}.1
     where the vertical arrows are induced by $F$.
     Assume that for each such square the base change composition
     \[
-        p_{F+1,!} p_s^! → 
+        p_{F+1,!} p_s^! →
         p_{F+1,!} p_s^! p_F^! p_{F,!} =
         p_{F+1,!} p_{F+1}^! p_s^!  p_{F,!} →
         p_s^! p_{F,!}
@@ -349,16 +360,16 @@ The following lemma is now an immediate corollary of \cite[Lemma~\RomanNum{II}.1
 
 \section{Hochschild cohomology}
 
-Recall that the Hochschild cohomology of a dg category $\cat C$ is given by the algebra of derived endomorphisms of the identity functor,
+We recall that the Hochschild cohomology of a dg category $\cat C$ is the algebra of derived endomorphisms of the identity functor,
 \[
     \HCoh(\cat C) = \mathbb{R}\mathrm{Hom}(\id[\cat C],\, \id[\cat C]).
 \]
-For the exact definition of of $\mathbb{R}\Hom = \cat{Funct}(\cat C, \cat C)$ we refer to \cite{Keller:2006:OnDGCategories}.
+For the exact definition of the category $\mathbb{R}\mathrm{Hom} = \cat{Funct}(\cat C, \cat C)$ we refer to \cite{Keller:2006:OnDGCategories}.
 Instead we will give a more concrete construction via kernels which can be applied to $\catDMod{\stack X}$.
 For this let us restrict to the case of co-complete dg categories and let $\cat{Funct}_{\mathrm{cont}}(\cat C, \cat C)$ be the full subcategory of $\cat{Funct}(\cat C, \cat C)$ spanned by the continuous functors.
 Then, since $\id[\cat C]$ is evidently continuous, we have
 \[
-    \HCoh(\cat C) = 
+    \HCoh(\cat C) =
     \Hom_{\cat{Funct}_{\mathrm{cont}}(\cat C, \cat C)}(\id[\cat C], \id[\cat C]).
 \]
 Let us further assume that $\cat C$ is dualizable with dual $\cat C^\dual$.
@@ -388,7 +399,7 @@ These assignments are mutually inverse and give an equivalence of dg categories
 \]
 In particular, the kernel for the identity is $u$ and hence we have
 \[
-    \HCoh(\cat C) = 
+    \HCoh(\cat C) =
     \Hom_{\cat C^\dual \otimes \cat C}(u, u).
 \]
 Let us now consider the case of $\cat C = \catDMod{\stack X}$ for a stack $X$.
@@ -397,12 +408,14 @@ By \cite[Section~8.4]{DrinfeldGaitsgory:2013:FinitenessQuestions} the category $
 \[
     \catDMod{\stack X}^\dual \otimes \catDMod{\stack X} \cong \catDMod{\stack X × \stack X}
 \]
-such that the unit map is given by $Δ_*p^!$.
-In particular, we the object $u$ is $Δ_*ω_{\stack X}$.
-We summarize this in the following lemma.
+such that the unit map is given by $Δ_*p^!$ and thus we have
+\[
+    u = Δ_*ω_{\stack X}.
+\]
+We summarize the above discussion in the following lemma.
 
 \begin{Lem}\label{lem:d-mod:pre:hcoh}
-    Let $\stack X$ be (QCA) stack. 
+    Let $\stack X$ be a stack.
     Then the Hochschild cohomology of $\catDMod{\stack X}$ is given by the dg algebra
     \[
         \HCoh(\catDMod{\stack X}) =

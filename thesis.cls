@@ -135,6 +135,15 @@
 \RequirePackage{titlesec, titletoc}
 
 \titleformat
+	{\part}
+	[display]
+	{\vfill\centering\Huge\bfseries\color{sectioningcolor}}
+	{\thepart}
+	{1em}
+	{}
+	[\vfill]
+
+\titleformat
     {\chapter}
     [display]
     {\centering\normalfont\huge\scshape\color{sectioningcolor}}
@@ -161,6 +170,15 @@
     {0pt}
     {}
     []
+
+\titlecontents
+	{part}
+	[1.5em]
+    {\addvspace{1.5em}\large}
+    {\contentslabel{1.5em}\large\bfseries}
+    {\hspace*{-1.5em}\large\bfseries}
+    {\hfill\contentspage}
+    [\vspace{2pt}]
 
 \titlecontents
     {chapter}
