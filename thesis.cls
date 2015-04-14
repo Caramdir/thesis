@@ -9,13 +9,9 @@
 \RequirePackage{iftex}
 
 \newif\ifbw
+\bwtrue
+
 \newif\iffinal
-
-\IfEndWith{\jobname}{\detokenize{-bw}}{\bwtrue}{}
-
-\DeclareOption{bw}{
-    \bwtrue
-}
 
 \DeclareOption{final}{
     \finaltrue
