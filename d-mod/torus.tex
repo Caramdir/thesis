@@ -6,10 +6,12 @@ Specifically, we will prove the following theorem.
 
 \begin{Thm}
     \label{thm:d-mod:torus:is-good}%
-    Let $G$ be a torus acting locally linearly\footnote{
+    Let $G$ be a torus\footnote{
+        Actually, the arguments below works for the product of a torus and a finite Abelian group.
+    } acting locally linearly\footnote{
         We only use the \enquote{locally linear} assumption to prove Lemma~\ref{lem:d-mod:finitely_many_stabilizers}, i.e.~that $\Stab\stack X$ is locally finite.
-        Thus we could just assume that instead.}
-    on a scheme $X$ of finite type over $k$.
+        Thus we could just assume that instead.
+    } on a scheme $X$ of finite type over $k$.
     Then the stack $\stack X = X/G$ is good.
 \end{Thm}
 
@@ -35,15 +37,15 @@ Thus we are concerned with the diagram
 \]
 where we have to show that $\schemei^* \bar\schemeq^! \schemej_!$ vanishes on $\catDModHolMon{Γ}{G×G}$.
 
-\todo{Add some motivation here.}
-We will cut the scheme
+The general idea is to introduce a $\Gm$-action that contracts $\schemelscY \stack X$ onto $\schemeclsY \stack X$.
+In order to do so, we will cut the scheme
 \[
     \schemeclsY \stack X =
     \biggl\{
         \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ
     \biggr\}
 \]
-into pieces according to the subgroups of $G$ that stabilize them.
+into pieces according to the subgroups of $G$ that stabilize $\schemeh(y)$.
 For this let $\Stab\stack X$ be the set of all closed subgroups of $G$ that are stabilizers of points of $X$, i.e.
 \[
     \Stab\stack X = \{ G_x : x ∈ X \}.
@@ -151,9 +153,14 @@ Consider the Cartesian square of closed embeddings
     \[
         \schemei_H^{*} i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F.
     \]
+    We will do so be introducing a contractive $\Gm$-action on $\bar Γ$ and $\schemelsY[S₁,S₂]\stack X$ such that the morphism
+    \[
+        κ ∘ i_{S₁,S₂}\colon \schemeclsY[S₁,S₂]\stack X → \bar Γ
+    \]
+    is $\Gm$-equivariant.
 
-    Write $G \cong G₁ × S₁$ for some subgroup $G₁$ of $G$.
-    Then $\bar G = \bar G₁ \bar S₁$.
+    We write $G \cong G₁ × S₁$ for some subgroup $G₁$ of $G$.
+    This given a corresponding decomposition of the monad $\bar G \cong \as n$ as $\bar G = \bar G₁ \bar S₁$.
     Let $H' = \bar G₁ H$.
     We note that $G ∩ H' = \emptyset$.
     
@@ -161,23 +168,25 @@ Consider the Cartesian square of closed embeddings
     This induces an action of $\Gm$ on $\bar G = \bar G₁ \bar S₁$ by $u \cdot ts = tμ(u,s)$, contracting $\bar G$ onto $H'$.
     Further we obtain an action of $\Gm$ on $\bar Γ$ that keeps the first $X$ coordinate fixed.
     By construction this action contracts $\bar Γ$ onto a closed subvariety of $\bar Γ \setminus Γ$.
-    We will denote this subvariety by $Z₁$ and the contraction morphism $π\colon \bar Γ → Z₁$ by $π₁$.
-    We can also lift this action to $\schemeclsY[S₁,S₂]\stack X$ where it contracts onto $Z$.
+    We will denote this subvariety by $Z₁$ and the contraction morphism $π₁\colon \bar Γ → Z₁$ by $π₁$.
+    
+    We can also lift the action to $\schemeclsY[S₁,S₂]\stack X$ where it contracts onto $Z$.
     We will denote the corresponding contraction morphism by $π\colon \schemeclsY[S₁,S₂]\stack X → Z$.
+    The morphism $κ ∘ i_{S₁,S₂}\colon \schemeclsY[S₁,S₂]\stack X → \bar Γ$ is equivariant with respect to these $\Gm$-actions and on its image the action keeps the second $X$-coordinate fixed.
 
     We note that the D-modules $\schemej_!\sheaf F$ and $i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F$ are monodromic with respect to these $\Gm$-actions.
     The contraction principle Theorem~\ref{thm:d-mod:pre:contraction_principle} thus implies that
     \[
         \schemei_H^* i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F = π_* i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F.
     \]
-    The square
+    By construction, the square
     \[
         \begin{tikzcd}
             \schemecls[S₁,S₂] \arrow[r, "π"] \arrow[d, "\schemeq ∘ i_{S₁,S₂}"] & Z \arrow[d] \\
             \bar Γ \arrow[r, "π₁"] & Z₁
         \end{tikzcd}
     \]
-    is Cartesian\todo{This probably needs some explanation.}. 
+    is Cartesian. 
     Let us call the right vertical map $f$.
     Base change yields
     \[
