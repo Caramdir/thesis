@@ -36,9 +36,11 @@
 \newcommand\dcohbGheart[2][G]{\dcohb{#2}^{#1,\heartsuit}}
 \newcommand\dqcb[1]{\dqc[b]{#1}}
 \newcommand\dqcbG[2][G]{\dqcb{#2}^{#1}}
-\newcommand\dconstrb[1]{D_{\mathrm{constr}}^b(#1)}
+\newcommand\dconstrb[2][\mathrm{constr}]{\dcat[#1]{b}{#2}}
 
 \newcommand\dpc[3][p]{\perv[#1]\dcat{#2}{#3}^G}
+\newcommand\dpconstr[3]{\perv[p]\dcat[#1]{#2}{#3}}
+\newcommand\PervConstr[2][]{\mathup{Perv}_{#1}(#2)}
 
 \newcommand\lciname{strong}
 
