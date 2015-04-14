@@ -15,26 +15,50 @@ Basically the content of my talk:
     \item Why study $\HCoh\left(\catDMod{\stack X}\right)$?
     \item Naive expectation and its problems.
     \item Statement of result.
+    \item Outline of approach?
 \end{itemize}
 
+\subsection*{Short summary}
 
-Let\todo{Write this nicely.}
+Let $\stack X$ be a stack.
+The goal of the second part is to understand the Hochschild cohomology
+\[
+    \HCoh\bigl(\catDMod{\stack X}\bigr) 
+    =
+    \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}).
+\]
+By duality and adjunction this is the same as
+\[
+    \opalg{\Hom_{\catDMod{\stack X}}(k_{\stack X},\, Δ^!Δ_! k_{\stack X})} =
+    \opalg{\ΓdR(\stack X,\, Δ^!Δ_! k_{\stack X})}.
+\]
+For this we consider the (derived) loop space
 \[
     \ls \stack X = \stack X ×\limits_{\stack X × \stack X} \stack X
 \]
-be the loop space of $\stack X = X/G$.
-Let $p_i\colon \ls\stack X → \stack X$ be the projections.
+and the Cartesian diagram
+\[
+    \begin{tikzcd}
+        \ls \stack X \arrow[r, "p₁"] \arrow[d, "p₂"] & \stack X \arrow[d, "Δ"] \\
+        \stack X \arrow[r, "Δ"] & \stack X × \stack X
+    \end{tikzcd}
+\]
+Naively, one could expect that
+\[
+    \opalg{\ΓdR(\stack X,\, Δ^!Δ_! k_{\stack X})} \cong
+    \opalg{\ΓdR(\stack X,\, p_{2,!}p₁^! k_{\stack X})},
+\]
+but of course this base-change isomorphism does not exist in general.
+
+We will try to quantify how much the morphism $p_{2,!}p₁^! k_{\stack X} → Δ^!Δ_! k_{\stack X}$ fails to be an isomorphism.
+In particular we will show that it is an isomorphism for stacks of the form $\stack X = [X/\Gm^n]$.
 
 \begin{Thm}\label{thm:d-mod:main}
-    Let $G$ be a torus acting locally linearly\todo{Define \enquote{locally linear action}.}\ on a scheme $X$ of finite type over $k$.
+    Let $G$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
     Then there is a canonical isomorphism of algebras
     \[
         \HCoh\bigl(\catDMod{X/G}\bigr) 
         \cong
-        \opalg{\ΓdR\bigl(p_{2,!} p₁^! k_{X/G}\bigr)}.
+        \opalg{\ΓdR\bigl(X/G,\,p_{2,!} p₁^! k_{X/G}\bigr)}.
     \]
 \end{Thm}
-
-\begin{itemize}
-    \item Outline of approach?
-\end{itemize}
