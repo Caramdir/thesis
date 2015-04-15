@@ -90,7 +90,38 @@ Bezrukavnikov used the second property in \cite{Bezrukavnikov:2003:QuasiExceptio
 
 \subsection{Microlocal theory (constructible version)}
 
+On the first view the definition of perverse sheaves is very mysterious.
+Why would the category defined this way be important and have nice features?
+One answer to this question was proposed by Kashiwara and Schapira \cite{KashiwaraSchapira:1994:SheavesOnManifolds} in their microlocal viewpoint.
+
+One way to see the microlocal nature of perverse sheaves via the vanishing cycles functor\todo{references?}.
+For this let $f$ be a (local) holomorphic function on $X$.
+Then the vanishing cycles $φ_f\colon \dconstrb{X} → \dconstrb{f^{-1}(0)}$ restrict to a functor on the corresponding categories of perverse sheaves
+\[
+    \pervVC{f}\colon \PervConstr{X} → \PervConstr{f^{-1}(0)}.
+\]
+If we in addition let $f$ be a stratified Morse function with critical point $x$, then taking corresponding \emph{microlocal stalks}
+\[
+    \left(\pervVC{f}({-})\right)_x \colon \dconstrb[\setset S]{X} → \dcat{}{ℂ}
+\]
+sends perverse sheaves to vector spaces concentrated in degree $0$.
+In fact, this property characterizes perverse sheaves among all $\setset S$-constructible sheaves on $X$ \cite{Jin:arXiv:HolomorphicLagrangianBranesCorrespondToPerverseSheaves}.
+
+In a further reformulation, we can take local cohomology along the unstable manifold $Z$ of $\Re f$ and require that this is concentrated in degree $0$.
+We note that
+\[
+    \dim_ℝ Z = \frac12 \dim_ℝ X.
+\]
+
 \subsection{Microlocal theory (coherent version)}
+
+This last observation can be translated to the world of coherent sheaves.
+In Chapter~\ref{ch:pv:measuring} we will define a \emph{measuring subvariety} to roughly be a subvariety $Z$ of $X$ which intersects each $G$-orbit in a half dimensional subvariety.
+We will then prove the following analogue of the above characterization of perverse (constructible) sheaves.
+
+\begin{Thm}
+    A sheaf $\sheaf F ∈ \dcohbG{X}$ is perverse if and only if $\lc{Z}\sheaf F$ is concentrated in cohomological degree $0$ for sufficiently many measuring subvarieties $Z$ of $X$.
+\end{Thm}
 
 \section{Hochschild cohomology of categories of D-modules}
 
