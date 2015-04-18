@@ -1,11 +1,13 @@
 \chapter{Introduction}
 
+[TODO: Introduction to introduction]
+
 \section{Microlocal theory of perverse coherent sheaves}
 
 This project is motivated by two theories that came to recent prominence in algebraic geometry and in particular geometric representation theory.
 \begin{itemize}
     \item The notion of perverse coherent sheaves, independently introduced by Bezrukavnikov (following Deligne) \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}, Kashiwara \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Gabber \cite{Gabber:2004:NotesOnSomeTStructures} and Bridgeland \cite{Bridgeland:2006:DerivedCategoriesOfCoherentSheaves}.
-    \item A theory of \enquote{singular support} for coherent sheaves, worked out by Arinkin and Gaitsgory for their formulation of the Geometric Langlands Conjecture \cite{ArinkinGaitsgory:2015:SingularSupport}, based on earlier work by Benson--Iyengar--Krause \cite{BensonIyengarKrause:2008:LocalCohomologyAndSupportForTriangulatedCategories}\todo{Also reference Eisenbud?}.
+    \item A theory of \enquote{singular support} for coherent sheaves, worked out by Arinkin and Gaitsgory for their formulation of the Geometric Langlands Conjecture \cite{ArinkinGaitsgory:2015:SingularSupport}, based on earlier work by Benson, Iyengar and Krause \cite{BensonIyengarKrause:2008:LocalCohomologyAndSupportForTriangulatedCategories}.
 \end{itemize}
 Removing the word \enquote{coherent}, these two theories are by now classical and indispensable tools in the study of constructible sheaves.
 They can also be beautifully combined to elucidate the microlocal nature of perverse sheaves \cite{KashiwaraSchapira:1994:SheavesOnManifolds}.
@@ -16,7 +18,7 @@ However we should note from the outset that the Arinkin--Gaitsgory theory of sin
 For example the perverse t-structure on $\SL2$-equivariant coherent sheaves on $\as2$ is non-trivial, but the singular support of coherent sheaves on either $\as2$ or the stack $\as2/\SL2$ is always trivial.
 Thus we have to understand the microlocal nature of perverse coherent sheaves in a different way.
 
-\subsection{Perverse (constructible) sheaves}
+\subsection*{Perverse (constructible) sheaves}
 
 Before discussing our results, let us briefly review the theory of perverse sheaves in the setting that is closed to the coherent analogue that we will use.
 For readability, we will restrict to the complex case and the middle perversity.
@@ -48,7 +50,7 @@ It has many nice properties, of which we want to mention the following two which
     \item The simple objects of $\PervConstr[\setset S]{X}$ are in bijection with pairs $(S, \sheaf L)$ consisting of a stratum $S ∈ \setset S$ and an irreducible local system on $\sheaf L$ on $S$.
 \end{itemize}
 
-\subsection{Perverse coherent sheaves}
+\subsection*{Perverse coherent sheaves}
 
 With some modification the definition of perverse sheaves can be translated to coherent sheaves.
 We will again only discuss the middle perversity here.
@@ -88,7 +90,7 @@ In particular we have the same properties as above:
 \end{itemize}
 Bezrukavnikov used the second property in \cite{Bezrukavnikov:2003:QuasiExceptionalSets} to establish a bijection between pairs $(O, V)$ of a nilpotent orbit $O$ and an irreducible representation $V$ of the stabilizer of $G$ on $O$, and the set $Λ^+$ of dominant weight of $G$, thus proving a conjecture of Lusztig.
 
-\subsection{Microlocal theory (constructible version)}
+\subsection*{Microlocal theory (constructible version)}
 
 On the first view the definition of perverse sheaves is very mysterious.
 Why would the category defined this way be important and have nice features?
@@ -113,15 +115,18 @@ We note that
     \dim_ℝ Z = \frac12 \dim_ℝ X.
 \]
 
-\subsection{Microlocal theory (coherent version)}
+\subsection*{Microlocal theory (coherent version)}
 
 This last observation can be translated to the world of coherent sheaves.
-In Chapter~\ref{ch:pv:measuring} we will define a \emph{measuring subvariety} to roughly be a subvariety $Z$ of $X$ which intersects each $G$-orbit in a half dimensional subvariety.
-We will then prove the following analogue of the above characterization of perverse (constructible) sheaves.
+For this purpose we will define \emph{measuring subvarieties} of $X$.
+Roughly speaking, these are subvarieties of $X$ which intersects each $G$-orbit in a half dimensional subvariety.
+We will give the precise definition in Chapter~\ref{ch:pc:measuring}, where we will also prove the following analogue of the above characterization of perverse (constructible) sheaves.
 
 \begin{Thm}
     A sheaf $\sheaf F ∈ \dcohbG{X}$ is perverse if and only if $\lc{Z}\sheaf F$ is concentrated in cohomological degree $0$ for sufficiently many measuring subvarieties $Z$ of $X$.
 \end{Thm}
+
+The exact statement and some variants will be given in Theorem~\ref{thm:main}.
 
 \section{Hochschild cohomology of categories of D-modules}
 
