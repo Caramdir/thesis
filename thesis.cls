@@ -137,7 +137,7 @@
 	{\thepart}
 	{1em}
 	{}
-	[\vfill]
+	[\thispagestyle{scrheadings}\vfill\clearpage]
 
 \titleformat
     {\chapter}
