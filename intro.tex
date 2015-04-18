@@ -1,64 +1,211 @@
 \chapter{Introduction}
 
+[TODO: Introduction to introduction]
+
 \section{Microlocal theory of perverse coherent sheaves}
 
-Basically the content of my talk:
+This project is motivated by two theories that came to recent prominence in algebraic geometry and in particular geometric representation theory.
 \begin{itemize}
-    \item intro to perverse coherent sheaves
-    \item microlocal theory in the constructible setting
-    \item statement of the result
+    \item The notion of perverse coherent sheaves, independently introduced by Bezrukavnikov (following Deligne) \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}, Kashiwara \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Gabber \cite{Gabber:2004:NotesOnSomeTStructures} and Bridgeland \cite{Bridgeland:2006:DerivedCategoriesOfCoherentSheaves}.
+    \item A theory of \enquote{singular support} for coherent sheaves, worked out by Arinkin and Gaitsgory for their formulation of the Geometric Langlands Conjecture \cite{ArinkinGaitsgory:2015:SingularSupport}, based on earlier work by Benson, Iyengar and Krause \cite{BensonIyengarKrause:2008:LocalCohomologyAndSupportForTriangulatedCategories}.
 \end{itemize}
+Removing the word \enquote{coherent}, these two theories are by now classical and indispensable tools in the study of constructible sheaves.
+They can also be beautifully combined to elucidate the microlocal nature of perverse sheaves \cite{KashiwaraSchapira:1994:SheavesOnManifolds}.
+Thus the question naturally arises whether the coherent versions of these theories can be combined too.
+
+Coming form representation theory, we will be primarily concerned with the definition of perverse coherent sheaves by Bezrukavnikov, which we will recall below.
+However we should note from the outset that the Arinkin--Gaitsgory theory of singular support does not interact well with these perverse coherent sheaves.
+For example the perverse t-structure on $\SL2$-equivariant coherent sheaves on $\as2$ is non-trivial, but the singular support of coherent sheaves on either $\as2$ or the stack $\as2/\SL2$ is always trivial.
+Thus we have to understand the microlocal nature of perverse coherent sheaves in a different way.
+
+\subsection*{Perverse (constructible) sheaves}
+
+Before discussing our results, let us briefly review the theory of perverse sheaves in the setting that is closed to the coherent analogue that we will use.
+For readability, we will restrict to the complex case and the middle perversity.
+
+Thus we le $X$ be a complex variety and fix a stratification $\setset S$ of $X$ be smooth complex subvarieties.
+Attached to this setup we have the bounded derived category of $\dconstrb[\setset S]{X}$ of $\setset S$-constructible sheaves, i.e.~the full subcategory of the category of constructible sheaves on $X$ of sheaves which are local systems along each stratum.
+The \emph{perverse t-structure} on this category is then given by the two full subcateogries
+\begin{equation}
+    \begin{aligned}
+        \label{eq:intro:pc:constructible_t-structure}
+        \dpconstr{\setset S}{\le 0}{X} &=
+        \bigl\{ \sheaf F ∈ \dconstrb[\setset S]{X} : i_S^* \sheaf F ∈ \dcat{\le -\frac12\dim_ℝ S}{S} \text{ for all } S ∈ \setset S\bigr\}, \\
+        \dpconstr{\setset S}{\ge 0}{X} &=
+        \bigl\{ \sheaf F ∈ \dconstrb[\setset S]{X} : i_S^! \sheaf F ∈ \dcat{\ge -\frac12\dim_ℝ S}{S} \text{ for all } S ∈ \setset S\bigr\}, \\
+    \end{aligned}
+\end{equation}
+where $i_S\colon S \hookrightarrow X$ is the inclusion.
+That this is indeed a t-structure was proved by Beilinson, Bernstein and Deligne in \cite{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
+In particular this means that the category
+\[
+    \PervConstr[\setset S]{X} = \dpconstr{\setset S}{\le 0}{X} ∩ \dpconstr{\setset S}{\ge 0}{X}
+\]
+is Abelian.
+It is called the category of \emph{(middle) perverse sheaves} on $X$ with respect to $\setset S$.
+This category both intimately connected to the singularities of $X$ (via intersection cohomology) and, if $X$ is smooth, the category of D-modules on $X$ (via the Riemann-Hilbert correspondence).
+It has many nice properties, of which we want to mention the following two which are of particular importance in the coherent analogue.
+\begin{itemize}
+    \item The Verdier duality functor on $\dconstrb[\setset S](X)$ restricts to an involution of $\PervConstr[\setset S]{X}$.
+    \item The simple objects of $\PervConstr[\setset S]{X}$ are in bijection with pairs $(S, \sheaf L)$ consisting of a stratum $S ∈ \setset S$ and an irreducible local system on $\sheaf L$ on $S$.
+\end{itemize}
+
+\subsection*{Perverse coherent sheaves}
+
+With some modification the definition of perverse sheaves can be translated to coherent sheaves.
+We will again only discuss the middle perversity here.
+The general definition will be reviewed in Section~\ref{sec:pc:pre:pc}.
+
+We let $X$ be a scheme of finite type over a field $k$.
+We would like to pick a stratification of $X$ and consider the category of coherent sheaves whose restriction to each stratum is a vector bundle.
+Unfortunately this is not a triangulated subcategory of $\dcohb{X}$.
+For example for a general function $f$ the cone of $\O_X \xrightarrow{\cdot f} \O_X$ will not be a vector bundle on the open stratum.
+
+The solution to this problem is to introduce a group action replace \enquote{smoothness along a stratification} by \enquote{equivariantness}.
+Thus we let $G$ be an affine algebraic group over $k$ acting on $X$ and consider the bounded derived category $\dcohbG{X} = \dcohb{X/G}$ of $G$-equivariant coherent sheaves on $X$.
+Instead of the strata $S ∈ \setset S$ we will look at the set $\Xtop$ of generic points of $G$-equivariant subschemes of $X$.
+
+In the constructible setting we used required the stratification to be complex, so that we could have the (real) dimension.
+He we will require directly that all $G$-orbits are even-dimensional.
+The main example of this situation is the nilpotent cone of a semi-simple algebraic group with the adjoint action.
+
+The only piece remaining to translate from the constructible setting are the restriction functors.
+For this it turns out that the $\O$-module functors do not give the correct definition and we have to use the $k$-module functors instead.
+Thus, if $ι_x\colon \{x\} → X$ is the inclusion of $x ∈ \Xtop$ and $\sheaf F ∈ \dcohbG{X}$, we let $\mathbf ι_x^* \sheaf F = \sheaf F_x$ be the (derived) functor of talking stalks.
+Similarly, we let $\mathbf ι_x^!\sheaf F = \mathbf ι_x^* \lc{\bar{\{x\}}} \sheaf F$ be the derived functor of local cohomology.
+Thus the definition~\eqref{eq:intro:pc:constructible_t-structure} becomes the two full subcategories
+\begin{align*}
+    \dpc{≤0}{X} & =
+    \bigl\{ \sheaf F ∈ \dcohb{X} : \mathbf ι_x^*\sheaf F ∈ \dcat{≤ -\frac12 \dim x}{\O_x} \text{ for all $x ∈ \Xtop$}\bigr\}, \\
+    \dpc{≥0}{X} & =
+    \bigl\{ \sheaf F ∈ \dcohb{X} : \mathbf ι_x^!\sheaf F ∈ \dcat{≥ -\frac12 \dim x}{\O_x} \text{ for all $x ∈ \Xtop$}\bigr\},
+\end{align*}
+and this is indeed a t-structure \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
+The heart of this t-structure is called the category of \emph{(middle) perverse sheaves} on $X$.
+It is again an Abelian category with lots of interesting features.
+In particular we have the same properties as above:
+\begin{itemize}
+    \item Grothendieck-Serre duality is an involution of the category of perverse coherent sheaves.
+    \item For sufficiently nice $G$-actions the simple objects are indexed by pairs $(O, \sheaf V)$, where $O$ is a G-orbit and $\sheaf V$ is an irreducible $G$-equivariant vector bundle on $O$ (or equivalently an irreducible representation of the stabilizer of $G$ on $O$).
+\end{itemize}
+Bezrukavnikov used the second property in \cite{Bezrukavnikov:2003:QuasiExceptionalSets} to establish a bijection between pairs $(O, V)$ of a nilpotent orbit $O$ and an irreducible representation $V$ of the stabilizer of $G$ on $O$, and the set $Λ^+$ of dominant weight of $G$, thus proving a conjecture of Lusztig.
+
+\subsection*{Microlocal theory (constructible version)}
+
+On the first view the definition of perverse sheaves is very mysterious.
+Why would the category defined this way be important and have nice features?
+One answer to this question was proposed by Kashiwara and Schapira \cite{KashiwaraSchapira:1994:SheavesOnManifolds} in their microlocal viewpoint.
+
+One way to see the microlocal nature of perverse sheaves via the vanishing cycles functor\todo{references?}.
+For this let $f$ be a (local) holomorphic function on $X$.
+Then the vanishing cycles $φ_f\colon \dconstrb{X} → \dconstrb{f^{-1}(0)}$ restrict to a functor on the corresponding categories of perverse sheaves
+\[
+    \pervVC{f}\colon \PervConstr{X} → \PervConstr{f^{-1}(0)}.
+\]
+If we in addition let $f$ be a stratified Morse function with critical point $x$, then taking corresponding \emph{microlocal stalks}
+\[
+    \left(\pervVC{f}({-})\right)_x \colon \dconstrb[\setset S]{X} → \dcat{}{ℂ}
+\]
+sends perverse sheaves to vector spaces concentrated in degree $0$.
+In fact, this property characterizes perverse sheaves among all $\setset S$-constructible sheaves on $X$ \cite{Jin:arXiv:HolomorphicLagrangianBranesCorrespondToPerverseSheaves}.
+
+In a further reformulation, we can take local cohomology along the unstable manifold $Z$ of $\Re f$ and require that this is concentrated in degree $0$.
+We note that
+\[
+    \dim_ℝ Z = \frac12 \dim_ℝ X.
+\]
+
+\subsection*{Microlocal theory (coherent version)}
+
+This last observation can be translated to the world of coherent sheaves.
+For this purpose we will define \emph{measuring subvarieties} of $X$.
+Roughly speaking, these are subvarieties of $X$ which intersects each $G$-orbit in a half dimensional subvariety.
+We will give the precise definition in Chapter~\ref{ch:pc:measuring}, where we will also prove the following analogue of the above characterization of perverse (constructible) sheaves.
+
+\begin{Thm}
+    A sheaf $\sheaf F ∈ \dcohbG{X}$ is perverse if and only if $\lc{Z}\sheaf F$ is concentrated in cohomological degree $0$ for sufficiently many measuring subvarieties $Z$ of $X$.
+\end{Thm}
+
+The exact statement and some variants will be given in Theorem~\ref{thm:main}.
 
 \section{Hochschild cohomology of categories of D-modules}
 
-\begin{itemize}
-    \item Why study $\HCoh\left(\catDMod{\stack X}\right)$?
-    \item Naive expectation and its problems.
-    \item Statement of result.
-    \item Outline of approach?
-\end{itemize}
+Given a manifold $X$ and a category of sheaves on $X$, microlocal geometry asks whether these sheaves can be localized not just on $X$ but also with respect to codimension, i.e.~on the cotangent space $T^*X$.
+For example, for constructible sheaves this leads to the notion of microsupport discussed in detail in \cite{KashiwaraSchapira:1994:SheavesOnManifolds}.
+More generally, given a category of sheaves on a space $X$, we can ask whether it is possible to localize them on some space that is strictly larger than $X$ itself.
 
-\subsection*{Short summary}
+Even more generally one can ask the following question: Given a $k$-linear category $\cat C$, can one find a space over which $\cat C$ localizes?
+For complete compactly generated triangular categories one answer is provided by \cite{BensonIyengarKrause:2008:LocalCohomologyAndSupportForTriangulatedCategories}:
+To each map from a graded-commutative ring $R$ to the center of $\cat C$ the authors associate the \emph{triangulated support} functor $\supp_R$, assigning to each object $A ∈ \cat C$ a subset $\supp_R A \subseteq \Spec R$.
+This construction can be used to unify various theories of support in different areas of mathematics (though it does not yield the microlocal support of constructible sheaves).
 
-Let $\stack X$ be a stack.
-The goal of the second part is to understand the Hochschild cohomology
+We are led to consider the universal algebra acting on the category with this construction, i.e.~the \emph{Hochschild cohomology} of $\cat C$.
+For a complete (pre-triangulated) dg category $\cat C$ the Hochschild cohomology is the dg algebra of derived endomorphisms of the identity functor $\id[\cat C]$:
 \[
-    \HCoh\bigl(\catDMod{\stack X}\bigr) 
-    =
-    \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}).
+    \HCoh(\cat C)
+    = \operatorname{\mathbf{R}Hom}(\id[\cat C], \id[\cat C])
+    = \Hom_{\cat{Funct}_{\mathrm{cont}}(\cat C, \cat C)}(\id[\cat C], \id[\cat C]).
 \]
-By duality and adjunction this is the same as
+In particular the ring $R = \bigoplus \operatorname{HH}^{2n}(\HCoh(\cat C)r$ is commutative and hence one can define for each $A ∈ \cat C$ the support $\supp_R A$ as a subset of $\Spec R$.
+Hence understanding the Hochschild cohomology of a dg category can be an important step to understanding the category itself.
+
+This construction, applied to the category of (ind-)coherent sheaves on a (quasismooth, dg-) scheme yields the singular support of coherent sheaves which already served as the motivation for the first part of this thesis.
+More concretely, Arinkin and Gaitsgory used singular support for the category $\catIndCoh{\LocSys_G}$ in their formulation of the geometric Langlands conjecture \cite{ArinkinGaitsgory:2015:SingularSupport}.
+By Langlands duality, one should then have a matching support theory for the category $\catDMod{\Bun_G}$ and the question arises whether it is possible to formulate this theory in a way that is intrinsic to D-modules.
+
+A first step to this -- and also a problem of independent interest -- is to understand the Hochschild cohomology of the category $\catDMod{\stack X}$ of D-modules on a stack $\stack X$.
+We will review the general setup and basic properties of D-modules on (QCA) stacks in Chapter~\ref{ch:d-mod:pre}.
+The upshot is that we also have an isomorphism of dg algebras
+\begin{equation}
+    \label{eq:intro:d-mod:d-mod-hcoh}
+    \HCoh(\catDMod{\stack X}) \cong \Hom_{\catDMod{X×X}}(Δ_*ω_{\stack X}, Δ_*ω_{\stack X}),
+\end{equation}
+where $Δ\colon \stack X × \stack X → \stack X$ is the diagonal morphism and $ω_{\stack X}$ is the dualizing module.
+In particular if $\stack X$ is a (separated) scheme, then $Δ$ is a closed embedding and $(Δ^*,Δ_*)$ adjunction combined with Kashiwara's Lemma show that $\HCoh(\catDMod{\stack X})$ is isomorphic to the de Rham cohomology of $\stack X$.
+However, if $\stack X$ is not an algebraic space (and hence $Δ$ is not proper) then the situation becomes more complicated.
+
+By Verdier duality and adjunction we can always rewrite \eqref{eq:intro:d-mod:d-mod-hcoh} as
 \[
-    \opalg{\Hom_{\catDMod{\stack X}}(k_{\stack X},\, Δ^!Δ_! k_{\stack X})} =
-    \opalg{\ΓdR(\stack X,\, Δ^!Δ_! k_{\stack X})}.
+    \HCoh(\catDMod{\stack X}) \cong
+    \opalg{\Hom_{\catDMod{X}}(k_{\stack X}, Δ^!Δ_!k_{\stack X})} =
+    \opalg{\ΓdR(\stack X, Δ^!Δ_!k_{\stack X})}.
 \]
-For this we consider the (derived) loop space
-\[
-    \ls \stack X = \stack X ×\limits_{\stack X × \stack X} \stack X
-\]
-and the Cartesian diagram
+It is now tempting to complete to look at the Cartesian square
 \[
     \begin{tikzcd}
         \ls \stack X \arrow[r, "p₁"] \arrow[d, "p₂"] & \stack X \arrow[d, "Δ"] \\
         \stack X \arrow[r, "Δ"] & \stack X × \stack X
     \end{tikzcd}
 \]
-Naively, one could expect that
+where
 \[
-    \opalg{\ΓdR(\stack X,\, Δ^!Δ_! k_{\stack X})} \cong
-    \opalg{\ΓdR(\stack X,\, p_{2,!}p₁^! k_{\stack X})},
+    \ls \stack X = \stack X ×\limits_{\stack X × \stack X} \stack X
 \]
-but of course this base-change isomorphism does not exist in general.
+is the (derived) loop space of $\stack X$ and try to express the Hochschild cohomology as the cohomology of some sheaf on $\ls \stack X$.
+Naively we could expect the existence of an isomorphism
+\begin{equation}
+    \label{eq:intro:d-mod:naive}
+    \ΓdR(\stack X, Δ^!Δ_!k_{\stack X}) \cong
+    \ΓdR(\stack X, p_{2,!}p₁^! k_{\stack X}).
+\end{equation}
+Unfortunately, the two sides are in general not isomorphic and it is not too hard to come up with a counter-example.
 
-We will try to quantify how much the morphism $p_{2,!}p₁^! k_{\stack X} → Δ^!Δ_! k_{\stack X}$ fails to be an isomorphism.
-In particular we will show that it is an isomorphism for stacks of the form $\stack X = [X/\Gm^n]$.
+In Chapter~\ref{ch:d-mod:strategy} we will investigate how to quantify the cone of the morphism
+\[
+    p_{2,!}p₁^! k_{\stack X} → Δ^!Δ_! k_{\stack X}
+\]
+and thus the failure of the naive isomorphism \eqref{eq:intro:d-mod:naive} to hold.
+As an application, we will prove the following theorem.
 
 \begin{Thm}\label{thm:d-mod:main}
-    Let $G$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
+    Let $G \cong \Gm^n$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
     Then there is a canonical isomorphism of algebras
     \[
-        \HCoh\bigl(\catDMod{X/G}\bigr) 
+        \HCoh\bigl(\catDMod{X/G}\bigr)
         \cong
-        \opalg{\ΓdR\bigl(X/G,\,p_{2,!} p₁^! k_{X/G}\bigr)}.
+        \opalg{\ΓdR\bigl(X/G,\,p_{2,!} p₁^! k_{X/G}\bigr)},
     \]
+    where the algebra structure on $\ΓdR\bigl(X/G,\,p_{2,!} p₁^! k_{X/G}\bigr)$ is induced by the groupoid structure on $\ls(X/G)$.
 \end{Thm}
+
+Thus for torus quotients the naive expectation actually holds.
