@@ -82,7 +82,8 @@
 \DeclareFieldFormat{labelalpha}{\textsc{#1}}
 \DeclareFieldFormat{extraalpha}{\textsc{#1}}
 
-\defbibheading{bibliography}[\bibname]{%
+\defbibheading{bibliography}[\refname]{%
+    \bookmarksetupnext{level=part}
     \chapter*{#1}%
     \addcontentsline{toc}{chapter}{#1}%
     \markboth{#1}{#1}%
