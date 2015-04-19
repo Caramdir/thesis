@@ -13,3 +13,6 @@ clean:
 
 dist-clean: clean
 	- rm thesis.pdf
+
+list-todos:
+	grep -i todo */*.tex *.tex --exclude=constructible.tex --exclude=drinfeld.tex --color
