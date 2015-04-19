@@ -328,22 +328,6 @@ We finish this section with some useful observations for proving that a stack is
     \end{equation*}
 \end{proof}
 
-\begin{Lem}
-    \label{lem:d-mod:strategy:cover}%
-    If there exists a $G$-stable open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X/G$ is \goodstack.
-\end{Lem}
-
-\begin{proof}
-    Let $\stack U_i = U_i/G$ be the corresponding quotient stacks.
-    We first show that the stacks $\lscY{\stack U_i}$ form an open cover of $\lscY{\stack X}$\footnote{
-        This is not completely obvious, since the $\bar{\stack U}_i$ do not necessarily form a cover of $\bar{\stack X}$.
-        For example, consider $\ps1$ with the usual linear $\Gm$-action and the usual affine cover.
-    }.
-    \todo{Argument here.}
-    Thus it suffices to show that the restrictions of $i_{\stack Y}^*\bar{q}_{\stack Y}^!j_! \sheaf F$ to $\lscY{\stack U_i}$ vanish for every $\sheaf F ∈ \catDMod{\stack X}$.
-    But this follows from the diagram~\eqref{eq:lem:d-mod:cover:diagram} (for $\stack U_i$ instead of $\stack U$) and the \goodness\ of $\stack U_i$.
-\end{proof}
-
 The same argument can be used to reduce the computation to a smooth cover.
 We will now introduce notation for the special case of the cover $\bar Γ → \bar{\stack X}$.
 The corresponding covers of the other relevant stacks are introduced in the following diagram with Cartesian squares.
@@ -372,6 +356,27 @@ Then the scheme $\schemeclsY \stack X$ is given by
     Follows from the fact that pullback along the smooth vertical morphisms in \eqref{eq:d-mod:strategy:scheme-cover} is conservative \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions} and permutes with the other morphisms up to a shift.
 \end{proof}
 
+\begin{Lem}
+    \label{lem:d-mod:strategy:cover}%
+    If there exists a $G$-stable open cover $U_i$ of $X$ such that all stacks $U_i/G$ are \goodstack, then $X/G$ is \goodstack.
+\end{Lem}
+
+\begin{proof}
+    Let $\stack U_i = U_i/G$ be the corresponding quotient stacks.
+    We first show that the stacks $\lscY{\stack U_i}$ form an open cover of $\lscY{\stack X}$\footnote{
+        This is not completely obvious, since the $\bar{\stack U}_i$ do not necessarily form a cover of $\bar{\stack X}$.
+        For example, consider $\ps1$ with the usual linear $\Gm$-action and the usual affine cover.
+    }.
+    It suffices to show that the open subschemes $\schemeclsY \stack U_i$ cover $\schemeclsY \stack X$.
+    Let $(g₁, y, g₂)$ be a point of $\schemeclsY \stack X$.
+    Then there exists some $U_i$ with $h'(y) ∈ U_i$. 
+    But then $g₁h'(y)$ is also in $U_i$ and hence $(h'(y), g₂, g₁h'(y)) ∈ \bar{\stack U}_i$.
+    Thus $(g₁, y, g₂)$ is in $\schemeclsY \stack U_i$.
+    
+    It now suffices to show that the restrictions of $i_{\stack Y}^*\bar{q}_{\stack Y}^!j_! \sheaf F$ to $\lscY{\stack U_i}$ vanish for every $\sheaf F ∈ \catDMod{\stack X}$.
+    But this follows from the diagram~\eqref{eq:lem:d-mod:cover:diagram} (for $\stack U_i$ instead of $\stack U$) and the \goodness\ of $\stack U_i$.
+\end{proof}
+
 Let $\left\{V_i\right\}$ be a $G$-stable open cover of $\bar G$ and consider the corresponding open cover $\left\{\bar{\stack X}_{V_i}\right\}$ of $\stack X$.
 We obtain open covers $\left\{\cls_{V_i,\stack Y} \stack X\right\}$ and $\left\{\lsc_{V_i,\stack Y} \stack X\right\}$ of $\clsY{\stack X}$ and $\lscY{\stack X}$ respectively.
 We let $i_{V_i,\stack X}$, $\bar q_{V_i,\stack X}$ and $j_{V_i}$ be the corresponding maps, i.e.
@@ -389,5 +394,5 @@ We let $i_{V_i,\stack X}$, $\bar q_{V_i,\stack X}$ and $j_{V_i}$ be the correspo
 \end{Lem}
 
 \begin{proof}
-    Similar to the proof of Lemmas~\ref{lem:d-mod:strategy:cover}.
+    Similar to the proof of Lemma~\ref{lem:d-mod:strategy:cover}.
 \end{proof}
