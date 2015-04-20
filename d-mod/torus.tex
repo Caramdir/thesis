@@ -6,16 +6,21 @@ Specifically, we will prove the following theorem.
 
 \begin{Thm}
     \label{thm:d-mod:torus:is-good}%
-    Let $G$ be a torus\footnote{
-        Actually, the arguments below works for the product of a torus and a finite Abelian group.
-    } acting locally linearly\footnote{
-        We only use the \enquote{locally linear} assumption to prove Lemma~\ref{lem:d-mod:finitely_many_stabilizers}, i.e.~that $\Stab\stack X$ is locally finite.
-        Thus we could just assume that instead.
-    } on a scheme $X$ of finite type over $k$.
+    Let $G$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
     Then the stack $\stack X = X/G$ is good.
 \end{Thm}
 
 Together with Theorem~\ref{thm:d-mod:good-is-good} this implies our main result, Theorem~\ref{thm:d-mod:main}.
+
+\begin{Rem}
+    We only use the assumption that the action is locally linear to prove Lemma~\ref{lem:d-mod:finitely_many_stabilizers}, i.e.~that $\Stab\stack X$ is locally finite.
+    Thus it would suffice to assume that $X$ can be covered by open subschemes for which Lemme~\ref{lem:d-mod:finitely_many_stabilizers} holds.
+\end{Rem}
+
+\begin{Rem}
+    Theorem~\ref{thm:d-mod:torus:is-good} actually holds for $G$ the product of a torus and a finite Abelian group.
+    The argument is exactly the same.
+\end{Rem}
 
 By Lemma~\ref{lem:d-mod:strategy:cover}, it suffices to prove Theorem~\ref{thm:d-mod:torus:is-good} for stacks $X/G$ with $X$ affine.
 We fix an isomorphism $G \cong \Gm^n$ and compactify $G$ to $\bigl(\ps1\bigr)^n$.
