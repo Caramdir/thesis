@@ -310,12 +310,14 @@
 
 \newenvironment{abstract}{%
     \chapter*{Abstract}
+	\vspace{-1.5em}
     \begin{centering}
         \@title
 
         \@author
         
     \end{centering}
+	\vspace{2em}
 }{%
 }
 
