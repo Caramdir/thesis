@@ -15,9 +15,9 @@ With this we observe that
     & = \Hom_{\catDMod{\stack X × \stack X}}(Δ_* ω_{\stack X},\, Δ_* ω_{\stack X}) & &\text{(Lemma~\ref{lem:d-mod:pre:hcoh})} \\
     & = \opalg{\Hom_{\catDMod{\stack X × \stack X}}(Δ_! k_{\stack X},\, Δ_! k_{\stack X})} & & \text{(duality)} \\
     & = \opalg{\Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X})} & & \text{(adjunction)} \\
-    & = \opalg{\ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr)},
+    & = \opalg{\ΓdR\bigl(\stack X,\, Δ^! Δ_! k_{\stack X}\bigr)},
 \end{align*}
-where the algebra structure on $\ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr) = \Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X})$ is the one induced by the $(Δ_!,Δ^!)$-adjunction monad.
+where the algebra structure on $\ΓdR\bigl(\stack X,\, Δ^! Δ_! k_{\stack X}\bigr) = \Hom_{\catDMod{\stack X × \stack X}}(k_{\stack X},\, Δ^! Δ_! k_{\stack X})$ is the one induced by the $(Δ_!,Δ^!)$-adjunction monad.
 Consider the Cartesian square
 \[
     \begin{tikzcd}
@@ -33,9 +33,9 @@ Then $Δ_* = Δ_!$ and $p_{2,*} = p_{2,!}$ and by Section~\ref{sec:d-mod:pre:mon
 \end{equation}
 which induces an isomorphism of algebras
 \[
-    \ΓdR\bigl(p_{2,!} p₁^! k_{\stack X}\bigr)
+    \ΓdR\bigl(\stack X,\, p_{2,!} p₁^! k_{\stack X}\bigr)
     →
-    \ΓdR\bigl(Δ^! Δ_! k_{\stack X}\bigr).
+    \ΓdR\bigl(\stack X,\, Δ^! Δ_! k_{\stack X}\bigr).
 \]
 Of course, if $X$ is not an algebraic space, then $Δ$ is not proper (nor is it in general smooth).
 Thus in general \eqref{eq:d-mod:central_iso} is not an isomorphism and there is no canonical structure of monad on $p_{2,!} p₁^!$.
@@ -275,7 +275,7 @@ The reason for this definition is the following theorem which lets us compute th
     \[
         \HCoh\bigl(\catDMod{\stack X}\bigr)
         \cong
-        \opalg{\ΓdR\bigl(p_{2,!} p₁^! k_{\stack X}\bigr)}.
+        \opalg{\ΓdR\bigl(\stack X,\, p_{2,!} p₁^! k_{\stack X}\bigr)}.
     \]
 \end{Thm}
 
