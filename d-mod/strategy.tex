@@ -42,6 +42,25 @@ Thus in general \eqref{eq:d-mod:central_iso} is not an isomorphism and there is 
 We would like to apply Lemma~\ref{lem:d-mod:pre:groupoid_monad_hol} to construct a monad in special cases.
 Thus the goal of this chapter is to give a criterion for the assumptions of Lemma~\ref{lem:d-mod:pre:groupoid_monad_hol}, i.e.~for base change to hold.
 
+\begin{Ex}
+    The base change morphism \eqref{eq:d-mod:central_iso} is also an isomorphism if $Δ$ is smooth.
+    In particular this implies that the \enquote{naive expectation} holds for $\stack X = \B G$ for any algebraic group $G$, i.e.~we have
+    \[
+        \HCoh(\catDMod{\B G}) = \opalg{\ΓdR\bigl(\B G,\, p_{2,!} p₁^! k_{\B G}\bigr)}.
+    \]
+    An argument similar to \cite{BenZvi:mathoverflow:CohomologyOfGmodG} shows that there is a further isomorphism
+    \[
+        \ΓdR\bigl(\B G,\, p_{2,!} p₁^! k_{\stack X}\bigr) \cong
+        \ΓdR(G, k_G)^\dual \otimes \ΓdR(\B G, k_{\B G}).
+    \]
+    Alternatively, we can use the identification
+    \[
+        \catDMod{\B G} \cong \catModules{\ΓdR(G, k_{G})^\dual},
+    \]
+    where the algebra structure on $\ΓdR(G, k_G)^\dual$ is induced by the group multiplication \cite[Section~7.2]{DrinfeldGaitsgory:2013:FinitenessQuestions}.
+    If $G$ is reductive, then $\ΓdR(G, k_G)^\dual$ is an exterior algebra and thus its Hochschild cohomology can be computed directly.
+\end{Ex}
+
 \section{A lemma on base change}\label{sec:d-mod:strategy:base-change}
 
 Consider a Cartesian diagram of stacks
