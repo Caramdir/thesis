@@ -47,7 +47,7 @@ In order to do so, we will cut the scheme
 \[
     \schemeclsY \stack X =
     \biggl\{
-        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ
     \biggr\}
 \]
 into pieces according to the subgroups of $G$ that stabilize $\schemeh(y)$.
@@ -73,7 +73,7 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
 \[
     \schemecls[S]_{\stack Y} \stack X =
     \biggl\{
-        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S
     \biggr\}
     ⊆ 
     \schemecls_{\stack Y} \stack X.
@@ -90,7 +90,7 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
     \[
         \schemelsY[S] \stack X = 
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ Γ \text{ and } g₂ ∈ g₁S
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × G : \schemeh(y) ∈ X^S,\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ Γ \text{ and } g₂ ∈ g₁S
         \biggr\}
         \subseteq \schemelsY \stack X.
     \]
@@ -105,7 +105,7 @@ We set
 \[
     \schemeclsY[S₁,S₂] \stack X =
     \biggl\{
-        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S₁
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S₁
     \biggr\}.
 \]
 Clearly we have $\schemeclsY[S₁,S₂]{\stack X} \subseteq \schemecls[S₁]{\stack X}$ and $\schemeclsY[S] \stack X = \schemeclsY[S,S] \stack X$.
@@ -131,7 +131,7 @@ Consider the Cartesian square of closed embeddings
     The scheme $\schemelsc[S₁,S₂] \stack X$ is given by
     \[
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ \setminus S₁)
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ \setminus S₁)
         \biggr\}.
     \]
     If $S₁ = \bar S₁$ the statement is trivially true.
@@ -139,7 +139,7 @@ Consider the Cartesian square of closed embeddings
     It suffices to prove the statement when further restricting to 
     \[
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
         \biggr\}.
     \]
     for all $i$. 
@@ -150,7 +150,7 @@ Consider the Cartesian square of closed embeddings
     \[
         Z = 
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
         \biggr\}.
     \]
     into $\schemeclsY[S₁,S₂] \stack X$.
