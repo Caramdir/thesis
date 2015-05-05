@@ -135,7 +135,7 @@
 \titleformat
     {\chapter}
     [display]
-    {\centering\normalfont\huge\scshape\color{sectioningcolor}}
+    {\centering\normalfont\ifbw\Huge\else\huge\fi\scshape\color{sectioningcolor}}
     {\thechapter}
     {1ex}
     {\Huge\MakeLowercase}
@@ -145,7 +145,7 @@
 \titleformat
     {\section}
     [block]
-    {\centering\normalfont\large\scshape\color{sectioningcolor}}
+    {\centering\normalfont\ifbw\Large\else\large\fi\scshape\color{sectioningcolor}}
     {\thesection.\ }
     {0pt}
     {\MakeLowercase}
@@ -154,7 +154,7 @@
 \titleformat
     {\subsection}
     [hang]
-    {\normalfont\normalsize\itshape\color{sectioningcolor}}
+    {\normalfont\normalsize\ifbw\bfseries\fi\itshape\color{sectioningcolor}}
     {\thesubsection.\ }
     {0pt}
     {}
