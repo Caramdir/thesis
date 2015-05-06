@@ -12,7 +12,7 @@ For a ring $R$, the derived category of $R$-modules will be denoted by $\dcat{}{
 To avoid cluttering the notation we will also usually suppress the signifiers $\mathbb R$ and $\mathbb L$ on functors between derived categories.
 %Note that unlike in Part~\ref{part:d-mod} we will only work on the level of triangulated categories and not their dg enhancements.
 
-If $Y$ is a subscheme of $X$ we will always write $i_Z$ for the inclusion $Z \hookrightarrow X$.
+If $Y$ is a subscheme of $X$ we will always write $ι_Y$ for the inclusion $Y \hookrightarrow X$.
 
 \section{Operations on coherent sheaves}
 
@@ -24,7 +24,7 @@ There is a forgetful functor
     \Forget\colon \dcohbG{X} → \dcohb{X}
 \]
 to the non-equivariant bounded derived category of coherent sheaves on $X$.
-We will frequently apply functors defined on the latter category to equivariant sheaves without explicitly mentioning the functor $\Forget$.
+We will frequently apply functors defined on the latter category to equivariant sheaves without explicitly mentioning the intervening forgetful functor.
 
 Let $Z$ be a closed subscheme of $X$.
 Then there are functors $ι_Z^!$ and $ι_Z^*$ from $\dcohb X$ to $\dcohb Z$, defined by
@@ -34,7 +34,7 @@ Then there are functors $ι_Z^!$ and $ι_Z^*$ from $\dcohb X$ to $\dcohb Z$, def
     ι_Z^!({-}) = \sheafHom_{\O_X}(\O_Z,\, {-}).
 \]
 We note again that the symbols $\otimes$ and $\sheafHom$ denote the corresponding derived functors.
-If $U$ is an open subscheme of $X$ then the functor $ι_U^* = ι_Z^!$ is the restriction functor $\dcohb X → \dcohb U$.
+If $U$ is an open subscheme of $X$ then the functor $ι_U^* = ι_U^!$ is the restriction functor $\dcohb X → \dcohb U$.
 For a general locally closed subscheme, the restriction functors are defined be composing the above functors.
 
 We will also need the corresponding $k$-module functors, which we will denote by bold letters.
@@ -86,7 +86,6 @@ We finish this section with two lemmas about vanishing of local cohomology above
 \begin{Lem}
     \label{lem:pre:top-and-qc-restriction-vanishing}%
     Let $\sheaf F$ be a coherent sheaf on $X$ and let $Z$ be a closed subvariety of $X$.
-    Let $n$ be an integer.
     Then $\lc{Z} \sheaf F ∈ \dcat{\ge 0}{Z}$ if and only if $ι_Z^! \sheaf F ∈ \dcat{\ge 0}{Z}$.
 \end{Lem}
 
@@ -104,13 +103,13 @@ It is a subset of the topological space of $X$ and we will consider it with the 
 By a \emph{perversity} we mean a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
 For $x ∈ \Xtop$ we abuse notation and set $p(x) = p(\dim x)$.
 Then $p\colon \Xtop → ℤ$ is a perversity function in the sense of~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
-Note that we insist that $p(x)$ only depends on the dimension of $\overline x$.
+Note that we insist that $p(x)$ only depends on the dimension of $x$.
 
 A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) = -n - p(n)$ is decreasing.
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ \Xtop$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
-Following \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves} we know have all ingredients to define the perverse t-structure on $\dcohbG X$.
+Following \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves} we now have all ingredients to define the perverse t-structure on $\dcohbG X$.
 
 \begin{Def}
     \label{def:perverse-t-structure}%
@@ -142,7 +141,7 @@ The perverse t-structure is compatible with duality, exchanging the perversity $
 \end{Lem}
 
 \begin{Ex}
-    The best-studied case of perverse coherent sheaves is the nilpotent cone $N$ of a reductive group $G$ with the adjoint action.
+    The best-studied case of perverse coherent sheaves is the nilpotent cone $N$ of a semi-simple algebraic group $G$ with the adjoint action.
     It is well known that there are finitely many $G$-orbits on $N$, all of which are even dimensional.
     Thus there is a \emph{middle perversity} given by
     \[

@@ -1,23 +1,86 @@
 % general
 % -------
 
+% Formatting of upper case roman numerals (in references).
+\newcommand{\RomanNum}[1]{\textsc{\MakeLowercase{#1}}}
+
+% Normalize Greek letters
+\newunicodechar{ϱ}{ρ}
+\newunicodechar{ϑ}{θ}
+\newunicodechar{ϕ}{φ}
+
+% math
+% ----
+
 \let\bar\overline
-
-\renewcommand\sheafHom{\sheaf{H\mkern-0.3mu o\mkern-2.5mu m}}
-% ToDo: make \sheafHom look nice for the given font.
-\renewcommand\Forget{\operatorname{Forget}}
-
-\let\stack\mathbf
-
-\renewcommand\isoto{\xrightarrow{\sim}}
 
 % TeX Gyre Termes Math does not contain the following symbol
 \AtBeginDocument{
     \renewcommand\setminus{-}
 }
 
-% Formatting of upper case roman numerals (in references).
-\newcommand{\RomanNum}[1]{\textsc{\MakeLowercase{#1}}}
+\AtBeginDocument{%
+    \renewcommand\Re{\mathfrak{Re}}%    % real part
+    \renewcommand\Im{\mathfrak{Im}}%    % imaginary part
+}
+
+% restriction
+\newcommand\res[2]{\mathchoice{\left.#1\right|_{#2}}{#1|_{#2}}{#1|_{#2}}{#1|_{#2}}}
+
+% quotients
+\newcommand\rquot[2]{%
+    \mathchoice%
+        {\left.#1\kern-0.2ex\middle/\kern-0.3ex\lower0.7ex\hbox{$\displaystyle #2$}\right.}%
+        {\left.#1\middle/#2\right.}%
+        {\left.#1\middle/#2\right.}%
+        {\left.#1\middle/#2\right.}%
+}
+
+\newcommand\cocolon{%                   % colon on the right side (i.e. for an adjunction)
+    \nobreak \mskip 6muplus1mu \mathpunct {}\nonscript \mkern -\thinmuskip{:}\mskip 2mu\relax%
+}
+
+\newcommand\Forget{\operatorname{Forget}}
+
+\newcommand\isoto{\xrightarrow{\sim}}
+
+\newcommand\proj[1]{\operatorname{pr}_{#1}} % projection on a factor
+
+% spaces and groups
+\newcommand\pt{\mathrm{pt}}
+\newcommand\as[2][]{\mathbb A^{#2}_{#1}}        % affine space
+\newcommand\ps[2][]{\mathbb P^{#2}_{#1}}        % projective space
+\newcommand\Gm{\mathbb{G}_m}                    % G_m
+\newcommand\Ga{\mathbb{G}_a}                    % G_a
+\newcommand\SL[1]{\operatorname{SL}_#1}
+\newcommand\LocSys{\operatorname{LocSys}}
+\newcommand\Bun{\operatorname{Bun}}
+
+\newcommand\setset\mathfrak             % a set of subsets
+
+\newcommand\codim{\operatorname{codim}}
+
+\newcommand\ideal\mathfrak
+\DeclareMathOperator\Spec{Spec}
+\DeclareMathOperator\supp{supp}
+
+% categories
+\newcommand\cat{\mathbf}
+\DeclareMathOperator\Hom{Hom}
+\newcommand\id[1][]{{\mathrm{Id}_{#1}}}
+\newcommand\catVect[1][]{\cat{Vect}_{#1}}
+\newcommand\catModules[1]{#1\text{-}\cat{Mod}}
+
+\newcommand\cx\bullet
+\newcommand\dual{∨}
+
+% sheaves
+\newcommand\sheaf\mathscr
+\newcommand\sheafHom{\sheaf{H\mkern-0.4mu o\mkern-2.5mu m}}
+\renewcommand\O{\sheaf O}
+\newcommand\catCoh[2][]{\cat{Coh}^{#1}(#2)}
+\newcommand\catIndCoh[2][]{\cat{IndCoh}_{#1}(#2)}
+\newcommand\catDMod[2][]{\cat{DMod}_{#1}(#2)}
 
 % perverse-coherents
 % ------------------
@@ -38,17 +101,20 @@
 \newcommand\dqcbG[2][G]{\dqcb{#2}^{#1}}
 \newcommand\dconstrb[2][\mathrm{constr}]{\dcat[#1]{b}{#2}}
 
+\newcommand\perv[1][p]{\mkern1mu{}^{#1}\mkern-1mu}
 \newcommand\dpc[3][p]{\perv[#1]\dcat{#2}{#3}^G}
 \newcommand\dpconstr[3]{\perv[p]\dcat[#1]{#2}{#3}}
 \newcommand\PervConstr[2][]{\mathup{Perv}_{#1}(#2)}
 
 \newcommand\lciname{strong}
 
-\newcommand\pervVC[1]{φ_{#1}[-1]}
+\newcommand\pervVC[1]{φ_{#1}}
 \newcommand\localMorse[3]{M_{#1,#2}(#3)}
 
 % d-modules
 % ----------
+
+\let\stack\mathbf
 
 \newcommand\catDModHol[1]{\catDMod[\mathup{hol}]{#1}}
 \newcommand\catDModMon[2]{\catDMod{#1}^{#2-\mathup{mon}}}

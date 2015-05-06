@@ -6,7 +6,7 @@ Specifically, we will prove the following theorem.
 
 \begin{Thm}
     \label{thm:d-mod:torus:is-good}%
-    Let $G$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
+    Let $G \cong \Gm^n$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
     Then the stack $\stack X = X/G$ is good.
 \end{Thm}
 
@@ -14,7 +14,7 @@ Together with Theorem~\ref{thm:d-mod:good-is-good} this implies our main result,
 
 \begin{Rem}
     We only use the assumption that the action is locally linear to prove Lemma~\ref{lem:d-mod:finitely_many_stabilizers}, i.e.~that $\Stab\stack X$ is locally finite.
-    Thus it would suffice to assume that $X$ can be covered by open subschemes for which Lemme~\ref{lem:d-mod:finitely_many_stabilizers} holds.
+    Thus it would suffice to assume that $X$ can be covered by open subschemes for which Lemma~\ref{lem:d-mod:finitely_many_stabilizers} holds.
 \end{Rem}
 
 \begin{Rem}
@@ -47,7 +47,7 @@ In order to do so, we will cut the scheme
 \[
     \schemeclsY \stack X =
     \biggl\{
-        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ
     \biggr\}
 \]
 into pieces according to the subgroups of $G$ that stabilize $\schemeh(y)$.
@@ -73,7 +73,7 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
 \[
     \schemecls[S]_{\stack Y} \stack X =
     \biggl\{
-        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^S,\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S
     \biggr\}
     ⊆ 
     \schemecls_{\stack Y} \stack X.
@@ -85,12 +85,12 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
 \end{Lem}
 
 \begin{proof}
-    Let $\schemelsY Y \stack X$ be the smooth cover of $\ls_{\stack Y}\stack X$.
+    Let $\schemelsY \stack X$ be the smooth cover of $\ls_{\stack Y}\stack X$.
     Consider the spaces
     \[
         \schemelsY[S] \stack X = 
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × G : \schemeh(y) ∈ X^S,\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ Γ \text{ and } g₂ ∈ g₁S
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × G : \schemeh(y) ∈ X^S,\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ Γ \text{ and } g₂ ∈ g₁S
         \biggr\}
         \subseteq \schemelsY \stack X.
     \]
@@ -99,13 +99,13 @@ Let $\bar S$ be the closure of $S$ in $\bar G = \as n$ and consider the space
     Now the statement follows from the fact that the closure of a finite union is the union of the individual closures.
 \end{proof}
 
-It will be useful to have a slight generalization of the schemes $\schemeclsY[S]$.
+It will be useful to have a slight generalization of the schemes $\schemeclsY[S] \stack X$.
 Let $S₁ \subseteq S₂$ be two subgroups of $G$ contained in $\Stab\stack X$.
 We set
 \[
     \schemeclsY[S₁,S₂] \stack X =
     \biggl\{
-        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S₁
+        \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁\bar S₁
     \biggr\}.
 \]
 Clearly we have $\schemeclsY[S₁,S₂]{\stack X} \subseteq \schemecls[S₁]{\stack X}$ and $\schemeclsY[S] \stack X = \schemeclsY[S,S] \stack X$.
@@ -131,7 +131,7 @@ Consider the Cartesian square of closed embeddings
     The scheme $\schemelsc[S₁,S₂] \stack X$ is given by
     \[
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ \setminus S₁)
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁(\bar S₁ \setminus S₁)
         \biggr\}.
     \]
     If $S₁ = \bar S₁$ the statement is trivially true.
@@ -139,19 +139,19 @@ Consider the Cartesian square of closed embeddings
     It suffices to prove the statement when further restricting to 
     \[
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H_i
         \biggr\}.
     \]
     for all $i$. 
     Let $H$ be one such hyperplane.
     We will assume that $H$ is contained in the closure of the connected component of $1 ∈ S₁$. 
-    The proof for $H$ is a different component is the same, up to a shift by an element of $G$.
+    The proof for $H$ in a different component is the same, up to a shift by an element of $G$.
     Let $\schemei_H$ be the inclusion of
     \[
         Z = 
         \biggl\{
-            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(\schemeh(y),\, g₂,\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
-        \biggr\}.
+            \bigl(g₁,\, y,\, g₂\bigr) ∈ G × Y × \bar G : \schemeh(y) ∈ X^{S₂},\, \bigl(g₂,\, \schemeh(y),\, g₁\schemeh(y)\bigr) ∈ \bar Γ \text{ and } g₂ ∈ g₁H
+        \biggr\}
     \]
     into $\schemeclsY[S₁,S₂] \stack X$.
     We want to compute
@@ -180,14 +180,14 @@ Consider the Cartesian square of closed embeddings
     The morphism $κ ∘ i_{S₁,S₂}\colon \schemeclsY[S₁,S₂]\stack X → \bar Γ$ is equivariant with respect to these $\Gm$-actions and on its image the action keeps the second $X$-coordinate fixed.
 
     We note that the D-modules $\schemej_!\sheaf F$ and $i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F$ are monodromic with respect to these $\Gm$-actions.
-    The contraction principle Theorem~\ref{thm:d-mod:pre:contraction_principle} thus implies that
+    Thus the contraction principle Theorem~\ref{thm:d-mod:pre:contraction_principle} implies that
     \[
         \schemei_H^* i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F = π_* i_{S₁,S₂}^! \bar\schemeq^! \schemej_! \sheaf F.
     \]
     By construction, the square
     \[
         \begin{tikzcd}
-            \schemecls[S₁,S₂] \arrow[r, "π"] \arrow[d, "\schemeq ∘ i_{S₁,S₂}"] & Z \arrow[d] \\
+            \schemecls[S₁,S₂] \stack X \arrow[r, "π"] \arrow[d, "\schemeq ∘ i_{S₁,S₂}"] & Z \arrow[d] \\
             \bar Γ \arrow[r, "π₁"] & Z₁
         \end{tikzcd}
     \]
@@ -208,12 +208,12 @@ Consider the Cartesian square of closed embeddings
     \]
 \end{proof}
 
-\begin{proof}[Outline of proof of Theorem~\ref{thm:d-mod:torus:is-good}]
-    Iterated Mayer-Vietoris argument using lemmas~\ref{lem:d-mod:stabilizers_cover} and~\ref{lem:d-mod:key_for_stablizier}.
-    Note that if $S₁,\, S₂ ∈ \Stab\stack X$, then
+\begin{proof}[Proof of Theorem~\ref{thm:d-mod:torus:is-good}]
+    By Lemma~\ref{lem:d-mod:stabilizers_cover} the closed subschemes $\schemeclsY[S]\stack X$ for $S ∈ \Stab \stack X$ cover $\schemeclsY\stack X$.
+    If $S₁,\, S₂ ∈ \Stab\stack X$, then
     \[
         \schemeclsY[S₁]\stack X ∩ \schemeclsY[S₂]\stack X = 
         \schemeclsY[S₁∩S₂,\, S₁S₂].
     \]
-    \todo{Add some details.}
+    Thus the theorem follows from an iterated Mayer-Vietoris argument using Lemmas~\ref{lem:d-mod:key_for_stablizier}.
 \end{proof}
