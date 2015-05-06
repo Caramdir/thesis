@@ -61,7 +61,7 @@ Thus, an equivariant dualizing complex on $X$ is an object $\dualizingCx ∈ \dc
 \]
 is an isomorphism.
 We write $\dualize$ for the endofunctor $\sheafHom({-}, \dualizingCx)$ of $\dcohbG X$.
-Since $\sheafHom$ commutes with the forgetful functor, if $\dualizingCx$ is an equivariant dualizing complex, then $\Forget(\dualizingCx) ∈ \dcohb X$ is a (non-equivariant) dualizing complex.
+Since $\sheafHom$ commutes with the forgetful functor, if $\dualizingCx$ is an equivariant dualizing complex, then the sheaf $\Forget(\dualizingCx) ∈ \dcohb X$ is a (non-equivariant) dualizing complex.
 Under our assumptions on $X$ there always exists an equivariant dualizing complex $\dualizingCx$ \cite[Theorem~2.18]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
 Using \cite[\RomanNum{V}.7]{Hartshorne:1966:ResiduesAndDuality}, we will further assume that for each (not necessarily closed) point $x ∈ X$ the complex $\mathbf{ι}_x^! \dualizingCx$ is concentrated in cohomological degree $-\dim x$.
 
@@ -124,7 +124,11 @@ Following \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves} we now have a
 
 \begin{Thm}[{\cite[Theorem~3.10]{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}}]
     \label{thm:perverse-t-structure}%
-    If $p$ is monotone and comonotone, then $(\dpc{≤0}{X},\, \dpc{≤0}{X})$ defines a t-structure on $\dcohbG X$.
+    If $p$ is monotone and comonotone, then the pair
+    \[
+        \bigl(\dpc{≤0}{X},\, \dpc{≤0}{X}\bigr)
+    \]
+    defines a t-structure on $\dcohbG X$.
 \end{Thm}
 
 This t-structure is called the \emph{perverse t-structure} with respect to $p$ on $\dcohbG X$.
