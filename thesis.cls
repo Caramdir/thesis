@@ -126,7 +126,7 @@
 \titleformat
 	{\part}
 	[display]
-	{\vfill\centering\Huge\bfseries\color{sectioningcolor}}
+	{\vfill\centering\Huge\bfseries\color{sectioningcolor}\vspace{-3em}}
 	{\thepart}
 	{1em}
 	{}

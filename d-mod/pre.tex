@@ -25,7 +25,7 @@ Fortunately, a superficial knowledge of dg/$∞$-categories should be sufficient
 \section{D-modules on stacks}
 \label{sec:d-mod:pre:d-mods}
 
-The second part of this thesis is primarily concerned with D-modules on quotient stacks.
+We will be primarily concerned with D-modules on (quotient) stacks.
 Unfortunately there is currently no comprehensive text available that covers all the basic constructions and properties of D-modules on stacks (or even the \emph{dg category} of D-modules on schemes).
 Thus we collect all the relevant properties (without proof) in this section.
 The upshot is that the familiar \enquote{six functors formalism} essentially works for holonomic D-modules and schematic morphisms of stacks.
@@ -60,7 +60,7 @@ We will be mainly concerned with the subcategory of holonomic D-modules since th
 \end{Def}
 
 The following assertions mostly follow from their corresponding counterparts for schemes.
-We refer to \cite{Braverman:LecturesOnAlgebraicDmodules} for proofs in the case on non-smooth schemes.
+We refer to \cite{Braverman:LecturesOnAlgebraicDmodules} for proofs in the case of non-smooth schemes.
 
 \begin{Prop}
     Let $f\colon \stack X → \stack Y$ be a schematic morphism.
@@ -87,18 +87,14 @@ The Verdier duality functor then allows us to define the \emph{non-standard func
     f_! & = \dualize_{\stack Y} ∘ f_* ∘ \dualize_{\stack X} \colon \catDModHol{\stack X} → \catDModHol{\stack Y}.
 \end{align*}
 We obtain adjoint pairs $(f_!,\, f^!)$ and $(f^*,\, f_*)$.
-In particular we have
-\[
-    k_{\stack X} = f^* k_{\stack Y}.
-\]
 In some situations we can identify the non-standard functors with their standard counterparts.
 If $f$ is smooth of relative dimension $d$ then $f^* = f^![-2d]$.
-In particular, if $\stack X$ is smooth then $k_{\stack X} = ω_{\stack X}[-2\dim \stack X]$.
 If $f$ is proper then $f_! = f_*$ and in particular $f_*$ is left adjoint to $f^!$.
 The objects $ω_{\stack X}$ and $k_{\stack X}$ are always holonomic and
 \[
     \dualize_{\stack X} ω_{\stack X} = k_{\stack X}.
 \]
+We have $k_{\stack X} = f^* k_{\stack Y}$ and if $\stack X$ is smooth, then $k_{\stack X} = ω_{\stack X}[-2\dim \stack X]$.
 
 We will make use of the following lemma which follows from \cite[Lemma~5.1.6]{DrinfeldGaitsgory:2013:FinitenessQuestions}.
 
@@ -200,7 +196,7 @@ In this section we give a short introduction to the theory of monads and the spe
 However, in the interest of readability we will mainly do so informally, skipping over the intricacies of $∞$-categories.
 The interested reader can find the correct $∞$-categorical formulations in the given references.
 
-Thus we think of a \emph{monad} on a category $\cat C$ as consisting of a triple $(T, η, μ)$, where $T\colon \cat C → \cat C$ is an endofunctor of $\cat C$, and $η\colon \id_{\cat C} → T$ and $μ\colon T∘T → T$ are natural transformations that the diagrams
+Thus we think of a \emph{monad} on a category $\cat C$ as consisting of a triple $(T, η, μ)$, where $T\colon \cat C → \cat C$ is an endofunctor of $\cat C$, and $η\colon \id_{\cat C} → T$ and $μ\colon T∘T → T$ are natural transformations such that the diagrams
 \begin{equation}
     \label{eq:d-mod:pre:monad-identities}
     \begin{tikzcd}
@@ -237,7 +233,7 @@ One simply sets $T = G ∘ F$ and $η$ and $μ$ are given by the adjunction mo
     T² = G ∘ (F ∘ G) ∘ F → G ∘ F = T.
 \]
 We note that the correct construction in more complicated in the $∞$-categorical case and refer to \cite[Section~4.7]{Lurie:2014-draft:HigherAlgebra}.
-For any $X ∈ \cat C$ the algebra construction above gives an isomorphism of algebra
+For any $X ∈ \cat C$ the algebra construction above gives an isomorphism of algebras
 \[
     \Hom_{\cat C}(X, (GF)(X)) \cong
     \Hom_{\cat D}(FX, FX).
@@ -248,7 +244,7 @@ Recall that a groupoid $G_{\cx}$ in stacks consists of a stack $\stack G₀$ of 
 \begin{itemize}
     \item \emph{source} and \emph{target} maps $s,t\colon \stack G₁ \rightrightarrows \stack G₀$,
     \item a \emph{unit} $e\colon G₀ → G₁$,
-    \item a \emph{multiplication} (or \emph{composition}) map $m\colon \stack G₁ ×\limits_{s,\stack G₀,t} \stack G₁ → \stack G₁$),
+    \item a \emph{multiplication} (or \emph{composition}) map $m\colon \stack G₁ ×\limits_{s,\stack G₀,t} \stack G₁ → \stack G₁$,
     \item an \emph{inverse} map $ι\colon \stack G₁ → \stack G₁$,
 \end{itemize}
 such that

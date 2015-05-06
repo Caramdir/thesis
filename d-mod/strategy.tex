@@ -99,7 +99,7 @@ To understand the behavior for non-proper $f$, we will approximate it by a prope
 \end{Def}
 
 \begin{Ex}
-    A famous example of such a relative compactification is Drinfeld's compactification of the morphism $\Bun_B → \Bun_G$, where $\Bun_G$ is the stack of $G$-bundles on a curve $C$ with $G$ reductive and $B$ is a Borel subgroup of $G$ \cite{BravermanGaitsgory:2002:GeometricEisensteinSeries}\todo{References to original work by Drinfeld?}.
+    A famous example of such a relative compactification is Drinfeld's compactification of the morphism $\Bun_B → \Bun_G$, where $\Bun_G$ is the stack of $G$-bundles on a curve $C$ with $G$ reductive and $B$ is a Borel subgroup of $G$ \cite{BravermanGaitsgory:2002:GeometricEisensteinSeries}.
 \end{Ex}
 
 Let us assume that in the above situation there exists a relative compactification of $f\colon \stack X₁ → \stack Y$.
@@ -130,7 +130,7 @@ We note that $\bar{\stack Z}$ is the disjoint union of the closed substack $\sta
 
 \begin{proof}
     Let $\tilde\jmath\colon \stack Z \hookrightarrow \bar{\stack Z}$ be the open inclusion complement to $i$.
-    We split the adjunction is \eqref{eq:d-mod:base-change-adjunctions} in two by using the compositions
+    We split the adjunction in \eqref{eq:d-mod:base-change-adjunctions} in two by using the compositions
     \[
         f = \bar f ∘ j
         ,\
@@ -183,7 +183,7 @@ We note that $\bar{\stack Z}$ is the disjoint union of the closed substack $\sta
         g^! f_!.
     \end{equation}
     We note that the adjunction $α\colon \id → j^!j_!$ is an isomorphism and the composition of the maps in \eqref{eq:lem:d-mod:base-change-criterion:pf:split_morphism_base_change} is exactly the isomorphism of proper base change (cf.~Proposition~\ref{prop:d-mod:pre:base-change}).
-    Thus the cone of the whole composition composition is the same as the cone of the morphism $β$, which is given by the recollement triangle
+    Thus the cone of the whole composition is the same as the cone of the morphism $β$, which is given by the recollement triangle
     \[
         \bar p_! \tilde\jmath_! \tilde\jmath^! \bar q^! j_!
         \xrightarrow{β}
@@ -200,10 +200,10 @@ We note that $\bar{\stack Z}$ is the disjoint union of the closed substack $\sta
 
 In the preceding section we simply assumed that a relative compactification of the diagonal exists.
 We will now construct such a compactification for quotient stacks.
-Thus $X$ be a scheme of finite type over $k$ and let $G$ be an affine algebraic group over $k$ acting on $X$.
+Thus let $X$ be a scheme of finite type over $k$ and let $G$ be an affine algebraic group over $k$ acting on $X$.
 Let $\stack X = X/G$ be the corresponding quotient stack.
 
-Constructing a relative compactification of $Δ\colon \stack X → \stack X × \stack X$ is the same as a first constructing a $G × G$-equivariant relative compactification of $(\proj2, a)\colon G × X → X × X$ (where $a\colon G × X → X$ is the action map) and then taking the quotient by the $G × G$ action\footnote{%
+Constructing a relative compactification of $Δ\colon \stack X → \stack X × \stack X$ is the same as first constructing a $G × G$-equivariant relative compactification of $(\proj2, a)\colon G × X → X × X$ (where $a\colon G × X → X$ is the action map) and then taking the quotient by the $G × G$ action\footnote{%
     Here $G × G$ acts on $G × X$ by $(s₁,s₂) \cdot (g,x) = (s₂gs₁^{-1},\, s₁x)$.
 }.
 We let
@@ -212,7 +212,7 @@ We let
 \]
 be the graph of $(\proj2, a)$.
 
-We pick a $G$-equivariant compactification $\bar G$ of $G$ and let $\bar Γ$ be the closure of $Γ$ in $\bar G × X × X × X$.
+We pick a $G×G$-equivariant compactification $\bar G$ of $G$ and let $\bar Γ$ be the closure of $Γ$ in $\bar G × X × X × X$.
 We have an open embedding $j$ of $G × X \cong Γ$ into $\bar Γ$ and proper map $f\colon \bar Γ → X × X$ given by projection on the last two factors.
 The composition $f ∘ j$ is equal to $(\proj2, a)$.
 
@@ -234,7 +234,7 @@ Thus for ease of notation we will from now on always set $Γ = \Γsub a$ and $\b
 
 \begin{Rem}
     In the case of $G = \Gm$ the compactification $\bar Γ$ is explicitly described in \cite{DrinfeldGaitsgory:2014:OnATheoremOfBraden}.
-    In particular, if $X$ is smooth it is shown there that $\bar Γ$ is smooth over $\ps1$.
+    In particular, if $X$ is smooth it is shown there that $\bar Γ$ is smooth over $\bar G = \ps1$.
     It is possible to extend the methods of \cite{DrinfeldGaitsgory:2014:OnATheoremOfBraden} to quotients by higher dimensional tori.
     The resulting constructions are highly useful for doing explicit computations.
 \end{Rem}
@@ -261,6 +261,13 @@ Thus we have the Cartesian diagram
 Let us fix a relative compactification $\bar Δ \colon \bar{\stack X} → \stack X × \stack X$ as in Section~\ref{sec:d-mod:strategy:compactification}.
 Using the notation of Section~\ref{sec:d-mod:strategy:base-change} we set $\clsY{\stack X} = \bar{\stack X} ×_{\stack X × \stack X} \stack Y$ and $\lscY{\stack X} = {\stack X}^c ×_{\stack X × \stack X} \stack Y$.
 We let $\bar q_{\stack Y}\colon \clsY\stack X → \bar{\stack X}$ be the projection morphism and $i_{\stack Y}\colon \lscY\stack X \hookrightarrow \clsY\stack X$ the inclusion.
+Thus we have the following central diagram
+\[
+    \begin{tikzcd}
+        \lsY\stack X \arrow[r, hook] \arrow[d, "q_{\stack Y}"] & \clsY\stack X \arrow[d, "\bar q_{\stack Y}"] & \lscY\stack X \arrow[l, hook', "i_{\stack Y}"'] \arrow[d] \\
+        \stack X \arrow[r, hook, "j"] & \bar{\stack X} & \stack X^c \arrow[l, hook']
+    \end{tikzcd}
+\]
 
 \begin{Def}
     A quotient stack $\stack X = X/G$ is called \emph{\goodstack} if for every quotient stack $\stack Y = Y/G$ and schematic morphism $\stack Y → \stack X$ the functor $i_{\stack Y}^* \bar q_{\stack Y}^! j_!$ vanishes on $\catDModHol{\stack X}$.
@@ -294,9 +301,9 @@ In other words, Theorem~\ref{thm:d-mod:main} holds for \goodstack\ stacks.
             \stack G_{n} \arrow[r] & \stack G_m \arrow[r] & \stack X × \stack X
         \end{tikzcd}
     \]
-    We have to show that base change holds along the right-hand square.
+    We have to show that base change holds along the left-hand square.
     But by the assumption and Lemma~\ref{lem:d-mod:base-change-criterion}, base change holds along the outer rectangle and the left-hand square.
-    Thus it also holds along the right-hand square.
+    Thus it also holds along the left-hand square.
 \end{proof}
 
 \begin{Rem}
@@ -363,7 +370,7 @@ Then the scheme $\schemeclsY \stack X$ is given by
 \]
 
 \begin{Lem}\label{lem:d-mod:strategy:scheme-cover}
-    A stack $X/G$ is \goodstack\ if for each morphism $Y/G → X/G$ the composition $\schemei_{\stack Y}^* \bar\schemeq_{\stack Y}^! \schemej_!$ vanishes on $\catDModHolMon{Γ}{G×G}$.
+    A stack $X/G$ is \goodstack\ if and only if for each morphism $Y/G → X/G$ the composition $\schemei_{\stack Y}^* \bar\schemeq_{\stack Y}^! \schemej_!$ vanishes on $\catDModHolMon{Γ}{G×G}$.
 \end{Lem}
 
 \begin{proof}
@@ -381,12 +388,12 @@ Then the scheme $\schemeclsY \stack X$ is given by
         This is not completely obvious, since the $\bar{\stack U}_i$ do not necessarily form a cover of $\bar{\stack X}$.
         For example, consider $\ps1$ with the usual linear $\Gm$-action and the usual affine cover.
     }.
-    It suffices to show that the open subschemes $\schemeclsY \stack U_i$ cover $\schemeclsY \stack X$.
+    For this it suffices to show that the open subschemes $\schemeclsY \stack U_i$ cover $\schemeclsY \stack X$.
     Let $(g₁, y, g₂)$ be a point of $\schemeclsY \stack X$.
-    Then there exists some $U_i$ with $h'(y) ∈ U_i$. 
+    Then there exists some $U_i$ with $h'(y) ∈ U_i$.
     But then $g₁h'(y)$ is also in $U_i$ and hence $(h'(y), g₂, g₁h'(y)) ∈ \bar{\stack U}_i$.
     Thus $(g₁, y, g₂)$ is in $\schemeclsY \stack U_i$.
-    
+
     It now suffices to show that the restrictions of $i_{\stack Y}^*\bar{q}_{\stack Y}^!j_! \sheaf F$ to $\lscY{\stack U_i}$ vanish for every $\sheaf F ∈ \catDMod{\stack X}$.
     But this follows from the diagram~\eqref{eq:lem:d-mod:cover:diagram} (for $\stack U_i$ instead of $\stack U$) and the \goodness\ of $\stack U_i$.
 \end{proof}
@@ -404,7 +411,7 @@ We let $i_{V_i,\stack X}$, $\bar q_{V_i,\stack X}$ and $j_{V_i}$ be the correspo
 \]
 
 \begin{Lem}\label{lem:d-mod:strategy:cover-by-relative-compactifications}
-    With the above notation, the $\stack X$ is good if and only $i_{V_i,\stack Y}^* \bar q_{V_i,\stack Y}^! j_{V_i,!}$ vanishes on $\catDModHol{\stack X}$ for all $V_i$ and all $\stack Y → \stack X$.
+    With the above notation, the $\stack X$ is \goodstack\ if and only $i_{V_i,\stack Y}^* \bar q_{V_i,\stack Y}^! j_{V_i,!}$ vanishes on $\catDModHol{\stack X}$ for all $V_i$ and all $\stack Y → \stack X$.
 \end{Lem}
 
 \begin{proof}

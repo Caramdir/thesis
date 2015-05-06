@@ -7,7 +7,7 @@ We will now give a brief overview of the ideas and results, discussing in partic
 
 \section{Microlocal theory of perverse coherent sheaves}
 
-The first part is motivated by two theories that came to recent prominence in algebraic geometry and in particular geometric representation theory:
+The first part of this thesis is motivated by two theories that came to recent prominence in algebraic geometry and in particular geometric representation theory:
 \begin{itemize}
     \item The theory of perverse coherent sheaves, independently introduced by Bezrukavnikov (following Deligne) \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}, Kashiwara \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Gabber \cite{Gabber:2004:NotesOnSomeTStructures} and Bridgeland \cite{Bridgeland:2006:DerivedCategoriesOfCoherentSheaves}.
     \item A theory of \enquote{singular support} for coherent sheaves, worked out by Arinkin and Gaitsgory for their formulation of the Geometric Langlands Conjecture \cite{ArinkinGaitsgory:2015:SingularSupport}, based on earlier work by Benson, Iyengar and Krause \cite{BensonIyengarKrause:2008:LocalCohomologyAndSupportForTriangulatedCategories}.
@@ -24,7 +24,7 @@ Thus we have to understand the microlocal nature of perverse coherent sheaves in
 
 \subsection*{Perverse (constructible) sheaves}
 
-Before discussing our results, let us briefly review the theory of perverse sheaves in the setting that is closest to the perverse coherent sheaves of \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}.
+Before discussing our results, let us briefly review the theory of perverse sheaves in the setting that is closest to the perverse coherent sheaves of \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
 For readability, we will restrict to the complex case and the middle perversity.
 
 Thus we let $X$ be a complex variety and fix a stratification $\setset S$ of $X$ by smooth complex subvarieties.
@@ -47,7 +47,7 @@ In particular this means that the category
 \]
 is Abelian.
 It is called the category of \emph{(middle) perverse sheaves} on $X$ with respect to $\setset S$.
-This category is both intimately connected to the singularities of $X$ (via intersection cohomology) and, if $X$ is smooth, the category of D-modules on $X$ (via the Riemann-Hilbert correspondence).
+The category $\PervConstr[\setset S]{X}$ is intimately connected to both the singularities of $X$ (via intersection cohomology) and, if $X$ is smooth, the category of D-modules on $X$ (via the Riemann-Hilbert correspondence).
 It has many nice properties, of which we want to mention the following two which are of particular importance in the coherent analogue.
 \begin{itemize}
     \item The Verdier duality functor on $\dconstrb[\setset S]{X}$ is compatible with the perverse t-structure and in particular restricts to an involution of $\PervConstr[\setset S]{X}$.
@@ -86,7 +86,7 @@ All together, in analogy with~\eqref{eq:intro:pc:constructible_t-structure} we n
     \bigl\{ \sheaf F ∈ \dcohb{X} : \mathbf ι_x^!\sheaf F ∈ \dcat{≥ -\frac12 \dim x}{\O_{\mkern-2mu x}} \text{ for all $x ∈ \Xtop$}\bigr\},
 \end{align*}
 of $\dcohbG{X}$.
-This is indeed again a t-structure \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
+This is indeed a t-structure \cite{ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}.
 The heart of this t-structure is called the category of \emph{(middle) perverse sheaves} on $X$.
 It is again an Abelian category with lots of interesting features.
 In particular we have the same properties as above:
@@ -102,7 +102,7 @@ The definition of perverse sheaves seems very mysterious.
 Why would the category defined this way be important and have nice features?
 One answer to this question was proposed by Kashiwara and Schapira \cite{KashiwaraSchapira:1994:SheavesOnManifolds} in their microlocal viewpoint.
 
-A good way to understand the microlocal nature of perverse sheaves via the vanishing cycles functor.
+A good way to understand the microlocal nature of perverse sheaves is via the vanishing cycles functor.
 For this let $f$ be a (local) holomorphic function on $X$.
 Then the vanishing cycles $φ_f\colon \dconstrb{X} → \dconstrb{f^{-1}(0)}$ restrict to a functor on the corresponding categories of perverse sheaves
 \[
@@ -149,10 +149,10 @@ For a complete (pre-triangulated) dg category $\cat C$ the Hochschild cohomology
 \[
     \HCoh(\cat C)
     = \operatorname{\mathbf{R}Hom}(\id[\cat C], \id[\cat C])
-    = \Hom_{\cat{Funct}_{\mathrm{cont}}(\cat C, \cat C)}(\id[\cat C], \id[\cat C]).
+    = \Hom_{\cat{Funct}(\cat C, \cat C)}(\id[\cat C], \id[\cat C]).
 \]
-In particular the ring $R = \bigoplus \operatorname{HH}^{2n}(\HCoh(\cat C)$ is commutative and hence one can define for each $A ∈ \cat C$ the support $\supp_R A$ as a subset of $\Spec R$.
-Hence understanding the Hochschild cohomology of a dg category can be an important step to understanding the category itself.
+The ring $R = \bigoplus \operatorname{HH}^{2n}(\HCoh(\cat C)$ is commutative and hence one can define for each $A ∈ \cat C$ the support $\supp_R A$ as a subset of $\Spec R$.
+Thus understanding the Hochschild cohomology of a dg category can be an important step to understanding the category itself.
 
 This construction, applied to the category of (ind-)coherent sheaves on a (quasismooth, dg-) scheme yields the singular support of coherent sheaves which already served as the motivation for the first part of this thesis.
 More concretely, Arinkin and Gaitsgory used singular support for the category $\catIndCoh{\LocSys_G}$ in their formulation of the geometric Langlands conjecture \cite{ArinkinGaitsgory:2015:SingularSupport}.
@@ -175,7 +175,7 @@ By Verdier duality and adjunction we can always rewrite \eqref{eq:intro:d-mod:d-
     \opalg{\Hom_{\catDMod{X}}(k_{\stack X}, Δ^!Δ_!k_{\stack X})} =
     \opalg{\ΓdR(\stack X, Δ^!Δ_!k_{\stack X})}.
 \]
-It is now tempting to complete to look at the Cartesian square
+It is now tempting to look at the Cartesian square
 \[
     \begin{tikzcd}
         \ls \stack X \arrow[r, "p₁"] \arrow[d, "p₂"] & \stack X \arrow[d, "Δ"] \\
@@ -193,14 +193,14 @@ Naively we could expect the existence of an isomorphism
     \ΓdR(\stack X, Δ^!Δ_!k_{\stack X}) \cong
     \ΓdR(\stack X, p_{2,!}p₁^! k_{\stack X}).
 \end{equation}
-Unfortunately, the two sides are in general not isomorphic and it is not too hard to come up with a counter-example.
+Unfortunately, the two sides are in general not isomorphic (the stack $\stack X = \ps1/\as1$ is an easy counter-example).
 
 In Chapter~\ref{ch:d-mod:strategy} we will investigate how to quantify the cone of the morphism
 \[
     p_{2,!}p₁^! k_{\stack X} → Δ^!Δ_! k_{\stack X}
 \]
 and thus the failure of the naive isomorphism \eqref{eq:intro:d-mod:naive} to hold.
-As an application, we will prove the following theorem.
+As an application, we will prove the following theorem, giving a class of stacks where \eqref{eq:intro:d-mod:naive} is indeed an isomorphism.
 
 \begin{Thm}\label{thm:d-mod:main}
     Let $G \cong \Gm^n$ be a torus acting locally linearly on a scheme $X$ of finite type over $k$.
