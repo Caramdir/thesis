@@ -285,7 +285,10 @@
             \ifx\@version\@empty\else%
                 version \MakeLowercase{\@version}\\
             \fi%
-            \MakeLowercase{\ifx\@date\today\else\@date\fi}%
+			\vfill
+			northwestern university\\
+			evanston, illinois\\
+			\MakeLowercase{\ifx\@date\today\else\@date\fi}%
         \end{flushleft}%
     \end{titlepage}%
     \cleardoublepage%
